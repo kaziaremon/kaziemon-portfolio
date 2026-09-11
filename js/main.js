@@ -7,10 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initCounters();
   initRoasCalculator();
+  initSimulatorTabs();
+  initCaseFilters();
   initFaqAccordion();
   initContactForm();
+  initFloatingWa();
   initBackToTop();
   initSmoothScrollSpy();
+  initCardTilt();
 });
 
 /* ==========================================================================
@@ -294,3 +298,124 @@ function initSmoothScrollSpy() {
     });
   });
 }
+
+/* ==========================================================================
+   8. INTERACTIVE AD & FUNNEL SIMULATOR TABS
+   ========================================================================== */
+function initSimulatorTabs() {
+  const tabs = document.querySelectorAll('.sim-tab-btn');
+  const panels = document.querySelectorAll('.sim-panel');
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      const targetId = tab.getAttribute('data-target');
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   9. FILTERABLE CASE STUDIES
+   ========================================================================== */
+function initCaseFilters() {
+  const filterBtns = document.querySelectorAll('.filter-chip');
+  const caseCards = document.querySelectorAll('.case-card');
+  if (!filterBtns.length || !caseCards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      caseCards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.style.display = 'flex';
+          card.style.animation = 'fadeInSim 0.4s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+/* ==========================================================================
+   10. FLOATING WHATSAPP WIDGET & QUICK PROMPTS
+   ========================================================================== */
+function initFloatingWa() {
+  const launcher = document.getElementById('waLauncher');
+  const popup = document.getElementById('waPopup');
+  const closeBtn = document.getElementById('waClose');
+  const promptChips = document.querySelectorAll('.wa-quick-prompt');
+
+  if (!launcher || !popup) return;
+
+  launcher.addEventListener('click', () => {
+    popup.classList.toggle('open');
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      popup.classList.remove('open');
+    });
+  }
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!popup.contains(e.target) && !launcher.contains(e.target)) {
+      popup.classList.remove('open');
+    }
+  });
+
+  // Prompt click handling
+  promptChips.forEach(chip => {
+    chip.addEventListener('click', (e) => {
+      const text = chip.getAttribute('data-prompt');
+      const waUrl = `https://wa.me/8801878051280?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, '_blank');
+      popup.classList.remove('open');
+    });
+  });
+}
+
+/* ==========================================================================
+   11. 3D CARD TILT & SPOTLIGHT PHYSICS
+   ========================================================================== */
+function initCardTilt() {
+  // Only apply tilt on desktop devices with hover support
+  if (window.matchMedia('(hover: hover) and (min-width: 1024px)').matches) {
+    const tiltCards = document.querySelectorAll('.service-card, .pricing-card, .calc-box');
+
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+  }
+}
+
