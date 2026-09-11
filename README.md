@@ -33,9 +33,8 @@ git commit -m "Initial commit: Kazi Emon Digital Marketing Portfolio"
 # 4. Set default branch to main
 git branch -M main
 
-# 5. Connect your GitHub repository (replace with your repository URL)
-# Example: git remote add origin https://github.com/<your-github-username>/<your-repo-name>.git
-git remote add origin https://github.com/kaziemononline-spec/kaziemon-portfolio.git
+# 5. Connect your GitHub repository
+git remote add origin https://github.com/kaziaremon/kaziemon-portfolio.git
 
 # 6. Push to GitHub
 git push -u origin main
@@ -76,7 +75,7 @@ Add the following **4 A Records** for the root domain (`@`):
 *(Optional, recommended for www subdomain):*
 | Type | Host / Name | Value / Points to | TTL |
 |------|-------------|-------------------|-----|
-| **CNAME** | `www` | `<your-github-username>.github.io` | Automatic or 3600 |
+| **CNAME** | `www` | `kaziaremon.github.io` | Automatic or 3600 |
 
 > **Note:** DNS propagation typically takes between 10 minutes to 24 hours. Once DNS propagates, GitHub Pages will automatically activate HTTPS.
 
