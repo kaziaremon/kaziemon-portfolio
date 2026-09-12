@@ -1,35 +1,33 @@
 /**
- * KAZI EMON — DIGITAL MARKETING & GROWTH STRATEGIST
- * Interactive 3D WebGL Background, 3D Card Tilt, Modal Architecture, and Dynamic Handlers
+ * KAZI EMON — DIGITAL MARKETING SPECIALIST & GROWTH STRATEGIST
+ * Royal Purple 3D WebGL Background, Card Tilt, Modular Articles & Service Modals
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initThreeJsBackground();
+  initThreeJsRoyalPurpleBackground();
   initNavbar();
   initScrollSpy();
   initCounters();
   init3DCardTilt();
   initServiceModals();
-  initArticleModals();
-  initCaseFilters();
+  initArticleCardsAndModals();
   initFaqAccordion();
   initContactForm();
-  initFloatingWa();
   initBackToTop();
 });
 
 /* ==========================================================================
-   1. INTERACTIVE 3D WEBGL PARTICLE & WAVE EXPERIENCE (Three.js)
+   1. ROYAL PURPLE 3D WEBGL PARTICLE EXPERIENCE (Three.js)
    ========================================================================== */
-function initThreeJsBackground() {
+function initThreeJsRoyalPurpleBackground() {
   const canvas = document.getElementById('webglCanvas');
   if (!canvas || typeof THREE === 'undefined') return;
 
   try {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 2000);
-    camera.position.z = 700;
-    camera.position.y = 100;
+    camera.position.z = 680;
+    camera.position.y = 80;
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
@@ -40,20 +38,20 @@ function initThreeJsBackground() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Create 3D Particle Grid Wave
-    const particleCount = 1400;
+    // 3D Particle Grid Wave with Royal Purple and Violet Tones
+    const particleCount = 1350;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    const emeraldColor = new THREE.Color(0x10b981);
-    const cyanColor = new THREE.Color(0x06b6d4);
-    const violetColor = new THREE.Color(0x8b5cf6);
+    const royalPurple = new THREE.Color(0x7e22ce);
+    const brightViolet = new THREE.Color(0xa855f7);
+    const electricLilac = new THREE.Color(0xc084fc);
 
     const cols = 50;
-    const rows = 28;
-    const spacingX = 45;
-    const spacingZ = 45;
+    const rows = 27;
+    const spacingX = 46;
+    const spacingZ = 46;
 
     let index = 0;
     for (let i = 0; i < cols; i++) {
@@ -67,13 +65,13 @@ function initThreeJsBackground() {
         positions[index * 3 + 1] = y;
         positions[index * 3 + 2] = z;
 
-        // Gradient color mix
+        // Gradient color blend
         const mixRatio = (i / cols + j / rows) / 2;
         let pColor;
         if (mixRatio < 0.5) {
-          pColor = emeraldColor.clone().lerp(cyanColor, mixRatio * 2);
+          pColor = royalPurple.clone().lerp(brightViolet, mixRatio * 2);
         } else {
-          pColor = cyanColor.clone().lerp(violetColor, (mixRatio - 0.5) * 2);
+          pColor = brightViolet.clone().lerp(electricLilac, (mixRatio - 0.5) * 2);
         }
 
         colors[index * 3] = pColor.r;
@@ -87,14 +85,14 @@ function initThreeJsBackground() {
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-    // Particle texture
+    // Soft glowing particle texture
     const pCanvas = document.createElement('canvas');
     pCanvas.width = 32;
     pCanvas.height = 32;
     const pCtx = pCanvas.getContext('2d');
     const gradient = pCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
     gradient.addColorStop(0, 'rgba(255,255,255,1)');
-    gradient.addColorStop(0.3, 'rgba(16,185,129,0.8)');
+    gradient.addColorStop(0.35, 'rgba(192,132,252,0.85)');
     gradient.addColorStop(1, 'rgba(0,0,0,0)');
     pCtx.fillStyle = gradient;
     pCtx.fillRect(0, 0, 32, 32);
@@ -102,7 +100,7 @@ function initThreeJsBackground() {
     const pTexture = new THREE.CanvasTexture(pCanvas);
 
     const material = new THREE.PointsMaterial({
-      size: 7,
+      size: 7.5,
       map: pTexture,
       vertexColors: true,
       transparent: true,
@@ -123,11 +121,11 @@ function initThreeJsBackground() {
     const halfHeight = window.innerHeight / 2;
 
     window.addEventListener('mousemove', (e) => {
-      targetMouseX = (e.clientX - halfWidth) * 0.4;
-      targetMouseY = (e.clientY - halfHeight) * 0.4;
+      targetMouseX = (e.clientX - halfWidth) * 0.35;
+      targetMouseY = (e.clientY - halfHeight) * 0.35;
     }, { passive: true });
 
-    // Scroll Integration
+    // Scroll Depth Parallax
     let scrollY = window.scrollY;
     window.addEventListener('scroll', () => {
       scrollY = window.scrollY;
@@ -145,8 +143,8 @@ function initThreeJsBackground() {
       mouseX += (targetMouseX - mouseX) * 0.05;
       mouseY += (targetMouseY - mouseY) * 0.05;
 
-      camera.position.x = mouseX * 0.8;
-      camera.position.y = 100 - mouseY * 0.5 - scrollY * 0.25;
+      camera.position.x = mouseX * 0.75;
+      camera.position.y = 80 - mouseY * 0.4 - scrollY * 0.22;
       camera.lookAt(0, 0, 0);
 
       // Undulating Wave Formula
@@ -154,8 +152,8 @@ function initThreeJsBackground() {
       for (let i = 0; i < particleCount; i++) {
         const x = posArray[i * 3];
         const z = posArray[i * 3 + 2];
-        posArray[i * 3 + 1] = Math.sin(x * 0.008 + elapsedTime * 1.4) * 35 +
-                              Math.cos(z * 0.008 + elapsedTime * 1.2) * 35;
+        posArray[i * 3 + 1] = Math.sin(x * 0.007 + elapsedTime * 1.3) * 32 +
+                              Math.cos(z * 0.007 + elapsedTime * 1.1) * 32;
       }
       geometry.attributes.position.needsUpdate = true;
 
@@ -164,7 +162,6 @@ function initThreeJsBackground() {
 
     animate();
 
-    // Window Resize
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -172,15 +169,14 @@ function initThreeJsBackground() {
     });
 
   } catch (err) {
-    console.warn('Three.js initialization skipped:', err);
+    console.warn('Three.js royal purple background skipped:', err);
   }
 }
 
 /* ==========================================================================
-   2. 3D CARD TILT WITH DYNAMIC SPECULAR HIGHLIGHT
+   2. 3D CARD TILT WITH SPECULAR GLOW
    ========================================================================== */
 function init3DCardTilt() {
-  // Only apply tilt on non-touch devices
   if (window.matchMedia('(hover: none)').matches) return;
 
   const tiltCards = document.querySelectorAll('[data-tilt]');
@@ -194,11 +190,10 @@ function init3DCardTilt() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      // Normalization (-1 to 1)
       const normX = (x - centerX) / centerX;
       const normY = (y - centerY) / centerY;
 
-      const tiltX = -normY * 6; // Max 6 deg
+      const tiltX = -normY * 6;
       const tiltY = normX * 6;
 
       card.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateZ(8px)`;
@@ -211,7 +206,7 @@ function init3DCardTilt() {
 }
 
 /* ==========================================================================
-   3. NAVBAR SCROLL & MOBILE DRAWER
+   3. STICKY NAVBAR & MOBILE DRAWER
    ========================================================================== */
 function initNavbar() {
   const header = document.querySelector('.site-header');
@@ -233,7 +228,6 @@ function initNavbar() {
       toggleBtn.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
     });
 
-    // Close when clicking nav link
     navLinks.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('mobile-open');
@@ -245,7 +239,7 @@ function initNavbar() {
 }
 
 /* ==========================================================================
-   4. SCROLLSPY NAVIGATION HIGHLIGHT
+   4. SCROLLSPY NAVIGATION (7 Exact Links)
    ========================================================================== */
 function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
@@ -255,7 +249,7 @@ function initScrollSpy() {
 
   window.addEventListener('scroll', () => {
     let currentId = '';
-    const scrollPos = window.scrollY + 160;
+    const scrollPos = window.scrollY + 170;
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
@@ -298,13 +292,12 @@ function initCounters() {
   function animateValue(obj) {
     const target = parseFloat(obj.getAttribute('data-target'));
     const isDecimal = obj.getAttribute('data-decimal') === 'true';
-    const duration = 1800;
+    const duration = 1600;
     const startTimestamp = performance.now();
 
     const step = (now) => {
       const elapsed = now - startTimestamp;
       const progress = Math.min(elapsed / duration, 1);
-      // easeOutExpo
       const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const current = isDecimal 
         ? (ease * target).toFixed(1)
@@ -323,181 +316,181 @@ function initCounters() {
 }
 
 /* ==========================================================================
-   6. DEDICATED SERVICES DATA & MODAL VIEW
+   6. THE 6 SERVICES DATA & DEDICATED MODAL VIEWS
    ========================================================================== */
 const servicesData = {
-  'facebook-marketing': {
+  'facebook-ads': {
     title: 'Facebook Marketing and Ads',
-    tag: 'Meta Media Buying & Algorithmic Scale',
+    tag: 'Targeted Customer Acquisition & Scaling',
     icon: 'fab fa-facebook-f',
-    overview: 'Facebook remains the most powerful visual demand-generation engine in the world when paired with modern algorithmic campaign structures. We eliminate guessing by engineering systematic creative testing environments, Advantage+ Shopping campaigns, and resilient server-side tracking pipelines that drive consistent purchase volume.',
-    pillars: [
+    overview: 'Facebook remains an unparalleled platform for targeted consumer discovery and scalable customer acquisition. We construct disciplined, high-converting ad pipelines that combine deep audience segmentation with persuasive direct-response copywriting to turn interest into confirmed orders.',
+    methodology: [
       {
-        title: 'Algorithmic Media Buying Architecture',
-        desc: 'Structuring accounts with broad targeting and Advantage+ Shopping to allow Meta\'s machine learning to seek out the highest-intent buyers at the lowest marginal cost.'
+        title: 'Audience Psychographics & Segmentation',
+        desc: 'Structuring targeted cold discovery audiences, interest clusters, and custom retargeting pools to reach ready-to-buy prospective customers.'
       },
       {
-        title: 'Creative Angle & Hook Matrix',
-        desc: 'Deploying high-velocity iterations across user-generated content (UGC), problem-solution video hooks, and founder storytelling to beat banner blindness.'
+        title: 'Creative Angle & Hook Testing',
+        desc: 'Testing multiple ad angles—lifestyle imagery, problem-solving hooks, customer testimonials, and limited offers—to identify high-performing assets.'
       },
       {
-        title: 'Full-Funnel Retargeting & Catalog Feeds',
-        desc: 'Customizing dynamic product ads (DPA) and high-intent engagement loops to recapture abandoned visitors and cross-sell high-LTV customers.'
+        title: 'Full-Funnel Campaign Scaling',
+        desc: 'Systematically scaling ad budget toward winning creative variations while maintaining stable cost per acquisition (CPA).'
       }
     ],
     deliverables: [
-      'Complete historical ad account & pixel tracking audit',
-      'Meta Conversions API (CAPI) deduplication & event match quality setup',
-      'Continuous weekly creative testing briefs and video hook iterations',
-      'Bid cap and cost cap scaling strategies for high-margin stability',
-      '24/7 live executive KPI dashboard and weekly strategic summaries'
+      'Comprehensive target audience research and demographic analysis',
+      'Direct-response ad copy tailored for maximum click-through rates',
+      'Retargeting funnels designed to recapture cart abandoners',
+      'Continuous performance monitoring and ad creative rotation',
+      'Weekly executive performance summaries and strategic insights'
     ],
-    impact: 'Engineered for brands looking to transition from unstable boost tactics to a predictable, algorithmic acquisition machine.'
+    impact: 'Builds a predictable, scalable client acquisition pipeline for brands seeking consistent local and global growth.'
   },
 
-  'instagram-marketing': {
+  'instagram-ads': {
     title: 'Instagram Marketing and Ads',
-    tag: 'Visual Commerce & Social Engagement',
+    tag: 'Visual Storytelling & Audience Engagement',
     icon: 'fab fa-instagram',
-    overview: 'Instagram is where aesthetic brand positioning meets ruthless direct response. We design end-to-end Instagram ecosystems combining high-retention 9:16 vertical Reels, interactive story conversion loops, and frictionless direct-message (DM) qualification funnels.',
-    pillars: [
+    overview: 'Instagram is the modern visual storefront. We craft aesthetic, conversion-engineered Instagram campaigns using short-form Reel video concepts, story promotion sequences, and feed campaigns that captivate attention and build authentic brand equity.',
+    methodology: [
       {
-        title: 'High-Retention Vertical Reel Strategy',
-        desc: 'Scripting and pacing short-form video ads tailored for 0-3 second hook velocity, keeping viewer drop-off minimal while delivering compelling value propositions.'
+        title: 'High-Retention Reel Promotion',
+        desc: 'Scripting fast-paced, high-retention short-form video ads tailored for 0-3 second hook velocity to prevent scroll drop-off.'
       },
       {
-        title: 'Story Conversion Sequences & Link Stickers',
-        desc: 'Designing ephemeral, high-urgency story sequences that nurture warm followers and guide them smoothly toward limited-time product launches.'
+        title: 'Story Engagement Sequences',
+        desc: 'Designing interactive story ad sequences that guide followers smoothly from product awareness to direct inquiry.'
       },
       {
-        title: 'Conversational DM Automation Funnels',
-        desc: 'Connecting keyword triggers on comments and stories directly into automated, human-like DM qualification paths that convert interest into orders.'
+        title: 'Direct-Response Profile Alignment',
+        desc: 'Aligning bio messaging, story highlight reels, and promo posts to make visitor action seamless and friction-free.'
       }
     ],
     deliverables: [
-      'Creative direction & scripting for vertical Reel video campaigns',
-      'Interactive Instagram Story ad funnels with clear conversion pathways',
-      'Integration of automated conversational DM response flows',
-      'Bio, profile highlights, and Instagram Shop catalog alignment',
-      'Audience demographic and engagement cohort analytics'
+      'Scripting and creative direction for vertical video Reel promotions',
+      'Interactive Instagram Story promotional sequences',
+      'Direct inquiry capture pathways on high-interest posts',
+      'Visual feed aesthetic coordination and promotional highlights',
+      'Audience demographic and engagement cohort reporting'
     ],
-    impact: 'Transforms passive feed scrolling into active brand advocates and high-converting direct customer relationships.'
+    impact: 'Elevates perceived brand value and transforms passive social media scrollers into enthusiastic brand advocates.'
   },
 
-  'social-media-managing': {
+  'social-management': {
     title: 'Social Media Managing',
-    tag: 'Brand Equity & Community Architecture',
+    tag: 'Brand Equity & Daily Community Execution',
     icon: 'fas fa-share-nodes',
-    overview: 'Paid media captures attention; exceptional social media management builds enduring brand loyalty and customer equity. We manage your complete social presence across all key digital touchpoints with consistent narrative positioning, daily active community engagement, and synchronized organic-to-paid feedback loops.',
-    pillars: [
+    overview: 'Paid advertising captures immediate attention, but consistent social media management builds enduring customer trust. We manage your full digital presence with cohesive editorial calendars, daily brand voice enforcement, and active community interaction.',
+    methodology: [
       {
-        title: 'Strategic Content Calendars & Editorial Rhythm',
-        desc: 'Developing cohesive monthly publishing schedules that balance educational authority, brand storytelling, customer social proof, and product features.'
+        title: 'Content Calendar & Publishing Rhythm',
+        desc: 'Formulating structured weekly publishing schedules balancing educational authority, brand values, customer reviews, and product highlights.'
       },
       {
-        title: 'Community Moderation & Sentiment Cultivation',
-        desc: 'Proactive comment response, community interaction, and feedback management that protect your brand reputation and humanize your company.'
+        title: 'Community Interaction & Moderation',
+        desc: 'Promptly responding to comments and inquiries to humanize your business and foster genuine community goodwill.'
       },
       {
-        title: 'The Organic-to-Paid Amplification Flywheel',
-        desc: 'Identifying high-performing organic posts with outstanding engagement rates and immediately transitioning them into paid amplification assets.'
+        title: 'Brand Consistency Across Channels',
+        desc: 'Enforcing uniform visual identity, tone of voice, and messaging across Facebook, Instagram, and professional platforms.'
       }
     ],
     deliverables: [
-      'Monthly omnichannel content calendars (copywriting, visual direction, posting cadences)',
-      'Multi-format asset planning across Facebook, Instagram, and professional channels',
-      'Daily audience moderation and direct message escalation workflows',
-      'Brand tone-of-voice documentation and guidelines enforcement',
-      'Monthly brand sentiment, reach, and organic follower growth reports'
+      'Monthly social media content calendars with copy and graphic directions',
+      'Daily audience moderation and direct inquiry escalation workflows',
+      'Hashtag research and organic reach optimization',
+      'Brand tone-of-voice alignment across all active channels',
+      'Monthly reach, follower growth, and community engagement analysis'
     ],
-    impact: 'Builds an authentic, authoritative social presence that elevates brand value and organically lowers blended customer acquisition costs.'
-  },
-
-  'platform-optimization': {
-    title: 'Platform Optimization',
-    tag: 'Conversion Rate Optimization (CRO) & UX/UI',
-    icon: 'fas fa-sliders-h',
-    overview: 'Sending expensive ad traffic to a high-friction, slow, or poorly structured website is the quickest way to waste marketing investment. Our Platform Optimization discipline diagnoses and fixes every drop-off bottleneck across user journeys, mobile checkout flows, and Core Web Vitals to maximize revenue per visitor.',
-    pillars: [
-      {
-        title: 'Data-Driven CRO & Heatmap Diagnostics',
-        desc: 'Analyzing scroll depth, rage clicks, and session recordings to uncover precisely where prospective buyers hesitate or abandon their carts.'
-      },
-      {
-        title: 'Mobile-First Checkout Friction Elimination',
-        desc: 'Redesigning product pages, cart drawers, sticky add-to-cart triggers, and one-page checkout pathways tailored for mobile shoppers.'
-      },
-      {
-        title: 'Core Web Vitals & Speed Acceleration',
-        desc: 'Compressing heavy assets, eliminating render-blocking scripts, and configuring server caching to achieve sub-2-second mobile load speeds.'
-      }
-    ],
-    deliverables: [
-      'Comprehensive 30-point UX/UI friction and CRO teardown audit',
-      'Product page redesign wireframes with high-contrast value propositions',
-      'Mobile load speed optimization targeting green Core Web Vitals',
-      'Ad-to-landing-page messaging continuity and headline alignment',
-      'A/B testing roadmap for high-impact conversion elements'
-    ],
-    impact: 'Doubles the efficiency of your existing advertising traffic without increasing a single cent of your media spend.'
-  },
-
-  'strategic-business-planning': {
-    title: 'Strategic Business Planning',
-    tag: 'Unit Economics & Market Positioning',
-    icon: 'fas fa-chess-knight',
-    overview: 'Sustainable marketing scale requires strict commercial alignment. We build comprehensive business blueprints evaluating unit economics, gross margins, customer acquisition costs (CAC), and customer lifetime value (LTV) to ensure every growth initiative contributes directly to net business profitability.',
-    pillars: [
-      {
-        title: 'Unit Economic & Margin Modeling',
-        desc: 'Mapping product gross margins against acquisition costs and shipping overheads to define realistic, profitable scaling limits.'
-      },
-      {
-        title: 'Offer Stacking & Bundle Structuring',
-        desc: 'Creating tiered bundling, cross-sells, and irresistible front-end offers that dramatically raise Average Order Value (AOV).'
-      },
-      {
-        title: '90-Day Omnichannel Growth Roadmaps',
-        desc: 'Sequencing seasonal promotions, product launches, and multi-platform media deployment into clear, measurable commercial milestones.'
-      }
-    ],
-    deliverables: [
-      'Comprehensive CAC vs. LTV sensitivity and margin feasibility models',
-      'Irresistible offer creation and bundle offer playbooks',
-      'Competitive market positioning and value proposition teardowns',
-      'Omnichannel promotional calendars aligned with seasonal purchasing peaks',
-      'Bi-weekly executive strategy syncs with dedicated leadership advisory'
-    ],
-    impact: 'Provides founders and executives with clear financial visibility and a strategic roadmap designed for sustainable enterprise valuation.'
+    impact: 'Ensures your business maintains a vibrant, authoritative presence that reinforces customer confidence every day.'
   },
 
   'google-ads': {
     title: 'Google Ads',
-    tag: 'High-Intent Search & Performance Max',
+    tag: 'High-Intent Search & Buyer Traffic',
     icon: 'fab fa-google',
-    overview: 'Capture prospects at the exact millisecond they actively search for your solution. We engineer precision Google Ads campaigns across Search, Performance Max, YouTube, and Google Shopping with meticulous negative keyword hygiene and first-party conversion tracking.',
-    pillars: [
+    overview: 'Capture prospects at the exact millisecond they actively search for your solution. We engineer precision Google Search campaigns structured around commercial-intent keywords with meticulous negative keyword hygiene to ensure zero wasted capital.',
+    methodology: [
       {
-        title: 'High-Intent Search Topology',
-        desc: 'Structuring Single-Theme Ad Groups (STAGs) around commercial-intent keywords while aggressively filtering irrelevant search terms to protect ad capital.'
+        title: 'Commercial Intent Keyword Harvesting',
+        desc: 'Identifying high-converting search queries that indicate urgent buyer intent rather than general information gathering.'
       },
       {
-        title: 'Performance Max (PMax) Asset Optimization',
-        desc: 'Building high-converting asset groups with rich lifestyle imagery, search theme signals, and tailored first-party customer audience lists.'
+        title: 'Strict Negative Keyword Hygiene',
+        desc: 'Aggressively filtering irrelevant, non-converting search terms to protect promotional spend and raise quality scores.'
       },
       {
-        title: 'Enhanced Conversions & Server Tracking',
-        desc: 'Configuring Google Tag Manager enhanced conversions and offline CRM sync to feed smart bidding algorithms with verified revenue outcomes.'
+        title: 'High-CTR Ad Copywriting',
+        desc: 'Crafting responsive search ads highlighting unique selling propositions, trust badges, and clear calls to action.'
       }
     ],
     deliverables: [
-      'Complete Google Ads account architecture restructuring',
-      'High-intent keyword matrix and comprehensive negative keyword lists',
-      'Performance Max campaign setup with tailored audience signal sets',
-      'Google Merchant Center product catalog feed optimization',
-      'Server-side Google Tag Manager and GA4 event deduplication'
+      'Structured Google Search campaign architecture and ad group setup',
+      'Comprehensive positive keyword matrix and negative keyword exclusion lists',
+      'High-converting responsive search ad copy and extensions setup',
+      'Continuous search term query analysis and bid optimization',
+      'Clear conversion tracking and monthly performance reports'
     ],
-    impact: 'Captures the highest-intent buyers in your market with surgical precision and predictable acquisition costs.'
+    impact: 'Directs the highest-intent buyers in your market straight to your business with surgical precision.'
+  },
+
+  'canva-design': {
+    title: 'Canva Poster Design',
+    tag: 'Eye-Catching Visuals & Social Media Graphics',
+    icon: 'fas fa-palette',
+    overview: 'Visual presentation communicates quality before words are ever read. We design premium, eye-catching promotional posters, social media banners, and advertising creatives using Canva to maximize visual appeal and stop viewer scroll instantly.',
+    methodology: [
+      {
+        title: 'Visual Hierarchy & Focal Anchoring',
+        desc: 'Structuring posters with clear visual hierarchy so the eye moves naturally from hook to product benefit to call to action.'
+      },
+      {
+        title: 'Color Palette & Typography Discipline',
+        desc: 'Applying strict brand color rules and pairing clean heading fonts with legible body copy for maximum readability.'
+      },
+      {
+        title: 'Multi-Format Asset Adaptability',
+        desc: 'Designing coordinated graphics adapted for square feed posts (1:1), vertical stories (9:16), and wide web banners (16:9).'
+      }
+    ],
+    deliverables: [
+      'Custom promotional social media posters for product launches and offers',
+      'Cohesive brand design kits (color codes, font pairings, reusable styles)',
+      'Multi-format banners for Facebook covers, Instagram stories, and ads',
+      'High-resolution export assets ready for instant publishing',
+      'Iterative design revisions to match your exact aesthetic preferences'
+    ],
+    impact: 'Dramatically upgrades your visual brand perception, commanding attention and trust in crowded social feeds.'
+  },
+
+  'business-planning': {
+    title: 'Strategic Business Planning',
+    tag: 'Financial Acumen & Practical Growth Frameworks',
+    icon: 'fas fa-chart-pie',
+    overview: 'Leveraging academic training in Accounting, we bridge the gap between creative marketing and financial viability. We formulate practical business growth frameworks, evaluate product unit economics, and build structural operational roadmaps to ensure your business scales profitably.',
+    methodology: [
+      {
+        title: 'Unit Economic & Gross Margin Modeling',
+        desc: 'Evaluating product manufacturing, packaging, and delivery costs to identify true break-even thresholds and profit margins.'
+      },
+      {
+        title: 'Irresistible Offer Packaging',
+        desc: 'Structuring bundle pricing, volume discounts, and bonus incentives that raise Average Order Value (AOV).'
+      },
+      {
+        title: '90-Day Operational Milestones',
+        desc: 'Sequencing seasonal promotions and marketing milestones into clear, achievable commercial phases.'
+      }
+    ],
+    deliverables: [
+      'Full unit economic review and contribution margin feasibility models',
+      'Irresistible product offer structuring and bundling playbooks',
+      'Competitive market positioning and value proposition refinement',
+      'Structured 90-day business execution and promotion roadmap',
+      'Dedicated one-on-one strategic planning sessions'
+    ],
+    impact: 'Equips business leaders with financial clarity and a strategic plan built for long-term commercial sustainability.'
   }
 };
 
@@ -529,17 +522,17 @@ function initServiceModals() {
         <p>${data.overview}</p>
       </div>
 
-      <h3 class="modal-section-title"><i class="fas fa-layer-group"></i> Strategic Methodology</h3>
+      <h3 class="modal-section-title"><i class="fas fa-layer-group"></i> Execution Methodology</h3>
       <div class="modal-pillars-grid" style="display: flex; flex-direction: column; gap: 1rem; margin: 1rem 0;">
-        ${data.pillars.map(p => `
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 1.25rem;">
-            <h4 style="color: var(--primary-light); font-size: 1.05rem; margin-bottom: 0.35rem;">${p.title}</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">${p.desc}</p>
+        ${data.methodology.map(m => `
+          <div style="background: rgba(168, 85, 247, 0.08); border: 1px solid var(--border-card); border-radius: var(--radius-sm); padding: 1.25rem;">
+            <h4 style="color: var(--primary-light); font-size: 1.05rem; margin-bottom: 0.35rem;">${m.title}</h4>
+            <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.6;">${m.desc}</p>
           </div>
         `).join('')}
       </div>
 
-      <h3 class="modal-section-title"><i class="fas fa-clipboard-check"></i> Key Execution Deliverables</h3>
+      <h3 class="modal-section-title"><i class="fas fa-clipboard-check"></i> Key Deliverables</h3>
       <ul class="modal-list">
         ${data.deliverables.map(d => `
           <li><i class="fas fa-check-circle"></i> <span>${d}</span></li>
@@ -547,35 +540,19 @@ function initServiceModals() {
       </ul>
 
       <div class="modal-callout-box">
-        <div class="modal-callout-title"><i class="fas fa-bullseye"></i> Strategic Commercial Impact</div>
+        <div class="modal-callout-title"><i class="fas fa-bullseye"></i> Commercial Impact</div>
         <div class="modal-callout-desc">${data.impact}</div>
       </div>
 
       <div class="modal-footer-cta">
-        <div style="font-size: 0.88rem; color: var(--text-muted);">
-          Ready to scale with <strong>${data.title}</strong>?
+        <div style="font-size: 0.9rem; color: var(--text-muted);">
+          Ready to get started with <strong>${data.title}</strong>?
         </div>
-        <button class="btn btn-primary btn-sm modal-inquire-btn" data-service-title="${data.title}">
-          <i class="fas fa-paper-plane"></i> Inquire About This Service
-        </button>
+        <a href="mailto:info@kaziemon.online?subject=Inquiry%20regarding%20${encodeURIComponent(data.title)}&body=Hello%20Kazi%20Emon,%0A%0AI%20am%20interested%20in%20your%20${encodeURIComponent(data.title)}%20service.%0A%0ABusiness%20Name:%20%0APhone/WhatsApp:%20%0A%0APlease%20let%20me%20know%20how%20we%20can%20start!" class="btn btn-primary btn-sm">
+          <i class="fas fa-paper-plane"></i> Inquire via Email
+        </a>
       </div>
     `;
-
-    // Add Inquire Action inside modal
-    const inquireBtn = modalContent.querySelector('.modal-inquire-btn');
-    if (inquireBtn) {
-      inquireBtn.addEventListener('click', () => {
-        closeModal();
-        const select = document.getElementById('formService');
-        if (select) {
-          select.value = data.title;
-        }
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    }
 
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
@@ -598,7 +575,6 @@ function initServiceModals() {
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (backdrop) backdrop.addEventListener('click', closeModal);
 
-  // Esc key close
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('open')) {
       closeModal();
@@ -607,205 +583,71 @@ function initServiceModals() {
 }
 
 /* ==========================================================================
-   7. DEDICATED ARTICLES DATA & FULL READER MODAL
+   7. MODULAR ARTICLES RENDERING & FULL READER MODAL
    ========================================================================== */
-const articlesData = {
-  'article-1': {
-    title: 'The Death of Cookie Tracking and the Rise of First-Party Attribution: Why Server-Side Precision Wins in 2026',
-    pill: 'Data Architecture',
-    readTime: '7 min read',
-    date: 'September 2026',
-    image: 'images/article-conversion.jpg',
-    content: `
-      <p class="lead" style="font-size: 1.15rem; color: #f1f5f9; line-height: 1.75; font-weight: 500;">
-        For nearly two decades, digital advertisers lived in an era of blissful simplicity. You pasted a 10-line JavaScript snippet into your site header, turned on an ad campaign, and the browser pixel dutifully reported back every click, add-to-cart, and checkout. Today, that entire paradigm is dead.
-      </p>
-
-      <h3>The Invisible Data Leak That Inflates Your Ad Costs</h3>
-      <p>
-        Between Apple's App Tracking Transparency (ATT), Safari's Intelligent Tracking Prevention (ITP), Firefox's Enhanced Tracking Protection, and the mainstream adoption of ad blockers, client-side browser pixels routinely lose between 25% to 45% of user touchpoints.
-      </p>
-      <p>
-        When a customer clicks your Meta ad on an iPhone, browses your store, and converts, browser privacy safeguards frequently strip the click ID (fbclid) or truncate cookie persistence to a single day. To your ad manager, that customer never existed.
-      </p>
-
-      <blockquote>
-        "When an ad algorithm cannot see who converted, it cannot optimize towards similar high-value buyers. The result is algorithmic blindness: higher cost per acquisition, wasted impressions, and false conclusions about campaign performance."
-      </blockquote>
-
-      <h3>Client-Side Ping vs. Server-to-Server Pipeline</h3>
-      <p>
-        Client-side tracking asks the user's volatile browser to send a beacon directly to third-party ad servers. If an ad blocker intercepts the script, or if the browser blocks third-party cookies, the signal vanishes permanently.
-      </p>
-      <p>
-        Server-side tracking fundamentally rewires this relationship. When a purchase occurs on your store, your own secure server records the transaction and dispatches a verified first-party payload directly to the advertising platform’s backend via the Conversions API (CAPI).
-      </p>
-      <p>
-        Because this interaction takes place entirely between servers in a first-party context, it completely bypasses browser ad blockers and device-level cookie purges.
-      </p>
-
-      <h3>The Mechanics of Event Match Quality (EMQ)</h3>
-      <p>
-        The true secret weapon of server-side architecture is Event Match Quality (EMQ). In the modern advertising ecosystem, merely reporting that "a purchase happened" is insufficient. The algorithm needs to match that transaction back to a specific platform user account.
-      </p>
-      <p>
-        By hashing and transmitting verified first-party customer parameters—such as hashed email addresses, normalized phone numbers, client IP addresses, user agent strings, and external customer IDs—your EMQ score climbs from a mediocre 4.5/10 to an authoritative 8.8+/10.
-      </p>
-
-      <h3>The 3-Step First-Party Action Plan</h3>
-      <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin: 1rem 0;">
-        <li><i class="fas fa-check-circle" style="color: var(--primary-light);"></i> <strong>1. Deploy Server Containers:</strong> Migrate event collection to a dedicated Google Tag Manager server container hosted on first-party infrastructure.</li>
-        <li><i class="fas fa-check-circle" style="color: var(--primary-light);"></i> <strong>2. Implement Full Deduplication:</strong> Send twin events from both browser and server using unique <code>event_id</code> parameters so platforms can merge duplicate signals without double-counting.</li>
-        <li><i class="fas fa-check-circle" style="color: var(--primary-light);"></i> <strong>3. Feed Offline Customer Outcomes:</strong> Synchronize post-purchase events, refunds, and high-ticket CRM stages back into Meta and Google to train bidding algorithms on genuine profitability.</li>
-      </ul>
-
-      <p>
-        In 2026, media buying advantages belong not to whoever can create the flashiest headline, but to whoever feeds the smartest ad algorithms with the cleanest, most resilient first-party data.
-      </p>
-    `
-  },
-
-  'article-2': {
-    title: 'Why Most Paid Ad Campaigns Fail Before the Click: The Platform Conversion Equation',
-    pill: 'Platform Optimization',
-    readTime: '6 min read',
-    date: 'September 2026',
-    image: 'images/article-platform.jpg',
-    content: `
-      <p class="lead" style="font-size: 1.15rem; color: #f1f5f9; line-height: 1.75; font-weight: 500;">
-        Every week, founders and marketing teams sit across from ad dashboards in despair. "Our cost-per-click is rising," they say. "The algorithm changed again," they lament. Yet when you inspect where their ad traffic is actually landing, the mystery evaporates: they are pouring premium fuel into an engine riddled with leaks.
-      </p>
-
-      <h3>The Illusion of the "Magic Creative"</h3>
-      <p>
-        There is a widespread obsession with finding the mythical "unicorn ad creative"—the viral video hook or clever carousel that will single-handedly unlock exponential growth. While creative strategy is crucial, it is only half of the commercial equation.
-      </p>
-      <p>
-        An exceptional ad that stops a user's scroll can only generate intent. The moment that user clicks, the ad's job is complete. The burden of converting that raw curiosity into hard revenue shifts entirely to the platform.
-      </p>
-
-      <blockquote>
-        "The Platform Conversion Equation: Traffic Quality × Messaging Continuity × Frictionless Action = Scalable Commercial Revenue. If any of these factors equals zero, the entire outcome is zero."
-      </blockquote>
-
-      <h3>The Silent Killers of On-Site Conversion</h3>
-      <p>
-        Through hundreds of platform audits, four recurring friction points consistently destroy profitability before a visitor ever reaches the cart:
-      </p>
-
-      <h4 style="color: var(--primary-light); font-size: 1.15rem; margin-top: 1rem;">1. The Above-the-Fold Messaging Disconnect</h4>
-      <p>
-        If your ad promises "Instant relief from chronic back pain while working at your desk," but your landing page headline says "Welcome to Ergonomic Solutions Worldwide," the user experiences cognitive dissonance. You have approximately 2.8 seconds for the landing page hero to visually and verbally validate the promise made in the ad.
-      </p>
-
-      <h4 style="color: var(--primary-light); font-size: 1.15rem; margin-top: 1rem;">2. Mobile Latency and Script Bloat</h4>
-      <p>
-        More than 80% of paid social traffic visits on mobile devices, often on cellular connections. If your Shopify store or landing page takes 4.5 seconds to render its primary hero content due to unoptimized apps and giant imagery, over 50% of your paid clicks will bounce before the page even finishes loading. You are paying Meta or Google for clicks that never actually saw your offer.
-      </p>
-
-      <h4 style="color: var(--primary-light); font-size: 1.15rem; margin-top: 1rem;">3. Hidden Costs and Checkout Fatigue</h4>
-      <p>
-        Surprise delivery fees, mandatory account creation forms, and excessive input fields at the final step cause devastating drop-offs. Modern buyers expect transparent one-page checkout experiences, localized payment options, and clear delivery timelines upfront.
-      </p>
-
-      <h3>How to Double ROI Without Increasing Ad Spend</h3>
-      <p>
-        Consider this math: If your current landing page converts at 1.5% and you optimize your product page structure, clarify your value proposition, and streamline your checkout flow to reach 3.0%, you have effectively cut your customer acquisition cost in half.
-      </p>
-      <p>
-        Before you ask your media buyer to scale media spend or demand new video variations, run a rigorous audit on the platform receiving that traffic. Fix the leaky bucket first, and watch your ad efficiency compound immediately.
-      </p>
-    `
-  },
-
-  'article-3': {
-    title: 'From Fragmented Tactics to Compounding Scale: Building a Sustainable Digital Growth Flywheel',
-    pill: 'Strategic Growth',
-    readTime: '8 min read',
-    date: 'September 2026',
-    image: 'images/article-scaling.jpg',
-    content: `
-      <p class="lead" style="font-size: 1.15rem; color: #f1f5f9; line-height: 1.75; font-weight: 500;">
-        The most common trap in modern digital marketing is fragmentation. An agency runs Meta Ads in isolation. An in-house specialist experiments with Google Search. A social media manager posts daily updates that nobody reads. Everyone looks at their individual metrics, yet the business experiences stagnant, plateaued growth.
-      </p>
-
-      <h3>The Tri-Channel Synergy Framework</h3>
-      <p>
-        Predictable commercial growth does not come from isolated channel heroics. It happens when each marketing discipline is intentionally engineered to feed, inform, and amplify the others.
-      </p>
-
-      <h4 style="color: var(--secondary); font-size: 1.15rem; margin-top: 1rem;">1. Demand Capture (Search Intent)</h4>
-      <p>
-        When someone has an urgent, immediate need, they do not wait for an Instagram ad; they go directly to Google. High-intent Google Search campaigns act as the anchor of your growth ecosystem, capturing active market demand with high commercial precision.
-      </p>
-
-      <h4 style="color: var(--primary-light); font-size: 1.15rem; margin-top: 1rem;">2. Demand Creation (Visual Disruption)</h4>
-      <p>
-        However, the total volume of active searchers in any market is naturally limited. To scale beyond incumbents, you must create new demand. Meta, Instagram, and short-form video disrupt passive attention, introducing your brand's unique solution to prospects who didn't even know a better alternative existed.
-      </p>
-
-      <h4 style="color: #a78bfa; font-size: 1.15rem; margin-top: 1rem;">3. Conversational Retention & Rapid Closing</h4>
-      <p>
-        In high-trust markets—particularly across emerging economies and high-ticket direct-to-consumer categories—static websites often fail to answer nuanced customer hesitations. Integrating conversational channels (such as automated WhatsApp and DM sequences) closes the gap between consideration and purchase, elevating conversion rates dramatically.
-      </p>
-
-      <blockquote>
-        "A growth flywheel is not a linear funnel with a beginning and an end. It is a self-reinforcing loop where every successful customer acquisition creates the data, margin, and referral momentum required to lower the acquisition cost of the next customer."
-      </blockquote>
-
-      <h3>Unit Economics: The Ceiling of Scalability</h3>
-      <p>
-        Every brand hits a scaling plateau when their Customer Acquisition Cost (CAC) catches up to their initial gross margin. If you only profit on the first transaction, your scaling velocity will always feel constrained.
-      </p>
-      <p>
-        The brands that scale effortlessly into market leadership are those that intentionally engineer backend economics:
-      </p>
-      <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin: 1rem 0;">
-        <li><i class="fas fa-arrow-right" style="color: var(--primary-light);"></i> <strong>Strategic Bundling:</strong> Structuring 2-pack and 3-pack product options to lift Average Order Value (AOV) by 35%+.</li>
-        <li><i class="fas fa-arrow-right" style="color: var(--primary-light);"></i> <strong>Automated Re-engagement Loops:</strong> Triggering tailored re-order prompts via direct messaging based on calculated product consumption cycles.</li>
-        <li><i class="fas fa-arrow-right" style="color: var(--primary-light);"></i> <strong>Algorithmic Audience Seeding:</strong> Exporting high-LTV customer lists to build high-precision Lookalike cohorts on ad platforms.</li>
-      </ul>
-
-      <h3>The Shift to Strategic Maturity</h3>
-      <p>
-        Stop treating marketing as a collection of disjointed tasks. When you align high-intent capture, visual demand creation, frictionless platform UX, and lifetime value expansion into a unified flywheel, scaling ceases to be an agonizing gamble. It becomes an engineered inevitability.
-      </p>
-    `
-  }
-};
-
-function initArticleModals() {
+function initArticleCardsAndModals() {
   const modal = document.getElementById('articleModal');
   const modalContent = document.getElementById('articleModalContent');
   const closeBtn = document.getElementById('articleModalClose');
   const backdrop = document.getElementById('articleModalBackdrop');
-  const articleButtons = document.querySelectorAll('.article-read-btn');
+  const articlesGrid = document.getElementById('articlesGrid');
 
-  if (!modal || !modalContent) return;
+  // Verify modular articlesData exists
+  const articles = window.articlesData || [];
+  if (!articles.length) return;
 
-  function openModal(articleKey) {
-    const data = articlesData[articleKey];
-    if (!data) return;
+  // Render article cards dynamically into the grid to ensure scalable architecture
+  if (articlesGrid) {
+    articlesGrid.innerHTML = articles.map(art => `
+      <article class="article-card" data-tilt>
+        <div class="article-thumb-wrap">
+          <img src="${art.image}" alt="${art.title}" class="article-thumb" loading="lazy">
+          <span class="article-pill">${art.category}</span>
+        </div>
+        <div class="article-content">
+          <div class="article-meta">
+            <span><i class="far fa-clock"></i> ${art.readTime}</span>
+            <span>&bull;</span>
+            <span><i class="far fa-calendar"></i> ${art.publishDate}</span>
+          </div>
+          <h3 class="article-title">${art.title}</h3>
+          <p class="article-excerpt">${art.excerpt}</p>
+          <div class="article-footer">
+            <button class="btn btn-secondary btn-sm article-read-btn" data-article-id="${art.id}">
+              Read More <i class="fas fa-book-open"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+    `).join('');
+
+    // Re-bind 3D tilt on dynamically created cards
+    init3DCardTilt();
+  }
+
+  function openArticleModal(articleId) {
+    const art = articles.find(a => a.id === articleId);
+    if (!art || !modalContent) return;
 
     modalContent.innerHTML = `
       <div class="article-reader-header">
-        <span class="article-reader-pill">${data.pill}</span>
-        <h1 class="article-reader-title">${data.title}</h1>
+        <span class="article-reader-pill">${art.category}</span>
+        <h1 class="article-reader-title">${art.title}</h1>
         <div class="article-reader-byline">
           <span><i class="far fa-user"></i> By Kazi Emon</span>
           <span>&bull;</span>
-          <span><i class="far fa-clock"></i> ${data.readTime}</span>
+          <span><i class="far fa-clock"></i> ${art.readTime}</span>
           <span>&bull;</span>
-          <span><i class="far fa-calendar"></i> ${data.date}</span>
+          <span><i class="far fa-calendar"></i> ${art.publishDate}</span>
         </div>
       </div>
 
       <div class="article-reader-img-wrap">
-        <img src="${data.image}" alt="${data.title}" class="article-reader-img">
+        <img src="${art.image}" alt="${art.title}" class="article-reader-img">
       </div>
 
       <div class="article-reader-body">
-        ${data.content}
+        ${art.content}
       </div>
 
       <div class="article-author-card">
@@ -813,7 +655,7 @@ function initArticleModals() {
         <div class="author-info">
           <h4>About the Author: Kazi Emon</h4>
           <p>
-            <strong>Md Kazi Abdur Rahim Emon</strong> is a digital marketer and paid growth strategist based in Dhaka, Bangladesh. He specializes in algorithmic Meta & Google advertising, server-side tracking architecture, and platform conversion engineering.
+            <strong>Md Kazi Abdur Rahim Emon</strong> is a digital marketing specialist and growth strategist based in Dhaka, Bangladesh. With an academic background in Accounting, he specializes in ROI-driven Meta and Google advertising, Canva visual branding, and strategic business planning.
           </p>
         </div>
       </div>
@@ -824,61 +666,33 @@ function initArticleModals() {
     document.body.style.overflow = 'hidden';
   }
 
-  function closeModal() {
+  function closeArticleModal() {
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
-  articleButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const articleKey = btn.getAttribute('data-article');
-      openModal(articleKey);
-    });
+  // Delegate click for article read buttons
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.article-read-btn');
+    if (btn) {
+      const artId = btn.getAttribute('data-article-id');
+      openArticleModal(artId);
+    }
   });
 
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  if (backdrop) backdrop.addEventListener('click', closeModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeArticleModal);
+  if (backdrop) backdrop.addEventListener('click', closeArticleModal);
 
-  // Esc key close
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('open')) {
-      closeModal();
+      closeArticleModal();
     }
   });
 }
 
 /* ==========================================================================
-   8. CASE STUDY CATEGORY FILTERS
-   ========================================================================== */
-function initCaseFilters() {
-  const chips = document.querySelectorAll('.filter-chip');
-  const cards = document.querySelectorAll('.case-card');
-
-  if (!chips.length || !cards.length) return;
-
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      chips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-
-      const filter = chip.getAttribute('data-filter');
-
-      cards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          card.style.display = 'block';
-          card.style.animation = 'fadeIn 0.35s ease forwards';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-}
-
-/* ==========================================================================
-   9. FAQ ACCORDION
+   8. FAQ ACCORDION (4 Realistic Client Inquiries)
    ========================================================================== */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -892,7 +706,6 @@ function initFaqAccordion() {
     trigger.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
 
-      // Close other items
       faqItems.forEach(otherItem => {
         if (otherItem !== item) {
           otherItem.classList.remove('active');
@@ -913,10 +726,10 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   10. STRATEGIC CONSULTATION FORM HANDLER
+   9. DIRECT CONTACT FORM & MAILTO / WHATSAPP INTEGRATION
    ========================================================================== */
 function initContactForm() {
-  const form = document.getElementById('auditForm');
+  const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
 
   if (!form) return;
@@ -926,88 +739,54 @@ function initContactForm() {
 
     const name = document.getElementById('formName').value.trim();
     const email = document.getElementById('formEmail').value.trim();
-    const website = document.getElementById('formWebsite').value.trim();
     const service = document.getElementById('formService').value;
     const message = document.getElementById('formMessage').value.trim();
 
-    if (!name || !email || !website) {
+    if (!name || !email || !message) {
       if (status) {
         status.className = 'form-status error';
-        status.textContent = 'Please fill in all required fields marked with *.';
+        status.textContent = 'Please fill in all required fields.';
       }
       return;
     }
 
     if (status) {
       status.className = 'form-status success';
-      status.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing your growth audit request...';
+      status.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing message for info@kaziemon.online...';
     }
 
-    // Prepare WhatsApp link with pre-filled message
-    const waPhone = '8801878051280';
-    let waText = `*Growth Audit Request - Kazi Emon Portfolio*%0A%0A`;
-    waText += `*Name:* ${encodeURIComponent(name)}%0A`;
-    waText += `*Email:* ${encodeURIComponent(email)}%0A`;
-    waText += `*Website:* ${encodeURIComponent(website)}%0A`;
-    waText += `*Service of Interest:* ${encodeURIComponent(service)}%0A`;
-    if (message) {
-      waText += `*Strategic Goals & Challenges:* ${encodeURIComponent(message)}%0A`;
-    }
+    // Build mailto protocol link
+    const subject = encodeURIComponent(`Digital Marketing Inquiry from ${name} - ${service}`);
+    const body = encodeURIComponent(
+      `Hello Kazi Emon,\n\n` +
+      `My name is ${name} (${email}).\n` +
+      `I am interested in your service: ${service}.\n\n` +
+      `Project Details & Goals:\n${message}\n\n` +
+      `Best regards,\n${name}`
+    );
 
-    const waUrl = `https://wa.me/${waPhone}?text=${waText}`;
+    const mailtoUrl = `mailto:info@kaziemon.online?subject=${subject}&body=${body}`;
 
     setTimeout(() => {
+      window.location.href = mailtoUrl;
       if (status) {
         status.className = 'form-status success';
-        status.innerHTML = '<i class="fas fa-check-circle"></i> Redirecting to WhatsApp to finalize your strategy session...';
+        status.innerHTML = '<i class="fas fa-check-circle"></i> Opening your email client to send to info@kaziemon.online!';
       }
-      window.open(waUrl, '_blank');
       form.reset();
-    }, 900);
+    }, 600);
   });
 }
 
 /* ==========================================================================
-   11. FLOATING WHATSAPP CHAT POPUP
-   ========================================================================== */
-function initFloatingWa() {
-  const launcher = document.getElementById('waLauncher');
-  const popup = document.getElementById('waPopup');
-  const closeBtn = document.getElementById('waClose');
-  const quickPrompts = document.querySelectorAll('.wa-quick-prompt');
-
-  if (!launcher || !popup) return;
-
-  launcher.addEventListener('click', () => {
-    popup.classList.toggle('active');
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      popup.classList.remove('active');
-    });
-  }
-
-  quickPrompts.forEach(prompt => {
-    prompt.addEventListener('click', (e) => {
-      e.preventDefault();
-      const text = prompt.getAttribute('data-prompt');
-      const waUrl = `https://wa.me/8801878051280?text=${encodeURIComponent(text)}`;
-      window.open(waUrl, '_blank');
-      popup.classList.remove('active');
-    });
-  });
-}
-
-/* ==========================================================================
-   12. BACK TO TOP BUTTON
+   10. BACK TO TOP BUTTON
    ========================================================================== */
 function initBackToTop() {
   const btn = document.getElementById('backToTop');
   if (!btn) return;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 450) {
+    if (window.scrollY > 400) {
       btn.classList.add('visible');
     } else {
       btn.classList.remove('visible');
