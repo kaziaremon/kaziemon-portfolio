@@ -1,31 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
   <defs>
-    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c084fc" />
-      <stop offset="50%" stop-color="#a855f7" />
-      <stop offset="100%" stop-color="#6b21a8" />
+    <!-- Deep Twilight to Midnight Purple Background -->
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#240e3f" />
+      <stop offset="50%" stop-color="#140526" />
+      <stop offset="100%" stop-color="#080112" />
     </linearGradient>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2d124f" />
-      <stop offset="100%" stop-color="#120624" />
+
+    <!-- Neon Violet to Royal Purple Gradient -->
+    <linearGradient id="neonVioletGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e9d5ff" />
+      <stop offset="35%" stop-color="#c084fc" />
+      <stop offset="70%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#7e22ce" />
     </linearGradient>
-    <filter id="violetGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
+
+    <!-- Glowing Ring Filter -->
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
-  <!-- Background Rounded Shield -->
-  <rect x="10" y="10" width="100" height="100" rx="26" fill="url(#bgGrad)" stroke="url(#purpleGrad)" stroke-width="3" />
+  <!-- Sleek Glowing Outer Ring -->
+  <circle cx="64" cy="64" r="58" fill="none" stroke="url(#neonVioletGrad)" stroke-width="2.5" opacity="0.85" filter="url(#neonGlow)" />
 
-  <!-- Glowing Inner Accent -->
-  <rect x="14" y="14" width="92" height="92" rx="22" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.35" />
+  <!-- Deep Royal Purple Circular Badge -->
+  <circle cx="64" cy="64" r="54" fill="url(#badgeBg)" stroke="rgba(192, 132, 252, 0.3)" stroke-width="1.5" />
 
-  <!-- Monogram KE Typography -->
-  <text x="60" y="74" font-family="'Outfit', -apple-system, sans-serif" font-size="44" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">
-    KE
-  </text>
+  <!-- Concentric Decorative Accent Ring -->
+  <circle cx="64" cy="64" r="48" fill="none" stroke="#a855f7" stroke-width="0.75" stroke-dasharray="4 4" opacity="0.4" />
 
-  <!-- Decorative Corner Dot -->
-  <circle cx="92" cy="28" r="4" fill="#c084fc" filter="url(#violetGlow)" />
+  <!-- Interlocking Fused "KE" Monogram -->
+  <g transform="translate(30, 28)">
+    <!-- Shared Vertical Spine for K & E -->
+    <rect x="0" y="4" width="9" height="64" rx="4.5" fill="url(#neonVioletGrad)" />
+
+    <!-- K Upper Diagonal Arm -->
+    <path d="M 6 38 L 30 10 C 31.5 8 35 9 34 12 L 18 36 Z" fill="url(#neonVioletGrad)" />
+
+    <!-- K Lower Diagonal Arm -->
+    <path d="M 12 32 L 35 64 C 36.5 66 33 69 31 66 L 9 40 Z" fill="url(#neonVioletGrad)" />
+
+    <!-- E Top Horizontal Bar (Interlocking through K) -->
+    <rect x="36" y="8" width="28" height="8.5" rx="4.25" fill="#ffffff" />
+
+    <!-- E Middle Horizontal Bar -->
+    <rect x="30" y="32" width="24" height="8" rx="4" fill="url(#neonVioletGrad)" />
+
+    <!-- E Bottom Horizontal Bar -->
+    <rect x="36" y="55" width="28" height="8.5" rx="4.25" fill="#ffffff" />
+  </g>
+
+  <!-- Subtle Ambient Spark Dot -->
+  <circle cx="94" cy="34" r="3" fill="#c084fc" filter="url(#neonGlow)" />
 </svg>

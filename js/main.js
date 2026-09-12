@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initServiceModals();
   initArticleCardsAndModals();
   initFaqAccordion();
-  initContactForm();
   initBackToTop();
 });
 
@@ -726,60 +725,7 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   9. DIRECT CONTACT FORM & MAILTO / WHATSAPP INTEGRATION
-   ========================================================================== */
-function initContactForm() {
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('formStatus');
-
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById('formName').value.trim();
-    const email = document.getElementById('formEmail').value.trim();
-    const service = document.getElementById('formService').value;
-    const message = document.getElementById('formMessage').value.trim();
-
-    if (!name || !email || !message) {
-      if (status) {
-        status.className = 'form-status error';
-        status.textContent = 'Please fill in all required fields.';
-      }
-      return;
-    }
-
-    if (status) {
-      status.className = 'form-status success';
-      status.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing message for info@kaziemon.online...';
-    }
-
-    // Build mailto protocol link
-    const subject = encodeURIComponent(`Digital Marketing Inquiry from ${name} - ${service}`);
-    const body = encodeURIComponent(
-      `Hello Kazi Emon,\n\n` +
-      `My name is ${name} (${email}).\n` +
-      `I am interested in your service: ${service}.\n\n` +
-      `Project Details & Goals:\n${message}\n\n` +
-      `Best regards,\n${name}`
-    );
-
-    const mailtoUrl = `mailto:info@kaziemon.online?subject=${subject}&body=${body}`;
-
-    setTimeout(() => {
-      window.location.href = mailtoUrl;
-      if (status) {
-        status.className = 'form-status success';
-        status.innerHTML = '<i class="fas fa-check-circle"></i> Opening your email client to send to info@kaziemon.online!';
-      }
-      form.reset();
-    }, 600);
-  });
-}
-
-/* ==========================================================================
-   10. BACK TO TOP BUTTON
+   9. BACK TO TOP BUTTON
    ========================================================================== */
 function initBackToTop() {
   const btn = document.getElementById('backToTop');
