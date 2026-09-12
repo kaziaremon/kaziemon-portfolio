@@ -43,9 +43,10 @@ function initThreeJsRoyalPurpleBackground() {
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    const royalPurple = new THREE.Color(0x7e22ce);
-    const brightViolet = new THREE.Color(0xa855f7);
-    const electricLilac = new THREE.Color(0xc084fc);
+    const deepRoyal = new THREE.Color(0x4a0e4e);
+    const electricViolet = new THREE.Color(0x9333ea);
+    const radiantMagenta = new THREE.Color(0xc026d3);
+    const luminousLilac = new THREE.Color(0xe879f9);
 
     const cols = 50;
     const rows = 27;
@@ -67,10 +68,12 @@ function initThreeJsRoyalPurpleBackground() {
         // Gradient color blend
         const mixRatio = (i / cols + j / rows) / 2;
         let pColor;
-        if (mixRatio < 0.5) {
-          pColor = royalPurple.clone().lerp(brightViolet, mixRatio * 2);
+        if (mixRatio < 0.4) {
+          pColor = deepRoyal.clone().lerp(electricViolet, mixRatio / 0.4);
+        } else if (mixRatio < 0.75) {
+          pColor = electricViolet.clone().lerp(radiantMagenta, (mixRatio - 0.4) / 0.35);
         } else {
-          pColor = brightViolet.clone().lerp(electricLilac, (mixRatio - 0.5) * 2);
+          pColor = radiantMagenta.clone().lerp(luminousLilac, (mixRatio - 0.75) / 0.25);
         }
 
         colors[index * 3] = pColor.r;
@@ -729,20 +732,31 @@ function initFaqAccordion() {
    ========================================================================== */
 function initBackToTop() {
   const btn = document.getElementById('backToTop');
-  if (!btn) return;
+  const footerBtn = document.getElementById('footerBackToTop');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
-    }
-  }, { passive: true });
+  if (btn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
 
-  btn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+    btn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
+
+  if (footerBtn) {
+    footerBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 }

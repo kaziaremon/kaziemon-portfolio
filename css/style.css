@@ -1,52 +1,54 @@
 /* ==========================================================================
    KAZI EMON — DIGITAL MARKETING SPECIALIST & GROWTH STRATEGIST
-   Theme: Deep Royal Purple Dark-Mode Theme (Twilight Purples & Midnight Violet)
+   Theme: Vibrant Royal Purple Dark-Mode Theme (Twilight Purples & #4A0E4E Accents)
    Typography: Outfit (Headings) & Plus Jakarta Sans (Body)
    ========================================================================== */
 
 :root {
-  /* Deep Royal Purple Color Palette (Deep, Rich, Soothing) */
-  --bg-deep: #080112;
-  --bg-dark: #0d021a;
-  --bg-surface: #140526;
-  --bg-card: rgba(26, 11, 46, 0.72);
-  --bg-card-hover: rgba(45, 18, 79, 0.88);
-  --bg-elevated: #240e3f;
+  /* Vibrant Royal Purple Color Palette (Deep, Energetic, Refreshing, High-End) */
+  --bg-deep: #0a0112;
+  --bg-dark: #120320;
+  --bg-surface: #1b052e;
+  --bg-card: rgba(36, 7, 58, 0.74);
+  --bg-card-hover: rgba(74, 14, 78, 0.9);
+  --bg-elevated: #2b0847;
+  --royal-wine: #4a0e4e;
 
-  /* Accent Purples & Neon Violets */
-  --primary: #a855f7;
-  --primary-light: #c084fc;
-  --primary-glow: rgba(168, 85, 247, 0.35);
-  --primary-dark: #7e22ce;
-  --secondary: #8b5cf6;
-  --secondary-glow: rgba(139, 92, 246, 0.28);
-  --accent-fuchsia: #d946ef;
+  /* Accent Purples, Radiant Violets & Rich Glowing Magenta Accents */
+  --primary: #c026d3;
+  --primary-light: #e879f9;
+  --primary-glow: rgba(192, 38, 211, 0.42);
+  --primary-dark: #86198f;
+  --secondary: #9333ea;
+  --secondary-light: #c084fc;
+  --secondary-glow: rgba(147, 51, 234, 0.35);
+  --accent-fuchsia: #f43f5e;
 
-  /* Borders & Glows */
-  --border-subtle: rgba(168, 85, 247, 0.16);
-  --border-card: rgba(192, 132, 252, 0.24);
-  --border-glow: rgba(168, 85, 247, 0.45);
-  --border-focus: #c084fc;
+  /* Borders & Glowing Rings */
+  --border-subtle: rgba(192, 38, 211, 0.2);
+  --border-card: rgba(232, 121, 249, 0.28);
+  --border-glow: rgba(217, 70, 239, 0.55);
+  --border-focus: #e879f9;
 
   /* Gradients */
-  --grad-primary: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #7e22ce 100%);
-  --grad-btn: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
-  --grad-text: linear-gradient(135deg, #ffffff 15%, #f3eefc 55%, #c084fc 100%);
-  --grad-card: linear-gradient(180deg, rgba(168, 85, 247, 0.08) 0%, rgba(20, 5, 38, 0.85) 100%);
-  --grad-badge: linear-gradient(135deg, rgba(168, 85, 247, 0.18) 0%, rgba(126, 34, 206, 0.18) 100%);
+  --grad-primary: linear-gradient(135deg, #e879f9 0%, #c026d3 50%, #7e22ce 100%);
+  --grad-btn: linear-gradient(135deg, #c026d3 0%, #7e22ce 100%);
+  --grad-text: linear-gradient(135deg, #ffffff 15%, #f5d0fe 60%, #e879f9 100%);
+  --grad-card: linear-gradient(180deg, rgba(192, 38, 211, 0.1) 0%, rgba(27, 5, 46, 0.9) 100%);
+  --grad-badge: linear-gradient(135deg, #4a0e4e 0%, #2b0847 50%, #120320 100%);
 
   /* Typography Colors (High Contrast, Crisp & Legible) */
   --text-white: #ffffff;
   --text-light: #f3eefc;
-  --text-muted: #a79bbd;
-  --text-dim: #75678d;
+  --text-muted: #bda8d6;
+  --text-dim: #846d9f;
 
   /* Fonts */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Sizing & Radius */
-  --container-width: 1200px;
+  /* Sizing & Radius (1440px Wide Screen Container Architecture) */
+  --container-width: 1440px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
@@ -152,12 +154,13 @@ body {
   100% { transform: translate(-40px, -45px) scale(0.95); }
 }
 
-/* Layout Container */
+/* Layout Container (Spacious 1440px Fluid Architecture: px-6 sm:px-10 lg:px-16) */
 .container {
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-left: clamp(1.5rem, 4vw, 4rem);
+  padding-right: clamp(1.5rem, 4vw, 4rem);
   position: relative;
   z-index: 1;
 }
@@ -472,7 +475,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-content-center {
-  max-width: 920px;
+  max-width: 1140px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -480,23 +484,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-badge-wrap {
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .hero-title-giant {
-  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  font-size: clamp(3rem, 6.6vw, 5.5rem);
   font-weight: 900;
   letter-spacing: -0.035em;
-  line-height: 1.1;
-  margin-bottom: 1.75rem;
+  line-height: 1.12;
+  margin-bottom: 2rem;
 }
 
 .hero-lead-text {
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.1rem, 1.85vw, 1.3rem);
   color: var(--text-light);
-  line-height: 1.75;
-  margin-bottom: 2.75rem;
-  max-width: 820px;
+  line-height: 1.8;
+  margin-bottom: 3.25rem;
+  max-width: 900px;
 }
 
 .hero-lead-text strong {
@@ -508,17 +512,17 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
-  margin-bottom: 4rem;
+  gap: 1.35rem;
+  margin-bottom: 4.5rem;
   flex-wrap: wrap;
 }
 
 .hero-metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.75rem;
   width: 100%;
-  max-width: 860px;
+  max-width: 1100px;
 }
 
 .hero-metric-item {
@@ -1203,71 +1207,210 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    FOOTER
    ========================================================================== */
+/* ==========================================================================
+   PROFESSIONAL FOOTER ARCHITECTURE (Balanced Grid Across 1440px Container)
+   ========================================================================== */
 .site-footer {
-  padding: 4rem 0 2.5rem 0;
+  padding: 5.5rem 0 2.75rem 0;
   border-top: 1px solid var(--border-subtle);
-  background: rgba(8, 1, 18, 0.96);
+  background: rgba(9, 1, 18, 0.98);
   position: relative;
   z-index: 2;
 }
 
-.footer-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: clamp(2.5rem, 4.5vw, 5rem);
+  margin-bottom: 3.5rem;
 }
 
-.footer-socials {
+.footer-col-brand {
   display: flex;
-  align-items: center;
-  gap: 0.85rem;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.social-icon-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: rgba(168, 85, 247, 0.1);
+.footer-tagline {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 440px;
+}
+
+.footer-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(192, 38, 211, 0.1);
   border: 1px solid var(--border-subtle);
-  color: var(--text-light);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  color: var(--primary-light);
+  width: fit-content;
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--grad-primary);
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-fast);
+}
+
+.footer-links a i {
+  font-size: 0.75rem;
+  color: var(--primary-light);
+  transition: transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.footer-links a:hover i {
+  color: var(--primary);
+}
+
+.footer-subtext {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.footer-channels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-channel-item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(36, 7, 58, 0.45);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
   text-decoration: none;
   transition: var(--transition-fast);
 }
 
-.social-icon-btn:hover {
-  background: var(--primary);
-  color: #ffffff;
+.footer-channel-item:hover {
+  background: rgba(74, 14, 78, 0.75);
   border-color: var(--primary-light);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px var(--primary-glow);
+  transform: translateX(4px);
 }
 
-.footer-bottom {
+.footer-channel-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.footer-channel-item.wa .footer-channel-icon { background: rgba(37, 211, 102, 0.15); color: #25d366; }
+.footer-channel-item.mail .footer-channel-icon { background: rgba(192, 38, 211, 0.15); color: var(--primary-light); }
+.footer-channel-item.linkedin .footer-channel-icon { background: rgba(10, 102, 194, 0.15); color: #38bdf8; }
+.footer-channel-item.fb .footer-channel-icon { background: rgba(24, 119, 242, 0.15); color: #60a5fa; }
+
+.footer-channel-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.f-channel-label {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.f-channel-action {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.footer-bottom-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 0.85rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid rgba(232, 121, 249, 0.14);
+  font-size: 0.88rem;
   color: var(--text-dim);
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
-.footer-bottom a {
-  color: var(--text-light);
+.footer-location a {
+  color: var(--primary-light);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.footer-bottom a:hover {
-  color: var(--primary-light);
+.footer-location a:hover {
+  color: #ffffff;
+}
+
+.footer-back-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(192, 38, 211, 0.12);
+  border: 1px solid var(--border-glow);
+  color: var(--text-white);
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.footer-back-top-btn:hover {
+  background: var(--grad-btn);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--primary-glow);
 }
 
 /* ==========================================================================
@@ -1602,29 +1745,6 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    FLOATING ACTION BUTTONS
    ========================================================================== */
-.floating-wa-btn {
-  position: fixed;
-  bottom: 25px;
-  left: 25px;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: #25d366;
-  color: #03220f;
-  font-size: 1.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
-  text-decoration: none;
-  z-index: 99;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.floating-wa-btn:hover {
-  transform: scale(1.12);
-}
-
 .back-to-top {
   position: fixed;
   bottom: 25px;
@@ -1682,6 +1802,15 @@ h1, h2, h3, h4, h5, h6 {
 
   .contact-icon-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-col-brand {
+    grid-column: span 2;
   }
 }
 
@@ -1750,6 +1879,21 @@ h1, h2, h3, h4, h5, h6 {
 
   .article-reader-img-wrap {
     height: 220px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-col-brand {
+    grid-column: span 1;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
   }
 }
 
