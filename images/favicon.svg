@@ -1,82 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
   <defs>
-    <!-- Deep Royal Purple Foundation (#080110 to #120320) with Velvet Core -->
+    <!-- Deep Royal Purple Rounded Shield Background -->
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4a0e4e" />
-      <stop offset="35%" stop-color="#240638" />
-      <stop offset="70%" stop-color="#140222" />
-      <stop offset="100%" stop-color="#080110" />
+      <stop offset="0%" stop-color="#2d0b4d"/>
+      <stop offset="50%" stop-color="#19042b"/>
+      <stop offset="100%" stop-color="#0a0210"/>
     </linearGradient>
-
-    <!-- Razor-Sharp Fine Neon-Violet Glowing Outline (#a855f7 to #7c3aed) -->
-    <linearGradient id="neonVioletOutline" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="25%" stop-color="#c084fc" />
-      <stop offset="60%" stop-color="#a855f7" />
-      <stop offset="100%" stop-color="#7c3aed" />
+    <!-- Razor-Sharp Neon-Violet Glowing Border -->
+    <linearGradient id="neonBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
     </linearGradient>
-
-    <!-- Pristine White to Electric Lilac Monogram Gradient -->
-    <linearGradient id="monogramWhite" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="75%" stop-color="#f5e8ff" />
-      <stop offset="100%" stop-color="#e9d5ff" />
+    <!-- Monogram Gradients -->
+    <linearGradient id="paint0_linear" x1="7" y1="6" x2="19" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#c084fc"/>
     </linearGradient>
-
-    <!-- Fine Glow Filter -->
-    <filter id="shieldGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="3.5" result="blur" />
+    <linearGradient id="paint1_linear" x1="21" y1="6" x2="27" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c084fc"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-
-    <filter id="subtleDrop" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.75" />
     </filter>
   </defs>
 
-  <!-- Glowing Royal-Purple Rounded Shield Architecture -->
-  <!-- Outer Glow Shadow -->
-  <path d="M 64 8 C 96 8, 118 16, 118 46 C 118 84, 82 111, 64 121 C 46 111, 10 84, 10 46 C 10 16, 32 8, 64 8 Z" 
-        fill="url(#shieldGrad)" 
-        filter="url(#subtleDrop)" />
+  <!-- Glowing Royal Purple Rounded Shield Card -->
+  <rect x="4" y="4" width="56" height="56" rx="18" fill="url(#shieldGrad)" stroke="url(#neonBorder)" stroke-width="2" filter="url(#glow)"/>
 
-  <!-- Fine Neon-Violet Glowing Outer Ring Outline -->
-  <path d="M 64 8 C 96 8, 118 16, 118 46 C 118 84, 82 111, 64 121 C 46 111, 10 84, 10 46 C 10 16, 32 8, 64 8 Z" 
-        fill="none" 
-        stroke="url(#neonVioletOutline)" 
-        stroke-width="2.2" 
-        filter="url(#shieldGlow)" 
-        opacity="0.95" />
-
-  <!-- Inner Architectural Filigree Accent Shield -->
-  <path d="M 64 14 C 92 14, 112 21, 112 47 C 112 80, 80 104, 64 113 C 48 104, 16 80, 16 47 C 16 21, 36 14, 64 14 Z" 
-        fill="none" 
-        stroke="#a855f7" 
-        stroke-width="0.75" 
-        stroke-dasharray="3 2.5" 
-        opacity="0.5" />
-
-  <!-- Refined "KE" Interlocking Typographic Monogram -->
-  <g transform="translate(32, 28)">
-    <!-- Upright Structural Spine (Shared Foundation for K & E) -->
-    <rect x="0" y="4" width="9.5" height="64" rx="4.75" fill="url(#neonVioletOutline)" />
-
-    <!-- K Upper Diagonal Arm (Sleek Modern Blade) -->
-    <path d="M 7 36 L 31 8.5 C 32.5 7 35.5 8 34.5 11 L 18 34 Z" fill="url(#neonVioletOutline)" />
-
-    <!-- K Lower Diagonal Arm (Anchoring Leg) -->
-    <path d="M 12 32 L 36 66 C 37.5 68 34 71 32 68 L 8 39 Z" fill="url(#neonVioletOutline)" />
-
-    <!-- E Top Horizontal Bar (Crisp White, Interlocking through K) -->
-    <rect x="35" y="8.5" width="29" height="8.5" rx="4.25" fill="url(#monogramWhite)" />
-
-    <!-- E Middle Horizontal Bar (Neon Violet Accent) -->
-    <rect x="28" y="32" width="25" height="8" rx="4" fill="url(#neonVioletOutline)" />
-
-    <!-- E Bottom Horizontal Bar (Crisp White Base) -->
-    <rect x="35" y="56" width="29" height="8.5" rx="4.25" fill="url(#monogramWhite)" />
+  <!-- Scaled Centered Monogram (viewBox 32x32 scaled to 36x36 at (14, 14)) -->
+  <g transform="translate(14, 14) scale(1.125)">
+    <!-- K stroke -->
+    <path d="M7 6V26M7 16L18 6M7 17L19 26" stroke="url(#paint0_linear)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- E bars -->
+    <path d="M21 6H27V13H21V6ZM21 19H27V26H21V19Z" fill="url(#paint1_linear)"/>
   </g>
-
-  <!-- Luminous Ambient Spark Accent -->
-  <circle cx="94" cy="30" r="3" fill="#ffffff" filter="url(#shieldGlow)" />
 </svg>
