@@ -5,42 +5,42 @@
    ========================================================================== */
 
 :root {
-  /* Vibrant Royal Purple Color Palette (Deep, Energetic, Refreshing, High-End) */
-  --bg-deep: #0a0112;
+  /* Master Color Architecture (Deep Vibrant Royal Purple Ecosystem) */
+  --bg-deep: #080110;
   --bg-dark: #120320;
-  --bg-surface: #1b052e;
-  --bg-card: rgba(36, 7, 58, 0.74);
-  --bg-card-hover: rgba(74, 14, 78, 0.9);
-  --bg-elevated: #2b0847;
+  --bg-surface: #18062a;
+  --bg-card: rgba(24, 6, 42, 0.65);
+  --bg-card-hover: rgba(50, 11, 80, 0.88);
+  --bg-elevated: #280844;
   --royal-wine: #4a0e4e;
 
-  /* Accent Purples, Radiant Violets & Rich Glowing Magenta Accents */
-  --primary: #c026d3;
-  --primary-light: #e879f9;
-  --primary-glow: rgba(192, 38, 211, 0.42);
-  --primary-dark: #86198f;
-  --secondary: #9333ea;
-  --secondary-light: #c084fc;
-  --secondary-glow: rgba(147, 51, 234, 0.35);
+  /* Vibrant Accents: Electric Magenta & Luminous Royal Violet */
+  --primary: #a855f7;
+  --primary-light: #c084fc;
+  --primary-glow: rgba(168, 85, 247, 0.45);
+  --primary-dark: #7c3aed;
+  --secondary: #7c3aed;
+  --secondary-light: #e879f9;
+  --secondary-glow: rgba(124, 58, 237, 0.4);
   --accent-fuchsia: #f43f5e;
 
-  /* Borders & Glowing Rings */
-  --border-subtle: rgba(192, 38, 211, 0.2);
-  --border-card: rgba(232, 121, 249, 0.28);
-  --border-glow: rgba(217, 70, 239, 0.55);
-  --border-focus: #e879f9;
+  /* Glassmorphic Borders & Neon Glowing Rings */
+  --border-subtle: rgba(168, 85, 247, 0.2);
+  --border-card: rgba(168, 85, 247, 0.35); /* Razor-sharp neon-violet glowing border */
+  --border-glow: rgba(168, 85, 247, 0.55);
+  --border-focus: #c084fc;
 
   /* Gradients */
-  --grad-primary: linear-gradient(135deg, #e879f9 0%, #c026d3 50%, #7e22ce 100%);
-  --grad-btn: linear-gradient(135deg, #c026d3 0%, #7e22ce 100%);
-  --grad-text: linear-gradient(135deg, #ffffff 15%, #f5d0fe 60%, #e879f9 100%);
-  --grad-card: linear-gradient(180deg, rgba(192, 38, 211, 0.1) 0%, rgba(27, 5, 46, 0.9) 100%);
-  --grad-badge: linear-gradient(135deg, #4a0e4e 0%, #2b0847 50%, #120320 100%);
+  --grad-primary: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #7c3aed 100%);
+  --grad-btn: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  --grad-text: linear-gradient(135deg, #ffffff 20%, #f3eefc 60%, #c084fc 100%);
+  --grad-card: linear-gradient(180deg, rgba(168, 85, 247, 0.12) 0%, rgba(24, 6, 42, 0.88) 100%);
+  --grad-badge: linear-gradient(135deg, #4a0e4e 0%, #280844 50%, #120320 100%);
 
-  /* Typography Colors (High Contrast, Crisp & Legible) */
+  /* Typography Colors (High Contrast, Pure White & Soft Violet) */
   --text-white: #ffffff;
   --text-light: #f3eefc;
-  --text-muted: #bda8d6;
+  --text-muted: #bba8d8;
   --text-dim: #846d9f;
 
   /* Fonts */
@@ -493,6 +493,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.035em;
   line-height: 1.12;
   margin-bottom: 2rem;
+  text-shadow: 0 4px 20px rgba(168, 85, 247, 0.4), 0 10px 45px rgba(124, 58, 237, 0.3);
 }
 
 .hero-lead-text {
@@ -676,8 +677,8 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 2px solid rgba(192, 132, 252, 0.35);
-  box-shadow: 0 0 45px rgba(168, 85, 247, 0.3);
+  border: 2px solid rgba(168, 85, 247, 0.45);
+  box-shadow: 0 0 38px rgba(168, 85, 247, 0.38), 0 25px 50px rgba(0, 0, 0, 0.75), inset 0 0 20px rgba(124, 58, 237, 0.25);
   background: var(--bg-surface);
 }
 
@@ -1220,9 +1221,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr;
-  gap: clamp(2.5rem, 4.5vw, 5rem);
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(3rem, 6vw, 6.5rem);
   margin-bottom: 3.5rem;
+  align-items: start;
 }
 
 .footer-col-brand {
@@ -1235,25 +1237,25 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.7;
-  max-width: 440px;
+  max-width: 520px;
 }
 
 .footer-status-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: rgba(192, 38, 211, 0.1);
+  background: rgba(168, 85, 247, 0.12);
   border: 1px solid var(--border-subtle);
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 1.1rem;
   border-radius: var(--radius-pill);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--primary-light);
   width: fit-content;
 }
 
 .footer-heading {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-white);
   margin-bottom: 1.5rem;
@@ -1274,9 +1276,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-links {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem 1.5rem;
 }
 
 .footer-links a {
@@ -1302,71 +1304,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-links a:hover i {
   color: var(--primary);
-}
-
-.footer-subtext {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
-}
-
-.footer-channels-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.footer-channel-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  background: rgba(36, 7, 58, 0.45);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: var(--transition-fast);
-}
-
-.footer-channel-item:hover {
-  background: rgba(74, 14, 78, 0.75);
-  border-color: var(--primary-light);
-  transform: translateX(4px);
-}
-
-.footer-channel-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
-.footer-channel-item.wa .footer-channel-icon { background: rgba(37, 211, 102, 0.15); color: #25d366; }
-.footer-channel-item.mail .footer-channel-icon { background: rgba(192, 38, 211, 0.15); color: var(--primary-light); }
-.footer-channel-item.linkedin .footer-channel-icon { background: rgba(10, 102, 194, 0.15); color: #38bdf8; }
-.footer-channel-item.fb .footer-channel-icon { background: rgba(24, 119, 242, 0.15); color: #60a5fa; }
-
-.footer-channel-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.f-channel-label {
-  font-size: 0.74rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.f-channel-action {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-white);
 }
 
 .footer-bottom-bar {
@@ -1805,12 +1742,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
   }
 
   .footer-col-brand {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 }
 

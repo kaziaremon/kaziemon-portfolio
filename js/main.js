@@ -1,10 +1,11 @@
 /**
  * KAZI EMON — DIGITAL MARKETING SPECIALIST & GROWTH STRATEGIST
- * Royal Purple 3D WebGL Background, Card Tilt, Modular Articles & Service Modals
+ * Master 3D WebGL Storytelling Engine, GSAP Cinematic Physics & Tilt Interactions
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initThreeJsRoyalPurpleBackground();
+  initCinematicScrollPhysics();
   initNavbar();
   initScrollSpy();
   initCounters();
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. ROYAL PURPLE 3D WEBGL PARTICLE EXPERIENCE (Three.js)
+   1. ROYAL PURPLE 3D WEBGL PARTICLE & STARFIELD ENGINE (Three.js)
    ========================================================================== */
 function initThreeJsRoyalPurpleBackground() {
   const canvas = document.getElementById('webglCanvas');
@@ -24,9 +25,9 @@ function initThreeJsRoyalPurpleBackground() {
 
   try {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 2000);
-    camera.position.z = 680;
-    camera.position.y = 80;
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 2500);
+    camera.position.z = 700;
+    camera.position.y = 90;
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
@@ -37,21 +38,35 @@ function initThreeJsRoyalPurpleBackground() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // 3D Particle Grid Wave with Royal Purple and Violet Tones
-    const particleCount = 1350;
+    // Common soft glowing radial particle texture
+    const pCanvas = document.createElement('canvas');
+    pCanvas.width = 32;
+    pCanvas.height = 32;
+    const pCtx = pCanvas.getContext('2d');
+    const gradient = pCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    gradient.addColorStop(0.3, 'rgba(192, 132, 252, 0.9)');
+    gradient.addColorStop(0.7, 'rgba(168, 85, 247, 0.4)');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    pCtx.fillStyle = gradient;
+    pCtx.fillRect(0, 0, 32, 32);
+    const pTexture = new THREE.CanvasTexture(pCanvas);
+
+    // LAYER 1: Undulating 3D Matrix Grid Wave
+    const particleCount = 1400;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
     const deepRoyal = new THREE.Color(0x4a0e4e);
-    const electricViolet = new THREE.Color(0x9333ea);
-    const radiantMagenta = new THREE.Color(0xc026d3);
-    const luminousLilac = new THREE.Color(0xe879f9);
+    const royalViolet = new THREE.Color(0x7c3aed);
+    const electricMagenta = new THREE.Color(0xa855f7);
+    const luminousWhite = new THREE.Color(0xffffff);
 
     const cols = 50;
-    const rows = 27;
-    const spacingX = 46;
-    const spacingZ = 46;
+    const rows = 28;
+    const spacingX = 48;
+    const spacingZ = 48;
 
     let index = 0;
     for (let i = 0; i < cols; i++) {
@@ -65,15 +80,14 @@ function initThreeJsRoyalPurpleBackground() {
         positions[index * 3 + 1] = y;
         positions[index * 3 + 2] = z;
 
-        // Gradient color blend
         const mixRatio = (i / cols + j / rows) / 2;
         let pColor;
-        if (mixRatio < 0.4) {
-          pColor = deepRoyal.clone().lerp(electricViolet, mixRatio / 0.4);
+        if (mixRatio < 0.35) {
+          pColor = deepRoyal.clone().lerp(royalViolet, mixRatio / 0.35);
         } else if (mixRatio < 0.75) {
-          pColor = electricViolet.clone().lerp(radiantMagenta, (mixRatio - 0.4) / 0.35);
+          pColor = royalViolet.clone().lerp(electricMagenta, (mixRatio - 0.35) / 0.4);
         } else {
-          pColor = radiantMagenta.clone().lerp(luminousLilac, (mixRatio - 0.75) / 0.25);
+          pColor = electricMagenta.clone().lerp(luminousWhite, (mixRatio - 0.75) / 0.25);
         }
 
         colors[index * 3] = pColor.r;
@@ -87,21 +101,7 @@ function initThreeJsRoyalPurpleBackground() {
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-    // Soft glowing particle texture
-    const pCanvas = document.createElement('canvas');
-    pCanvas.width = 32;
-    pCanvas.height = 32;
-    const pCtx = pCanvas.getContext('2d');
-    const gradient = pCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
-    gradient.addColorStop(0, 'rgba(255,255,255,1)');
-    gradient.addColorStop(0.35, 'rgba(192,132,252,0.85)');
-    gradient.addColorStop(1, 'rgba(0,0,0,0)');
-    pCtx.fillStyle = gradient;
-    pCtx.fillRect(0, 0, 32, 32);
-
-    const pTexture = new THREE.CanvasTexture(pCanvas);
-
-    const material = new THREE.PointsMaterial({
+    const waveMaterial = new THREE.PointsMaterial({
       size: 7.5,
       map: pTexture,
       vertexColors: true,
@@ -111,10 +111,43 @@ function initThreeJsRoyalPurpleBackground() {
       depthWrite: false
     });
 
-    const particles = new THREE.Points(geometry, material);
-    scene.add(particles);
+    const waveParticles = new THREE.Points(geometry, waveMaterial);
+    scene.add(waveParticles);
 
-    // Mouse Interaction
+    // LAYER 2: Ambient Drifting Royal Purple Starfield
+    const starCount = 380;
+    const starGeometry = new THREE.BufferGeometry();
+    const starPositions = new Float32Array(starCount * 3);
+    const starColors = new Float32Array(starCount * 3);
+
+    for (let s = 0; s < starCount; s++) {
+      starPositions[s * 3] = (Math.random() - 0.5) * 2400;
+      starPositions[s * 3 + 1] = (Math.random() - 0.5) * 1600;
+      starPositions[s * 3 + 2] = (Math.random() - 0.5) * 1800;
+
+      const starColor = Math.random() > 0.4 ? electricMagenta : royalViolet;
+      starColors[s * 3] = starColor.r;
+      starColors[s * 3 + 1] = starColor.g;
+      starColors[s * 3 + 2] = starColor.b;
+    }
+
+    starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+    starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+
+    const starMaterial = new THREE.PointsMaterial({
+      size: 5.5,
+      map: pTexture,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.7,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+
+    const starfield = new THREE.Points(starGeometry, starMaterial);
+    scene.add(starfield);
+
+    // Mouse Interaction Physics
     let mouseX = 0;
     let mouseY = 0;
     let targetMouseX = 0;
@@ -127,37 +160,51 @@ function initThreeJsRoyalPurpleBackground() {
       targetMouseY = (e.clientY - halfHeight) * 0.35;
     }, { passive: true });
 
-    // Scroll Depth Parallax
+    // Scroll Velocity Physics
     let scrollY = window.scrollY;
+    let lastScrollY = window.scrollY;
+    let scrollVelocity = 0;
+
     window.addEventListener('scroll', () => {
-      scrollY = window.scrollY;
+      const currentScrollY = window.scrollY;
+      scrollVelocity = (currentScrollY - lastScrollY) * 0.4;
+      scrollY = currentScrollY;
+      lastScrollY = currentScrollY;
     }, { passive: true });
 
     // Animation Loop
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     function animate() {
       requestAnimationFrame(animate);
 
       const elapsedTime = clock.getElapsedTime();
 
-      // Smooth mouse interpolation
-      mouseX += (targetMouseX - mouseX) * 0.05;
-      mouseY += (targetMouseY - mouseY) * 0.05;
+      // Smooth mouse interpolation (Inertia Lerp)
+      mouseX += (targetMouseX - mouseX) * 0.045;
+      mouseY += (targetMouseY - mouseY) * 0.045;
 
+      // Scroll velocity decay
+      scrollVelocity *= 0.92;
+
+      // Camera responds to mouse position and scroll velocity
       camera.position.x = mouseX * 0.75;
-      camera.position.y = 80 - mouseY * 0.4 - scrollY * 0.22;
+      camera.position.y = 90 - mouseY * 0.4 - scrollY * 0.22 - scrollVelocity * 0.8;
       camera.lookAt(0, 0, 0);
 
-      // Undulating Wave Formula
+      // Undulating Wave Animation
       const posArray = geometry.attributes.position.array;
       for (let i = 0; i < particleCount; i++) {
         const x = posArray[i * 3];
         const z = posArray[i * 3 + 2];
-        posArray[i * 3 + 1] = Math.sin(x * 0.007 + elapsedTime * 1.3) * 32 +
-                              Math.cos(z * 0.007 + elapsedTime * 1.1) * 32;
+        posArray[i * 3 + 1] = Math.sin(x * 0.0065 + elapsedTime * 1.35) * 34 +
+                              Math.cos(z * 0.0065 + elapsedTime * 1.15) * 34;
       }
       geometry.attributes.position.needsUpdate = true;
+
+      // Slow Ambient Starfield Drift
+      starfield.rotation.y = elapsedTime * 0.015;
+      starfield.rotation.x = Math.sin(elapsedTime * 0.01) * 0.08;
 
       renderer.render(scene, camera);
     }
@@ -758,5 +805,185 @@ function initBackToTop() {
         behavior: 'smooth'
       });
     });
+  }
+}
+
+/* ==========================================================================
+   10. CINEMATIC SCROLL PHYSICS & 3D REVEAL ANIMATIONS (GSAP & ScrollTrigger)
+   ========================================================================== */
+function initCinematicScrollPhysics() {
+  if (typeof gsap === 'undefined') return;
+
+  try {
+    if (typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+
+    // Hero Section Cinematic Staggered Reveal
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    heroTl.from('.hero-badge-wrap', {
+      opacity: 0,
+      y: 28,
+      duration: 0.85,
+      delay: 0.15
+    })
+    .from('.hero-title-giant', {
+      opacity: 0,
+      y: 45,
+      scale: 0.96,
+      duration: 1.1
+    }, '-=0.55')
+    .from('.hero-lead-text', {
+      opacity: 0,
+      y: 30,
+      duration: 0.85
+    }, '-=0.7')
+    .from('.hero-ctas .btn', {
+      opacity: 0,
+      y: 22,
+      stagger: 0.12,
+      duration: 0.75
+    }, '-=0.6')
+    .from('.hero-metric-item', {
+      opacity: 0,
+      y: 28,
+      stagger: 0.1,
+      duration: 0.75
+    }, '-=0.5')
+    .from('.trust-item', {
+      opacity: 0,
+      y: 18,
+      stagger: 0.08,
+      duration: 0.65
+    }, '-=0.4');
+
+    if (typeof ScrollTrigger === 'undefined') return;
+
+    // Section Headers Smooth Scroll Reveal
+    gsap.utils.toArray('.section-header').forEach(header => {
+      gsap.from(header, {
+        scrollTrigger: {
+          trigger: header,
+          start: 'top 86%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 35,
+        duration: 0.85,
+        ease: 'power3.out'
+      });
+    });
+
+    // About Section 3D Parallax & Staggered Reveal
+    if (document.querySelector('.about-grid')) {
+      gsap.from('.about-story-card', {
+        scrollTrigger: {
+          trigger: '.about-grid',
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: -35,
+        duration: 0.95,
+        ease: 'power3.out'
+      });
+
+      gsap.from('.about-photo-wrapper', {
+        scrollTrigger: {
+          trigger: '.about-grid',
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: 35,
+        duration: 0.95,
+        ease: 'power3.out'
+      });
+    }
+
+    // Services Cards 3D Stagger Entrance
+    if (document.querySelector('.services-grid')) {
+      gsap.from('.service-card', {
+        scrollTrigger: {
+          trigger: '.services-grid',
+          start: 'top 82%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 45,
+        stagger: 0.1,
+        duration: 0.85,
+        ease: 'power3.out'
+      });
+    }
+
+    // Blueprint Timeline Roadmap 3D Sequence
+    if (document.querySelector('.steps-timeline')) {
+      gsap.from('.step-card', {
+        scrollTrigger: {
+          trigger: '.steps-timeline',
+          start: 'top 84%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        stagger: 0.12,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+
+    // Articles Grid 3D Stagger Reveal
+    if (document.querySelector('.articles-grid')) {
+      gsap.from('.article-card', {
+        scrollTrigger: {
+          trigger: '.articles-grid',
+          start: 'top 84%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        stagger: 0.12,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+
+    // FAQ Accordion Stagger Reveal
+    if (document.querySelector('.faq-list')) {
+      gsap.from('.faq-item', {
+        scrollTrigger: {
+          trigger: '.faq-list',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 28,
+        stagger: 0.1,
+        duration: 0.75,
+        ease: 'power3.out'
+      });
+    }
+
+    // Contact Clean Icon-Grid 3D Stagger
+    if (document.querySelector('.contact-icon-grid')) {
+      gsap.from('.contact-media-card', {
+        scrollTrigger: {
+          trigger: '.contact-icon-grid',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 35,
+        scale: 0.96,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+
+  } catch (err) {
+    console.warn('GSAP scroll physics skipped:', err);
   }
 }
