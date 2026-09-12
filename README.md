@@ -1,83 +1,48 @@
 # Kazi Emon — Digital Marketing & Growth Strategist Portfolio
 
-A modern, high-converting digital marketing portfolio website built for **Kazi Emon**, highlighting expertise in:
+An immersive 3D dark-mode portfolio website built for **Kazi Emon** (Md Kazi Abdur Rahim Emon), highlighting high-level digital marketing and paid growth expertise based in **Dhaka, Bangladesh**:
+- **Facebook Marketing and Ads**
+- **Instagram Marketing and Ads**
+- **Social Media Managing**
 - **Platform Optimization**
-- **Facebook Ads & Meta Ads**
-- **Google Ads & Performance Max**
-- **Strategic Planning for Online Businesses**
-- **WhatsApp Marketing & Conversational Funnels**
-- **Instagram Marketing & Creative Testing**
-- **Server-Side Tracking & Meta CAPI**
-- **Full-Funnel Digital Marketing**
+- **Strategic Business Planning**
+- **Google Ads**
 
 Live Custom Domain: [kaziemon.online](https://kaziemon.online/)
 
 ---
 
-## 🚀 How to Deploy to GitHub Pages (Step-by-Step)
+## 🚀 Key Architectural Features
 
-### Step 1: Initialize Git and Push to GitHub
+1. **Immersive 3D WebGL Storytelling Background**:
+   - Interactive Three.js particle constellation and kinetic wave mesh reacting to mouse movement and viewport scrolling.
+   - Graceful CSS fallback for ultra-smooth cross-device performance.
 
-Open a terminal or PowerShell inside `g:\Kazi Emon Website` and run:
+2. **Dedicated 7-Section Navigation**:
+   - **Home**: High-impact value proposition, non-monetary performance indicators, 3D card tilt profile visual.
+   - **About**: Professional background, Bangladesh location indicator, core philosophies (Behavioral Psychology, Server-Side Signal Architecture, Holistic Unit Economics).
+   - **Service**: 6 dedicated service cards with interactive "Read More" triggers opening deep-dive execution modals.
+   - **Blueprint**: The 4-step scientific growth methodology from audit to sustainable scale.
+   - **Article**: 3 human-written, expert-level marketing articles with full interactive reader overlays.
+   - **FAQ**: Strategic operational inquiries with zero pricing or budget figures.
+   - **Contact**: Streamlined growth audit request form integrated with WhatsApp and email.
 
-```bash
-# 1. Initialize git repository
-git init
+3. **6 Dedicated Service Deep-Dives (Interactive Modals)**:
+   - Facebook Marketing and Ads
+   - Instagram Marketing and Ads
+   - Social Media Managing
+   - Platform Optimization
+   - Strategic Business Planning
+   - Google Ads
 
-# 2. Stage all files
-git add .
+4. **3 High-Value Thought Leadership Articles**:
+   - *The Death of Cookie Tracking and the Rise of First-Party Attribution: Why Server-Side Precision Wins in 2026*
+   - *Why Most Paid Ad Campaigns Fail Before the Click: The Platform Conversion Equation*
+   - *From Fragmented Tactics to Compounding Scale: Building a Sustainable Digital Growth Flywheel*
 
-# 3. Create initial commit
-git commit -m "Initial commit: Kazi Emon Digital Marketing Portfolio"
-
-# 4. Set default branch to main
-git branch -M main
-
-# 5. Connect your GitHub repository
-git remote add origin https://github.com/kaziaremon/kaziemon-portfolio.git
-
-# 6. Push to GitHub
-git push -u origin main
-```
-
----
-
-### Step 2: Configure GitHub Pages in GitHub
-
-1. Go to your repository on GitHub.
-2. Click on **Settings** (gear icon) at the top.
-3. In the left sidebar, click **Pages** (under the "Code and automation" section).
-4. Under **Build and deployment**:
-   - **Source**: Select `Deploy from a branch`.
-   - **Branch**: Select `main` and folder `/ (root)`.
-   - Click **Save**.
-5. Under **Custom domain**:
-   - Enter: `kaziemon.online`
-   - Click **Save**.
-   - Note: The repository already includes a `CNAME` file with `kaziemon.online` so GitHub will detect it automatically.
-6. Check the box for **Enforce HTTPS** (this may take a few minutes while GitHub provisions the free Let's Encrypt SSL certificate).
-
----
-
-### Step 3: Configure DNS Records in Your Domain Registrar
-
-Log in to the registrar where you purchased `kaziemon.online` (e.g. Namecheap, Cloudflare, GoDaddy, Hostinger, etc.) and navigate to **DNS Management / Advanced DNS**.
-
-Add the following **4 A Records** for the root domain (`@`):
-
-| Type | Host / Name | Value / Points to | TTL |
-|------|-------------|-------------------|-----|
-| **A** | `@` | `185.199.108.153` | Automatic or 3600 |
-| **A** | `@` | `185.199.109.153` | Automatic or 3600 |
-| **A** | `@` | `185.199.110.153` | Automatic or 3600 |
-| **A** | `@` | `185.199.111.153` | Automatic or 3600 |
-
-*(Optional, recommended for www subdomain):*
-| Type | Host / Name | Value / Points to | TTL |
-|------|-------------|-------------------|-----|
-| **CNAME** | `www` | `kaziaremon.github.io` | Automatic or 3600 |
-
-> **Note:** DNS propagation typically takes between 10 minutes to 24 hours. Once DNS propagates, GitHub Pages will automatically activate HTTPS.
+5. **Pure Expertise Positioning**:
+   - Completely removed legacy interactive tools (Ad Simulator, ROI Calculator, Engagement packages).
+   - 100% zero references to budgets, currencies, or pricing packages.
 
 ---
 
@@ -87,29 +52,29 @@ Add the following **4 A Records** for the root domain (`@`):
 g:\Kazi Emon Website\
 ├── CNAME                    # Domain configuration for GitHub Pages (kaziemon.online)
 ├── .gitignore               # Ignored local files
-├── index.html               # Main semantic, SEO-optimized portfolio landing page
+├── index.html               # Semantic HTML5, Schema.org JSON-LD, 3D Canvas, Modals
 ├── css/
-│   └── style.css            # Dark luxe theme, CSS variables, glassmorphism, responsive styles
+│   └── style.css            # Dark luxe theme, 3D tilt cards, glassmorphism, responsive styles
 ├── js/
-│   └── main.js              # Interactive ROAS calculator, scroll counters, FAQ accordion, WhatsApp link
+│   └── main.js              # Three.js 3D wave, card tilt, service/article modals, WhatsApp form
 ├── images/
 │   ├── profile.jpg          # Kazi Emon profile portrait
+│   ├── article-conversion.jpg # Analytics dashboard visual
+│   ├── article-platform.jpg   # Platform optimization laptop view
+│   ├── article-scaling.jpg    # Modern operations scaling team visual
 │   ├── favicon.svg          # Favicon
 │   └── og-image.jpg         # Open Graph preview card
 ├── robots.txt               # Search engine crawler instructions
 ├── sitemap.xml              # XML Sitemap for search indexing
-└── README.md                # Deployment and setup documentation
+└── README.md                # Deployment and project documentation
 ```
 
 ---
 
-## 🛠️ Features Included
+## 🛠️ How to Deploy to GitHub Pages
 
-1. **Interactive ROAS & Ad Spend Growth Calculator**: Prospective clients can slide their monthly budget and choose their ROAS tier to preview projected returns.
-2. **Hero Metrics with Animated Counters**: Live counts for ad spend managed, ROAS, campaigns scaled, and retention rate.
-3. **8 Core Service Pillars**: Dedicated cards detailing Meta Ads, Google Ads, Platform Optimization, WhatsApp Funnels, Strategic Planning, and Server-Side CAPI.
-4. **The 4-Step Growth Blueprint**: Visual progression outlining how Kazi audits, designs, tests, and scales accounts.
-5. **Real-World Case Studies**: Quantitative before/after KPIs (ROAS, revenue growth, cost reduction).
-6. **Social Proof & Client Testimonials**: Verified founder reviews.
-7. **Interactive FAQ Accordion**: Answers key client objections regarding budget, timelines, and tracking.
-8. **Direct WhatsApp & Consultation Form**: One-click connect via WhatsApp and email.
+```bash
+git add .
+git commit -m "Restructure into immersive 3D digital marketing portfolio"
+git push origin main
+```
