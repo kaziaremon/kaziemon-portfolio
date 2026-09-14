@@ -1,1194 +1,955 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kazi Emon | Digital Marketer & Strategist • Bangladesh</title>
-    <meta name="description" content="Kazi Emon is a premier digital marketing specialist in Bangladesh with 2 years of proven hands-on experience and 12+ successful client projects delivered. Specializing in Facebook Ads, Instagram Marketing, Social Media Management, Google Ads, Canva Poster Design, and Strategic Business Planning.">
-    <meta name="keywords" content="Kazi Emon, Digital Marketer Bangladesh, Facebook Ads Specialist Dhaka, Instagram Marketing, Social Media Manager, Google Ads, Canva Poster Design, Strategic Business Planning">
-    <meta name="author" content="Kazi Emon">
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kazi Emon | Digital Marketing Consultant & Strategist • Bangladesh</title>
+  <meta name="description" content="Kazi Emon is a premier digital marketing consultant in Bangladesh with 2 years of experience and 12+ successful client projects. Specializing in Facebook Ads, Instagram Marketing, Google Ads, Canva Poster Design, and Strategic Business Planning.">
+  <meta name="keywords" content="Kazi Emon, Digital Marketer Bangladesh, Facebook Ads Specialist Dhaka, Instagram Marketing, Social Media Manager, Google Ads, Canva Poster Design, Strategic Business Planning">
+  <meta name="author" content="Kazi Emon">
+  <meta name="robots" content="index, follow">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://kaziemon.online/">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://kaziemon.online/">
 
-    <!-- Custom Favicons -->
-    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="apple-touch-icon" href="images/favicon.svg">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/favicon.svg">
 
-    <!-- Open Graph & Social Meta -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kaziemon.online/">
-    <meta property="og:site_name" content="Kazi Emon | Digital Marketer & Strategist">
-    <meta property="og:title" content="Kazi Emon | Digital Marketer & Strategist • Bangladesh">
-    <meta property="og:description" content="2 years of hands-on experience and 12+ client projects delivered. Merging creative advertising campaigns with financial business discipline.">
-    <meta property="og:image" content="https://kaziemon.online/images/profile.jpg">
+  <!-- Open Graph Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kaziemon.online/">
+  <meta property="og:site_name" content="Kazi Emon | Digital Marketing Consultant & Strategist">
+  <meta property="og:title" content="Kazi Emon | Digital Marketer & Strategist • Bangladesh">
+  <meta property="og:description" content="2 years of proven experience and 12+ client projects delivered. Merging creative advertising campaigns with financial business discipline.">
+  <meta property="og:image" content="https://kaziemon.online/images/profile.jpg">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://kaziemon.online/">
-    <meta property="twitter:title" content="Kazi Emon | Digital Marketer & Strategist">
-    <meta property="twitter:description" content="2 years of hands-on experience and 12+ client projects delivered. Merging creative advertising campaigns with financial business discipline.">
-    <meta property="twitter:image" content="https://kaziemon.online/images/profile.jpg">
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://kaziemon.online/">
+  <meta property="twitter:title" content="Kazi Emon | Digital Marketer & Strategist">
+  <meta property="twitter:description" content="2 years of proven experience and 12+ client projects delivered. Merging creative advertising campaigns with financial business discipline.">
+  <meta property="twitter:image" content="https://kaziemon.online/images/profile.jpg">
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts Link (Poppins, Roboto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Three.js for Immersive 3D Background -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        deepPurple: '#0a0210',
-                        cardSurface: '#1c0a33',
-                        vibrantViolet: '#7c3aed',
-                        neonMagenta: '#a855f7',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0a0210;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-        #webgl-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .glass-card {
-            background: rgba(28, 10, 51, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(168, 85, 247, 0.25);
-        }
-        .glass-nav {
-            background: rgba(10, 2, 16, 0.88);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-        }
-        /* Custom Smooth Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0210;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(168, 85, 247, 0.4);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(168, 85, 247, 0.7);
-        }
-        /* Modal Transition Utilities */
-        .modal-active {
-            opacity: 1 !important;
-            visibility: visible !important;
-            pointer-events: auto !important;
-        }
-        .modal-active .modal-content {
-            transform: scale(1) translateY(0) !important;
-        }
-    </style>
-
-    <!-- Structured Data (JSON-LD) for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Kazi Emon",
-      "alternateName": "Md Kazi Abdur Rahim Emon",
-      "url": "https://kaziemon.online/",
-      "image": "https://kaziemon.online/images/profile.jpg",
-      "jobTitle": "Digital Marketing Specialist & Growth Strategist",
-      "email": "info@kaziemon.online",
-      "telephone": "+8801560066374",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dhaka",
-        "addressCountry": "BD"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/in/mdkaziabdurrahimemon/",
-        "https://www.facebook.com/md.kazi.abdur.rahim.emon"
-      ],
-      "knowsAbout": [
-        "Facebook Marketing and Ads",
-        "Instagram Marketing and Ads",
-        "Social Media Managing",
-        "Google Ads",
-        "Canva Poster Design",
-        "Strategic Business Planning"
-      ]
-    }
-    </script>
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kazi Emon",
+    "alternateName": "Md Kazi Abdur Rahim Emon",
+    "url": "https://kaziemon.online/",
+    "image": "https://kaziemon.online/images/profile.jpg",
+    "jobTitle": "Digital Marketing Consultant & Platform Optimization Strategist",
+    "email": "info@kaziemon.online",
+    "telephone": "+8801560066374",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dhaka",
+      "addressCountry": "BD"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/mdkaziabdurrahimemon/",
+      "https://www.facebook.com/md.kazi.abdur.rahim.emon"
+    ],
+    "knowsAbout": [
+      "Facebook Marketing and Ads",
+      "Instagram Marketing and Ads",
+      "Social Media Managing",
+      "Google Ads",
+      "Canva Poster Design",
+      "Strategic Business Planning"
+    ]
+  }
+  </script>
 </head>
-<body class="antialiased selection:bg-neonMagenta selection:text-white">
 
-    <!-- 3D Immersive WebGL Background Canvas -->
-    <canvas id="webgl-canvas"></canvas>
+<body id="top" class="dark_theme">
 
-    <!-- Sticky Glass Navigation Bar (7 Exact Links) -->
-    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 h-20 flex items-center justify-between">
-            <!-- Premium Custom SVG Monogram Logo -->
-            <a href="#home" class="flex items-center gap-3.5 group">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-900 via-vibrantViolet to-neonMagenta p-[1px] shadow-lg shadow-neonMagenta/20 group-hover:scale-105 transition-transform">
-                    <div class="w-full h-full bg-[#0d0216] rounded-[15px] flex items-center justify-center overflow-hidden">
-                        <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 6V26M7 16L18 6M7 17L19 26" stroke="url(#paint0_linear)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M21 6H27V13H21V6ZM21 19H27V26H21V19Z" fill="url(#paint1_linear)"/>
-                            <defs>
-                                <linearGradient id="paint0_linear" x1="7" y1="6" x2="19" y2="26" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#ffffff"/>
-                                    <stop offset="1" stop-color="#c084fc"/>
-                                </linearGradient>
-                                <linearGradient id="paint1_linear" x1="21" y1="6" x2="27" y2="26" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#c084fc"/>
-                                    <stop offset="1" stop-color="#a855f7"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                </div>
-                <div>
-                    <span class="font-bold text-lg tracking-tight block text-white group-hover:text-neonMagenta transition-colors">Kazi Emon</span>
-                    <span class="text-[10px] tracking-widest uppercase text-purple-300 block">Digital Marketer</span>
-                </div>
-            </a>
+  <!-- 
+    - #HEADER
+  -->
+  <header class="header" data-header>
+    <div class="container">
 
-            <!-- Desktop Navigation Links (Exact 7 Links) -->
-            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-purple-200">
-                <a href="#home" class="hover:text-white transition-colors">Home</a>
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#service" class="hover:text-white transition-colors">Service</a>
-                <a href="#blueprint" class="hover:text-white transition-colors">Blueprint</a>
-                <a href="#article" class="hover:text-white transition-colors">Article</a>
-                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-            </nav>
+      <h1 class="logo">
+        <a href="#top">Kazi Emon<span>.</span></a>
+      </h1>
 
-            <!-- Action Button & Mobile Menu Button -->
-            <div class="flex items-center gap-4">
-                <a href="#contact" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-gradient-to-r from-vibrantViolet to-neonMagenta text-white font-semibold text-sm shadow-lg shadow-neonMagenta/30 hover:scale-105 transition-all">
-                    Let's Talk
-                </a>
-                <!-- Mobile Hamburger Button -->
-                <button id="mobileMenuBtn" aria-label="Toggle navigation menu" class="lg:hidden p-2.5 rounded-xl glass-card text-purple-200 hover:text-white focus:outline-none">
-                    <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
+      <div class="navbar-actions">
+        <!-- Theme Toggle Button (Moon to Sun Animated Switch) -->
+        <button class="theme-btn" aria-label="Change Theme" title="Toggle Light/Dark Theme" data-theme-btn>
+          <span class="icon"></span>
+        </button>
+      </div>
 
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobileMenu" class="hidden lg:hidden px-6 pt-4 pb-6 glass-nav border-t border-purple-900/40 space-y-3">
-            <a href="#home" class="mobile-link block px-4 py-2 rounded-xl text-purple-200 hover:bg-purple-900/40 hover:text-white font-medium text-sm transition-all">Home</a>
-            <a href="#about" class="mobile-link block px-4 py-2 rounded-xl text-purple-200 hover:bg-purple-900/40 hover:text-white font-medium text-sm transition-all">About</a>
-            <a href="#service" class="mobile-link block px-4 py-2 rounded-xl text-purple-200 hover:bg-purple-900/40 hover:text-white font-medium text-sm transition-all">Service</a>
-            <a href="#blueprint" class="mobile-link block px-4 py-2 rounded-xl text-purple-200 hover:bg-purple-900/40 hover:text-white font-medium text-sm transition-all">Blueprint</a>
-            <a href="#article" class="mobile-link block px-4 py-2 rounded-xl text-purple-200 hover:bg-purple-900/40 hover:text-white font-medium text-sm transition-all">Article</a>
-            <a href="#faq" class="mobile-link block px-4 py-2 rounded-xl text-purple-200 hover:bg-purple-900/40 hover:text-white font-medium text-sm transition-all">FAQ</a>
-            <a href="#contact" class="mobile-link block px-4 py-2 rounded-xl text-purple-200 hover:bg-purple-900/40 hover:text-white font-medium text-sm transition-all">Contact</a>
-            <div class="pt-2">
-                <a href="#contact" class="mobile-link block w-full text-center py-3 rounded-xl bg-gradient-to-r from-vibrantViolet to-neonMagenta text-white font-semibold text-sm shadow-lg shadow-neonMagenta/30">
-                    Let's Talk
-                </a>
-            </div>
-        </div>
-    </header>
+      <!-- Hamburger Menu Toggle Button -->
+      <button class="nav-toggle-btn" aria-label="Toggle Menu" title="Toggle Menu" data-nav-toggle-btn>
+        <span class="one"></span>
+        <span class="two"></span>
+        <span class="three"></span>
+      </button>
 
-    <!-- MAIN CONTAINER WITH BALANCED VERTICAL FLOW -->
-    <main class="w-full">
+      <!-- Navigation Drawer -->
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li>
+            <a href="#top" class="navbar-link">Home.</a>
+          </li>
+          <li>
+            <a href="#about" class="navbar-link">About.</a>
+          </li>
+          <li>
+            <a href="#services" class="navbar-link">Services.</a>
+          </li>
+          <li>
+            <a href="#skills" class="navbar-link">Skills.</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="navbar-link">Portfolio.</a>
+          </li>
+          <li>
+            <a href="#articles" class="navbar-link">Articles.</a>
+          </li>
+          <li>
+            <a href="#contact" class="navbar-link">Contact.</a>
+          </li>
+        </ul>
+      </nav>
 
-        <!-- SECTION 1: HOME (Cinematic Entry) -->
-        <section id="home" class="min-h-screen flex items-center justify-center pt-28 pb-20 sm:pt-36 sm:pb-28 relative">
-            <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full flex flex-col items-center text-center">
-                <div class="inline-block px-4 py-1.5 rounded-full glass-card text-purple-300 text-xs font-semibold tracking-wider uppercase mb-6 border border-neonMagenta/30 shadow-lg shadow-neonMagenta/10">
-                    Digital Marketing Specialist • Dhaka, Bangladesh
-                </div>
-                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight mb-8 bg-gradient-to-r from-white via-purple-200 to-neonMagenta bg-clip-text text-transparent drop-shadow-sm">
-                    I am Kazi Emon
-                </h1>
-                <p class="max-w-3xl text-lg sm:text-xl text-purple-200/90 font-normal leading-relaxed mb-10">
-                    A premier digital marketing specialist in Bangladesh with <span class="text-white font-semibold">2 years</span> of proven hands-on experience and <span class="text-white font-semibold">12+</span> successful client projects delivered. I merge creative advertising campaigns with financial business discipline to build sustainable, profit-driven marketing engines.
-                </p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#service" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-vibrantViolet to-neonMagenta text-white font-semibold shadow-xl shadow-neonMagenta/30 hover:scale-105 transition-all">
-                        Explore Services
-                    </a>
-                    <a href="#about" class="px-8 py-4 rounded-2xl glass-card text-white font-semibold hover:bg-purple-900/40 transition-all border border-purple-500/30">
-                        Professional Journey
-                    </a>
-                </div>
-
-                <!-- Stats Grid (Balanced 4-Column Layout across Container) -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full mt-16 sm:mt-20">
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl text-center hover:border-neonMagenta/60 transition-all">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">2 Years</div>
-                        <div class="text-xs sm:text-sm text-purple-300 uppercase tracking-wider font-medium">Experience</div>
-                    </div>
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl text-center hover:border-neonMagenta/60 transition-all">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">12+</div>
-                        <div class="text-xs sm:text-sm text-purple-300 uppercase tracking-wider font-medium">Projects Delivered</div>
-                    </div>
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl text-center hover:border-neonMagenta/60 transition-all">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">100%</div>
-                        <div class="text-xs sm:text-sm text-purple-300 uppercase tracking-wider font-medium">Client Dedication</div>
-                    </div>
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl text-center hover:border-neonMagenta/60 transition-all">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">ROI</div>
-                        <div class="text-xs sm:text-sm text-purple-300 uppercase tracking-wider font-medium">Accounting Focus</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: ABOUT (Professional Journey Story) -->
-        <section id="about" class="py-24 sm:py-32 border-t border-purple-900/20 relative">
-            <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                    <!-- Left Column: Portrait Photo with subtle deep-royal-purple glow border -->
-                    <div class="lg:col-span-5 relative">
-                        <div class="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-vibrantViolet to-neonMagenta opacity-30 blur-xl"></div>
-                        <div class="relative glass-card p-3.5 sm:p-4 rounded-3xl border border-neonMagenta/30 text-center shadow-2xl">
-                            <div class="w-full relative rounded-2xl overflow-hidden border border-purple-500/20 bg-[#0d0216]">
-                                <img src="images/profile.jpg" alt="Kazi Emon - Professional Portrait" class="w-full h-96 sm:h-[460px] object-cover object-top hover:scale-105 transition-transform duration-700">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0210]/60 via-transparent to-transparent"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Crisp Narrative Biography (Zero Clutter Tags) -->
-                    <div class="lg:col-span-7 space-y-6">
-                        <div class="inline-block px-3.5 py-1.5 rounded-lg glass-card text-neonMagenta text-xs font-semibold tracking-widest uppercase">
-                            Professional Journey
-                        </div>
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                            Where Financial Acumen Meets Digital Execution
-                        </h2>
-                        <p class="text-purple-200/90 leading-relaxed text-base sm:text-lg">
-                            My name is Md Kazi Abdur Rahim Emon. Over the past two years, I have established myself as an independent digital marketing specialist and growth strategist based in Dhaka, Bangladesh, successfully executing campaigns across retail, service businesses, and emerging e-commerce brands.
-                        </p>
-                        <p class="text-purple-200/90 leading-relaxed text-base sm:text-lg">
-                            What truly differentiates my approach in a crowded marketing industry is my foundational background as an Accounting student. While conventional media buyers often celebrate superficial dashboard vanity metrics like gross impressions or passive likes, my accounting perspective enforces rigorous commercial viability. Every marketing dollar deployed is audited against real unit economics, customer acquisition costs, and net margin retention—transforming advertising from speculative expense into an engineered, profit-generating asset.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: SERVICE (Enhanced Detailed Descriptions) -->
-        <section id="service" class="py-24 sm:py-32 border-t border-purple-900/20 relative">
-            <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 space-y-16">
-                <div class="text-center max-w-3xl mx-auto space-y-4">
-                    <div class="inline-block px-3.5 py-1.5 rounded-lg glass-card text-neonMagenta text-xs font-semibold tracking-widest uppercase">
-                        Core Expertise
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-                        Professional Services
-                    </h2>
-                    <p class="text-purple-200/80 text-base sm:text-lg">
-                        Tailored digital marketing solutions engineered to scale your business growth sustainably.
-                    </p>
-                </div>
-
-                <!-- 6 Service Cards in Balanced Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service 1: Facebook Marketing and Ads -->
-                    <div class="glass-card p-8 rounded-3xl hover:border-neonMagenta transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1 shadow-lg">
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-purple-900/50 border border-purple-500/30 flex items-center justify-center text-neonMagenta font-bold text-xl mb-6 group-hover:scale-110 transition-transform">
-                                01
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neonMagenta transition-colors">
-                                Facebook Marketing and Ads
-                            </h3>
-                            <p class="text-purple-300/90 text-sm leading-relaxed mb-6">
-                                High-conversion ad campaigns, hyper-targeted audience segmentation, pixel tracking setup, creative testing frameworks, and performance scaling tailored to maximize return on ad spend (ROAS) for local and international brands.
-                            </p>
-                        </div>
-                        <button onclick="openServiceModal(1)" class="text-xs font-semibold text-neonMagenta uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1 duration-300 text-left pt-4 border-t border-purple-900/40">
-                            Read More →
-                        </button>
-                    </div>
-
-                    <!-- Service 2: Instagram Marketing and Ads -->
-                    <div class="glass-card p-8 rounded-3xl hover:border-neonMagenta transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1 shadow-lg">
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-purple-900/50 border border-purple-500/30 flex items-center justify-center text-neonMagenta font-bold text-xl mb-6 group-hover:scale-110 transition-transform">
-                                02
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neonMagenta transition-colors">
-                                Instagram Marketing and Ads
-                            </h3>
-                            <p class="text-purple-300/90 text-sm leading-relaxed mb-6">
-                                Visual-first promotional strategies, aesthetic brand storytelling, high-engagement Reels promotion, and targeted demographic targeting designed to turn passive scrollers into loyal brand advocates.
-                            </p>
-                        </div>
-                        <button onclick="openServiceModal(2)" class="text-xs font-semibold text-neonMagenta uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1 duration-300 text-left pt-4 border-t border-purple-900/40">
-                            Read More →
-                        </button>
-                    </div>
-
-                    <!-- Service 3: Social Media Managing -->
-                    <div class="glass-card p-8 rounded-3xl hover:border-neonMagenta transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1 shadow-lg">
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-purple-900/50 border border-purple-500/30 flex items-center justify-center text-neonMagenta font-bold text-xl mb-6 group-hover:scale-110 transition-transform">
-                                03
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neonMagenta transition-colors">
-                                Social Media Managing
-                            </h3>
-                            <p class="text-purple-300/90 text-sm leading-relaxed mb-6">
-                                Consistent brand positioning, strategic content calendar execution, community growth management, and proactive engagement to build a vibrant, authoritative online community around your business.
-                            </p>
-                        </div>
-                        <button onclick="openServiceModal(3)" class="text-xs font-semibold text-neonMagenta uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1 duration-300 text-left pt-4 border-t border-purple-900/40">
-                            Read More →
-                        </button>
-                    </div>
-
-                    <!-- Service 4: Google Ads -->
-                    <div class="glass-card p-8 rounded-3xl hover:border-neonMagenta transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1 shadow-lg">
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-purple-900/50 border border-purple-500/30 flex items-center justify-center text-neonMagenta font-bold text-xl mb-6 group-hover:scale-110 transition-transform">
-                                04
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neonMagenta transition-colors">
-                                Google Ads
-                            </h3>
-                            <p class="text-purple-300/90 text-sm leading-relaxed mb-6">
-                                Intent-driven Search, Display, and Performance Max campaigns structured meticulously to capture high-intent buyer traffic right at the moment they are searching for your specific products or services.
-                            </p>
-                        </div>
-                        <button onclick="openServiceModal(4)" class="text-xs font-semibold text-neonMagenta uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1 duration-300 text-left pt-4 border-t border-purple-900/40">
-                            Read More →
-                        </button>
-                    </div>
-
-                    <!-- Service 5: Canva Poster Design -->
-                    <div class="glass-card p-8 rounded-3xl hover:border-neonMagenta transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1 shadow-lg">
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-purple-900/50 border border-purple-500/30 flex items-center justify-center text-neonMagenta font-bold text-xl mb-6 group-hover:scale-110 transition-transform">
-                                05
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neonMagenta transition-colors">
-                                Canva Poster Design
-                            </h3>
-                            <p class="text-purple-300/90 text-sm leading-relaxed mb-6">
-                                Professional social media graphics, high-impact promotional posters, ad creatives, and visual assets designed via Canva with immaculate aesthetic standards to capture attention and drive conversions.
-                            </p>
-                        </div>
-                        <button onclick="openServiceModal(5)" class="text-xs font-semibold text-neonMagenta uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1 duration-300 text-left pt-4 border-t border-purple-900/40">
-                            Read More →
-                        </button>
-                    </div>
-
-                    <!-- Service 6: Strategic Business Planning -->
-                    <div class="glass-card p-8 rounded-3xl hover:border-neonMagenta transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1 shadow-lg">
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-purple-900/50 border border-purple-500/30 flex items-center justify-center text-neonMagenta font-bold text-xl mb-6 group-hover:scale-110 transition-transform">
-                                06
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neonMagenta transition-colors">
-                                Strategic Business Planning
-                            </h3>
-                            <p class="text-purple-300/90 text-sm leading-relaxed mb-6">
-                                Leveraging financial acumen derived from an accounting background to formulate practical business growth frameworks, evaluate cost structures, and align marketing outlays with net profitability goals.
-                            </p>
-                        </div>
-                        <button onclick="openServiceModal(6)" class="text-xs font-semibold text-neonMagenta uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1 duration-300 text-left pt-4 border-t border-purple-900/40">
-                            Read More →
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: BLUEPRINT (The Strategic Roadmap) -->
-        <section id="blueprint" class="py-24 sm:py-32 border-t border-purple-900/20 relative">
-            <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 space-y-16">
-                <div class="text-center max-w-3xl mx-auto space-y-4">
-                    <div class="inline-block px-3.5 py-1.5 rounded-lg glass-card text-neonMagenta text-xs font-semibold tracking-widest uppercase">
-                        Action Plan
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-                        Execution Blueprint
-                    </h2>
-                    <p class="text-purple-200/80 text-base sm:text-lg">
-                        A transparent, step-by-step framework ensuring every campaign is built for maximum returns.
-                    </p>
-                </div>
-
-                <!-- 4 Blueprint Phases -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="glass-card p-6 sm:p-8 rounded-3xl border-t-4 border-neonMagenta hover:border-neonMagenta transition-all duration-300 hover:-translate-y-1">
-                        <div class="text-neonMagenta font-bold text-xs uppercase tracking-widest mb-3">PHASE 01</div>
-                        <h3 class="text-xl font-bold mb-3 text-white">Discovery & Strategy</h3>
-                        <p class="text-purple-300/80 text-sm leading-relaxed">
-                            Business goal alignment, deep-dive target audience analysis, competitor benchmarking, and commercial viability checks.
-                        </p>
-                    </div>
-                    <div class="glass-card p-6 sm:p-8 rounded-3xl border-t-4 border-neonMagenta hover:border-neonMagenta transition-all duration-300 hover:-translate-y-1">
-                        <div class="text-neonMagenta font-bold text-xs uppercase tracking-widest mb-3">PHASE 02</div>
-                        <h3 class="text-xl font-bold mb-3 text-white">Creative & Asset Dev</h3>
-                        <p class="text-purple-300/80 text-sm leading-relaxed">
-                            Crafting high-impact ad copywriting and professional social graphics and visual assets designed via Canva.
-                        </p>
-                    </div>
-                    <div class="glass-card p-6 sm:p-8 rounded-3xl border-t-4 border-neonMagenta hover:border-neonMagenta transition-all duration-300 hover:-translate-y-1">
-                        <div class="text-neonMagenta font-bold text-xs uppercase tracking-widest mb-3">PHASE 03</div>
-                        <h3 class="text-xl font-bold mb-3 text-white">Campaign Deployment</h3>
-                        <p class="text-purple-300/80 text-sm leading-relaxed">
-                            Launching structured Meta and Google ad pipelines with pixel telemetry and conversion verification.
-                        </p>
-                    </div>
-                    <div class="glass-card p-6 sm:p-8 rounded-3xl border-t-4 border-neonMagenta hover:border-neonMagenta transition-all duration-300 hover:-translate-y-1">
-                        <div class="text-neonMagenta font-bold text-xs uppercase tracking-widest mb-3">PHASE 04</div>
-                        <h3 class="text-xl font-bold mb-3 text-white">Optimization & Scale</h3>
-                        <p class="text-purple-300/80 text-sm leading-relaxed">
-                            Monitoring performance metrics in real time, cutting wasted expenditure, and scaling profitable ad spend.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: ARTICLE (Enhanced Detailed Reading View) -->
-        <section id="article" class="py-24 sm:py-32 border-t border-purple-900/20 relative">
-            <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 space-y-16">
-                <div class="text-center max-w-3xl mx-auto space-y-4">
-                    <div class="inline-block px-3.5 py-1.5 rounded-lg glass-card text-neonMagenta text-xs font-semibold tracking-widest uppercase">
-                        Insights & Thought Leadership
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-                        Expert Articles
-                    </h2>
-                    <p class="text-purple-200/80 text-base sm:text-lg">
-                        In-depth perspectives on digital marketing strategy, visual branding, and financial business acumen.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Article 1 -->
-                    <div class="glass-card p-8 rounded-3xl flex flex-col justify-between hover:border-neonMagenta transition-all duration-300 group hover:-translate-y-1 shadow-lg">
-                        <div>
-                            <div class="flex items-center gap-3 text-xs text-purple-300 mb-4">
-                                <span class="px-2.5 py-1 rounded-md glass-card text-neonMagenta font-semibold uppercase tracking-wider">Marketing Strategy</span>
-                                <span>•</span>
-                                <span>5 min read</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neonMagenta transition-colors leading-snug">
-                                Why Most Facebook Ad Budgets Fail (And How Strategy Fixes It)
-                            </h3>
-                            <p class="text-purple-300/80 text-sm leading-relaxed mb-6">
-                                Discover why throwing money at boosted posts fails, how audience fatigue erodes margins, and why structured funnel architecture rescues struggling ad accounts.
-                            </p>
-                        </div>
-                        <button onclick="openArticleModal(1)" class="text-xs font-semibold text-neonMagenta uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1 duration-300 text-left pt-4 border-t border-purple-900/40">
-                            Read More →
-                        </button>
-                    </div>
-
-                    <!-- Article 2 -->
-                    <div class="glass-card p-8 rounded-3xl flex flex-col justify-between hover:border-neonMagenta transition-all duration-300 group hover:-translate-y-1 shadow-lg">
-                        <div>
-                            <div class="flex items-center gap-3 text-xs text-purple-300 mb-4">
-                                <span class="px-2.5 py-1 rounded-md glass-card text-neonMagenta font-semibold uppercase tracking-wider">Branding & Design</span>
-                                <span>•</span>
-                                <span>4 min read</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neonMagenta transition-colors leading-snug">
-                                The Power of Visual Consistency in Social Media Branding
-                            </h3>
-                            <p class="text-purple-300/80 text-sm leading-relaxed mb-6">
-                                How cohesive Canva poster design, intentional color psychology, and strict typography rules build instant consumer trust and long-term brand equity.
-                            </p>
-                        </div>
-                        <button onclick="openArticleModal(2)" class="text-xs font-semibold text-neonMagenta uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1 duration-300 text-left pt-4 border-t border-purple-900/40">
-                            Read More →
-                        </button>
-                    </div>
-
-                    <!-- Article 3 -->
-                    <div class="glass-card p-8 rounded-3xl flex flex-col justify-between hover:border-neonMagenta transition-all duration-300 group hover:-translate-y-1 shadow-lg">
-                        <div>
-                            <div class="flex items-center gap-3 text-xs text-purple-300 mb-4">
-                                <span class="px-2.5 py-1 rounded-md glass-card text-neonMagenta font-semibold uppercase tracking-wider">Business Acumen</span>
-                                <span>•</span>
-                                <span>6 min read</span>
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neonMagenta transition-colors leading-snug">
-                                How an Accounting Mindset Can Transform Your Business Marketing Strategy
-                            </h3>
-                            <p class="text-purple-300/80 text-sm leading-relaxed mb-6">
-                                Exploring unit economics, customer acquisition cost (CAC) versus lifetime value (LTV), and why profit-first marketing creates durable enterprise value.
-                            </p>
-                        </div>
-                        <button onclick="openArticleModal(3)" class="text-xs font-semibold text-neonMagenta uppercase tracking-wider hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer group-hover:translate-x-1 duration-300 text-left pt-4 border-t border-purple-900/40">
-                            Read More →
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 6: FAQ (Interactive Accordions) -->
-        <section id="faq" class="py-24 sm:py-32 border-t border-purple-900/20 relative">
-            <div class="max-w-4xl mx-auto px-6 sm:px-10 lg:px-16 space-y-16">
-                <div class="text-center space-y-4">
-                    <div class="inline-block px-3.5 py-1.5 rounded-lg glass-card text-neonMagenta text-xs font-semibold tracking-widest uppercase">
-                        Common Questions
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-                        Frequently Asked Questions
-                    </h2>
-                    <p class="text-purple-200/80 text-base sm:text-lg">
-                        Clear insights into campaign structures, visual asset design, and financial growth frameworks.
-                    </p>
-                </div>
-
-                <div class="space-y-4">
-                    <!-- FAQ Item 1 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-purple-500/20">
-                        <button onclick="toggleFaq(1)" class="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer">
-                            <h3 class="font-bold text-white text-base sm:text-lg">How do you structure Facebook and Instagram ad campaigns?</h3>
-                            <span id="faqIcon-1" class="text-neonMagenta transition-transform duration-300 text-sm">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </button>
-                        <div id="faqContent-1" class="hidden px-6 sm:px-7 pb-6 text-purple-300/90 text-sm sm:text-base leading-relaxed border-t border-purple-900/40 pt-4">
-                            We begin with comprehensive psychographic research and competitor benchmarking, followed by creative asset testing using high-converting Canva visual graphics. Campaigns are structured across full funnels (Top of Funnel awareness, Middle of Funnel consideration, and Bottom of Funnel conversion) with rigorous performance optimization based on real commercial net profitability.
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 2 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-purple-500/20">
-                        <button onclick="toggleFaq(2)" class="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer">
-                            <h3 class="font-bold text-white text-base sm:text-lg">Can you help design visual graphics for my brand?</h3>
-                            <span id="faqIcon-2" class="text-neonMagenta transition-transform duration-300 text-sm">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </button>
-                        <div id="faqContent-2" class="hidden px-6 sm:px-7 pb-6 text-purple-300/90 text-sm sm:text-base leading-relaxed border-t border-purple-900/40 pt-4">
-                            Yes! Through professional Canva poster design and social media asset creation, we develop promotional flyers, banner creatives, and social carousels that establish consistent brand typography, color palettes, and elevated visual authority without the complexity or cost of bloated agencies.
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 3 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-purple-500/20">
-                        <button onclick="toggleFaq(3)" class="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer">
-                            <h3 class="font-bold text-white text-base sm:text-lg">How does your strategic business planning service work?</h3>
-                            <span id="faqIcon-3" class="text-neonMagenta transition-transform duration-300 text-sm">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </button>
-                        <div id="faqContent-3" class="hidden px-6 sm:px-7 pb-6 text-purple-300/90 text-sm sm:text-base leading-relaxed border-t border-purple-900/40 pt-4">
-                            Leveraging my academic foundation in accounting, we assess your unit economics, customer acquisition cost (CAC), customer lifetime value (LTV), and operating margins. We construct clear operational frameworks and financial forecasts ensuring your marketing spend translates directly into net commercial returns.
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 4 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-purple-500/20">
-                        <button onclick="toggleFaq(4)" class="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer">
-                            <h3 class="font-bold text-white text-base sm:text-lg">What is required to start working together?</h3>
-                            <span id="faqIcon-4" class="text-neonMagenta transition-transform duration-300 text-sm">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </button>
-                        <div id="faqContent-4" class="hidden px-6 sm:px-7 pb-6 text-purple-300/90 text-sm sm:text-base leading-relaxed border-t border-purple-900/40 pt-4">
-                            You can reach out instantly via WhatsApp or direct email using the contact options below. We will schedule a direct alignment conversation to review your current business objectives, audit existing promotional channels, and build a tailored execution roadmap.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 7: CONTACT (Clean Icon-Only Grid) -->
-        <section id="contact" class="py-24 sm:py-32 border-t border-purple-900/20 relative">
-            <div class="max-w-4xl mx-auto px-6 sm:px-10 lg:px-16 space-y-16 text-center">
-                <div class="space-y-4">
-                    <div class="inline-block px-3.5 py-1.5 rounded-lg glass-card text-neonMagenta text-xs font-semibold tracking-widest uppercase">
-                        Get in Touch
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-                        Let's Build Something Remarkable Together
-                    </h2>
-                    <p class="text-purple-200/80 text-base sm:text-lg">
-                        Connect directly through your preferred platform with zero middle layers.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-left">
-                    <!-- WhatsApp Direct -->
-                    <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="glass-card p-6 sm:p-7 rounded-2xl flex items-center gap-5 hover:border-neonMagenta transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-purple-900/60 border border-purple-500/30 flex items-center justify-center text-neonMagenta text-2xl font-bold group-hover:scale-110 group-hover:bg-neonMagenta group-hover:text-white transition-all shrink-0">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-purple-300 uppercase tracking-wider font-semibold">WhatsApp Direct</div>
-                            <div class="text-white font-bold text-base group-hover:text-neonMagenta transition-colors">Start Instant Chat</div>
-                        </div>
-                    </a>
-
-                    <!-- Official Email -->
-                    <a href="mailto:info@kaziemon.online" class="glass-card p-6 sm:p-7 rounded-2xl flex items-center gap-5 hover:border-neonMagenta transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-purple-900/60 border border-purple-500/30 flex items-center justify-center text-neonMagenta text-2xl font-bold group-hover:scale-110 group-hover:bg-neonMagenta group-hover:text-white transition-all shrink-0">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-purple-300 uppercase tracking-wider font-semibold">Official Email</div>
-                            <div class="text-white font-bold text-base group-hover:text-neonMagenta transition-colors">info@kaziemon.online</div>
-                        </div>
-                    </a>
-
-                    <!-- LinkedIn Profile -->
-                    <a href="https://www.linkedin.com/in/mdkaziabdurrahimemon/" target="_blank" rel="noopener noreferrer" class="glass-card p-6 sm:p-7 rounded-2xl flex items-center gap-5 hover:border-neonMagenta transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-purple-900/60 border border-purple-500/30 flex items-center justify-center text-neonMagenta text-2xl font-bold group-hover:scale-110 group-hover:bg-neonMagenta group-hover:text-white transition-all shrink-0">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-purple-300 uppercase tracking-wider font-semibold">LinkedIn Profile</div>
-                            <div class="text-white font-bold text-base group-hover:text-neonMagenta transition-colors">Connect Professionally</div>
-                        </div>
-                    </a>
-
-                    <!-- Facebook Profile -->
-                    <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" rel="noopener noreferrer" class="glass-card p-6 sm:p-7 rounded-2xl flex items-center gap-5 hover:border-neonMagenta transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-purple-900/60 border border-purple-500/30 flex items-center justify-center text-neonMagenta text-2xl font-bold group-hover:scale-110 group-hover:bg-neonMagenta group-hover:text-white transition-all shrink-0">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-purple-300 uppercase tracking-wider font-semibold">Facebook Profile</div>
-                            <div class="text-white font-bold text-base group-hover:text-neonMagenta transition-colors">Connect on Facebook</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- PROFESSIONAL MINIMALIST FOOTER (Strictly Spotless) -->
-    <footer class="border-t border-purple-900/40 bg-deepPurple/95 py-12">
-        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <div class="flex items-center gap-3.5">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-900 via-vibrantViolet to-neonMagenta p-[1px]">
-                    <div class="w-full h-full bg-[#0d0216] rounded-[11px] flex items-center justify-center">
-                        <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 6V26M7 16L18 6M7 17L19 26" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M21 6H27V13H21V6ZM21 19H27V26H21V19Z" fill="#c084fc"/>
-                        </svg>
-                    </div>
-                </div>
-                <div>
-                    <span class="font-bold text-white block text-sm">Kazi Emon</span>
-                    <span class="text-xs text-purple-400">© 2026 Kazi Emon. All rights reserved • Dhaka, Bangladesh</span>
-                </div>
-            </div>
-            <a href="#home" class="text-xs font-semibold text-purple-300 hover:text-white transition-colors flex items-center gap-2">
-                Back to Top ↑
-            </a>
-        </div>
-    </footer>
-
-    <!-- INTERACTIVE SERVICE DETAILS MODAL -->
-    <div id="serviceModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" onclick="closeServiceModalOnBackdrop(event)">
-        <div class="glass-card max-w-2xl w-full rounded-3xl p-8 sm:p-10 border border-neonMagenta/40 shadow-2xl relative modal-content transform scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
-            <button onclick="closeServiceModal()" aria-label="Close modal" class="absolute top-6 right-6 w-9 h-9 rounded-full glass-card border border-purple-500/30 flex items-center justify-center text-purple-300 hover:text-white hover:border-neonMagenta transition-all">
-                ✕
-            </button>
-            <div id="serviceModalBody" class="space-y-6">
-                <!-- Dynamically injected via openServiceModal(id) -->
-            </div>
-        </div>
     </div>
+  </header>
 
-    <!-- INTERACTIVE ARTICLE READER MODAL (Expanded Body Paragraphs) -->
-    <div id="articleModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" onclick="closeArticleModalOnBackdrop(event)">
-        <div class="glass-card max-w-3xl w-full rounded-3xl p-8 sm:p-12 border border-neonMagenta/40 shadow-2xl relative modal-content transform scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
-            <button onclick="closeArticleModal()" aria-label="Close modal" class="absolute top-6 right-6 w-9 h-9 rounded-full glass-card border border-purple-500/30 flex items-center justify-center text-purple-300 hover:text-white hover:border-neonMagenta transition-all">
-                ✕
-            </button>
-            <div id="articleModalBody" class="space-y-6">
-                <!-- Dynamically injected via openArticleModal(id) -->
-            </div>
+  <main>
+    <article class="container">
+
+      <!-- 
+        - #HERO SECTION
+      -->
+      <section class="hero" id="home">
+
+        <figure class="hero-banner">
+          <img src="images/profile.jpg" alt="Kazi Emon - Digital Marketing Consultant & Strategist" class="profile-img">
+        </figure>
+
+        <div class="hero-content">
+          <span class="hero-badge">Digital Marketing Consultant & Strategist</span>
+          <h2 class="h2 hero-title">I Build High-Performance Marketing Engines That Scale Real Profit.</h2>
+          <p class="hero-text">
+            Specializing in high-converting Facebook & Instagram Ads, platform optimization, and unit economics. I merge creative campaign execution with accounting discipline to engineer sustainable, commercial growth.
+          </p>
+
+          <div class="btn-group">
+            <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            <a href="#portfolio" class="btn btn-secondary">View Case Studies</a>
+          </div>
         </div>
+
+        <!-- Vertical Hero Social Links (Desktop) -->
+        <ul class="hero-social-list">
+          <li>
+            <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+              <i class="fa-brands fa-whatsapp"></i>
+              <div class="tooltip">WhatsApp</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/mdkaziabdurrahimemon/" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+              <i class="fa-brands fa-linkedin-in"></i>
+              <div class="tooltip">LinkedIn</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+              <i class="fa-brands fa-facebook-f"></i>
+              <div class="tooltip">Facebook</div>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@kaziemon.online" class="hero-social-link">
+              <i class="fa-solid fa-envelope"></i>
+              <div class="tooltip">Email</div>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Vertical Scroll Down Indicator (Desktop) -->
+        <a href="#stats" class="scroll-down">Scroll</a>
+
+      </section>
+
+      <!-- 
+        - #STATS SECTION
+      -->
+      <section class="stats" id="stats">
+        <ul class="stats-list">
+
+          <li>
+            <a href="#about" class="stats-card">
+              <div class="card-icon">
+                <i class="fa-solid fa-business-time"></i>
+              </div>
+              <h2 class="h2 card-title">
+                2+ <strong>Years Experience</strong>
+              </h2>
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#portfolio" class="stats-card">
+              <div class="card-icon">
+                <i class="fa-solid fa-rocket"></i>
+              </div>
+              <h2 class="h2 card-title">
+                12+ <strong>Projects Delivered</strong>
+              </h2>
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#services" class="stats-card">
+              <div class="card-icon">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <h2 class="h2 card-title">
+                100% <strong>Accounting & ROI Focus</strong>
+              </h2>
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- 
+        - #ABOUT SECTION
+      -->
+      <section class="about" id="about">
+
+        <figure class="about-banner">
+          <img src="images/profile.jpg" alt="Kazi Emon - Professional Portrait">
+        </figure>
+
+        <div class="about-content section-content">
+          <p class="section-subtitle">About Me</p>
+          <h2 class="h3 section-title">Where Financial Acumen Meets Digital Execution</h2>
+          <p class="section-text">
+            My name is <strong>Md Kazi Abdur Rahim Emon</strong>. Over the past two years, I have established myself as an independent digital marketing consultant and growth strategist based in Dhaka, Bangladesh, executing high-converting campaigns across retail, service businesses, and emerging e-commerce brands.
+          </p>
+          <p class="section-text">
+            What differentiates my approach in a crowded marketing industry is my academic foundation in Accounting. While conventional media buyers celebrate vanity dashboard impressions or passive likes, my accounting perspective enforces commercial viability: every marketing dollar deployed is audited against unit economics, customer acquisition costs (CAC), and net profit margin retention.
+          </p>
+
+          <div class="btn-group">
+            <a href="#contact" class="btn btn-secondary">Hire Me</a>
+            <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download CV</a>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 
+        - #SKILLS & TOOLS SECTION
+      -->
+      <section class="skills" id="skills">
+
+        <div class="skills-content section-content">
+          <p class="section-subtitle">My Capabilities</p>
+          <h2 class="h3 section-title">Strategic Skills & Marketing Tool Stack</h2>
+          <p class="section-text">
+            I deploy battle-tested marketing frameworks, analytics platforms, and visual design tools engineered to convert traffic into long-term commercial revenue.
+          </p>
+
+          <div class="skills-toggle" data-toggle-box>
+            <button class="toggle-btn active" data-toggle-btn>Skills</button>
+            <button class="toggle-btn" data-toggle-btn>Tools</button>
+          </div>
+        </div>
+
+        <div class="skills-box" data-skills-box>
+
+          <!-- Core Skills List -->
+          <ul class="skills-list">
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Facebook Ads</div>
+                <i class="fa-brands fa-facebook"></i>
+                <span class="skill-name">FB Ads</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Instagram Ads</div>
+                <i class="fa-brands fa-instagram"></i>
+                <span class="skill-name">IG Ads</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Google Ads</div>
+                <i class="fa-brands fa-google"></i>
+                <span class="skill-name">Google Ads</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Performance Marketing</div>
+                <i class="fa-solid fa-chart-line"></i>
+                <span class="skill-name">Performance</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Funnel Optimization</div>
+                <i class="fa-solid fa-filter"></i>
+                <span class="skill-name">Funnels</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Canva Poster Design</div>
+                <i class="fa-solid fa-palette"></i>
+                <span class="skill-name">Visual Design</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Community Growth</div>
+                <i class="fa-solid fa-users"></i>
+                <span class="skill-name">Community</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Unit Economics & Margins</div>
+                <i class="fa-solid fa-calculator"></i>
+                <span class="skill-name">Accounting</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Marketing Tools List -->
+          <ul class="tools-list">
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Meta Ads Manager</div>
+                <i class="fa-brands fa-meta"></i>
+                <span class="skill-name">Ads Manager</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Meta Pixel & CAPI</div>
+                <i class="fa-solid fa-code"></i>
+                <span class="skill-name">Pixel CAPI</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Google Analytics 4</div>
+                <i class="fa-solid fa-chart-simple"></i>
+                <span class="skill-name">GA4</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Canva Pro</div>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span class="skill-name">Canva Pro</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">WhatsApp Business</div>
+                <i class="fa-brands fa-whatsapp"></i>
+                <span class="skill-name">WA Business</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Trello / ClickUp</div>
+                <i class="fa-solid fa-list-check"></i>
+                <span class="skill-name">Project Mgt</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Financial Excel Models</div>
+                <i class="fa-solid fa-file-excel"></i>
+                <span class="skill-name">Financials</span>
+              </div>
+            </li>
+            <li>
+              <div class="skill-card">
+                <div class="tooltip">Google Search Console</div>
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span class="skill-name">GSC</span>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+      </section>
+
+      <!-- 
+        - #SERVICES SECTION
+      -->
+      <section class="services" id="services">
+        <div class="section-content">
+          <p class="section-subtitle">Core Expertise</p>
+          <h2 class="h3 section-title">Professional Services Tailored to Scale</h2>
+          <p class="section-text">
+            Meticulously planned campaign management and strategic advisory engineered to eliminate ad waste and maximize return on ad spend (ROAS).
+          </p>
+        </div>
+
+        <div class="services-list">
+
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div>
+              <span class="card-num">01</span>
+              <h3 class="h4 card-title">Facebook Marketing and Ads</h3>
+              <p class="card-text">
+                High-conversion ad campaigns, hyper-targeted audience segmentation, pixel tracking setup, creative testing frameworks, and performance scaling tailored to maximize return on ad spend (ROAS).
+              </p>
+            </div>
+            <button onclick="openServiceModal(1)" class="card-link">
+              Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <div>
+              <span class="card-num">02</span>
+              <h3 class="h4 card-title">Instagram Marketing and Ads</h3>
+              <p class="card-text">
+                Visual-first promotional strategies, aesthetic brand storytelling, high-engagement Reels promotion, and targeted demographic targeting designed to turn passive scrollers into loyal customers.
+              </p>
+            </div>
+            <button onclick="openServiceModal(2)" class="card-link">
+              Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div>
+              <span class="card-num">03</span>
+              <h3 class="h4 card-title">Social Media Managing</h3>
+              <p class="card-text">
+                Consistent brand positioning, strategic content calendar execution, community growth management, and proactive engagement to build a vibrant, authoritative online community around your business.
+              </p>
+            </div>
+            <button onclick="openServiceModal(3)" class="card-link">
+              Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <div>
+              <span class="card-num">04</span>
+              <h3 class="h4 card-title">Google Ads</h3>
+              <p class="card-text">
+                Intent-driven Search, Display, and Performance Max campaigns structured meticulously to capture high-intent buyer traffic right at the moment they are searching for your specific products or services.
+              </p>
+            </div>
+            <button onclick="openServiceModal(4)" class="card-link">
+              Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card">
+            <div>
+              <span class="card-num">05</span>
+              <h3 class="h4 card-title">Canva Poster Design</h3>
+              <p class="card-text">
+                Professional social media graphics, high-impact promotional posters, ad creatives, and visual assets designed via Canva with immaculate aesthetic standards to capture attention and drive conversions.
+              </p>
+            </div>
+            <button onclick="openServiceModal(5)" class="card-link">
+              Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service-card">
+            <div>
+              <span class="card-num">06</span>
+              <h3 class="h4 card-title">Strategic Business Planning</h3>
+              <p class="card-text">
+                Leveraging financial acumen derived from an accounting background to formulate practical business growth frameworks, evaluate cost structures, and align marketing outlays with net profitability goals.
+              </p>
+            </div>
+            <button onclick="openServiceModal(6)" class="card-link">
+              Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #BLUEPRINT SECTION
+      -->
+      <section class="blueprint" id="blueprint">
+        <div class="section-content">
+          <p class="section-subtitle">Action Plan</p>
+          <h2 class="h3 section-title">Strategic Execution Blueprint</h2>
+          <p class="section-text">
+            A transparent four-phase roadmap that transforms marketing outlays into reliable profit-generating operations.
+          </p>
+        </div>
+
+        <div class="blueprint-list">
+          <div class="blueprint-card">
+            <div class="phase-tag">Phase 01</div>
+            <h3 class="card-title">Discovery & Strategy</h3>
+            <p class="card-text">Business goal alignment, customer persona mapping, competitor benchmarking, and commercial viability checks.</p>
+          </div>
+
+          <div class="blueprint-card">
+            <div class="phase-tag">Phase 02</div>
+            <h3 class="card-title">Creative & Asset Dev</h3>
+            <p class="card-text">High-impact copywriting and professional social graphics designed via Canva with strict brand guidelines.</p>
+          </div>
+
+          <div class="blueprint-card">
+            <div class="phase-tag">Phase 03</div>
+            <h3 class="card-title">Campaign Deployment</h3>
+            <p class="card-text">Launching structured Meta & Google ad funnels with server-side Pixel and telemetry tracking verification.</p>
+          </div>
+
+          <div class="blueprint-card">
+            <div class="phase-tag">Phase 04</div>
+            <h3 class="card-title">Optimization & Scale</h3>
+            <p class="card-text">Real-time performance monitoring, trimming wasted ad expenditure, and systematically scaling top performers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #PORTFOLIO SECTION
+      -->
+      <section class="project" id="portfolio">
+        <div class="section-content">
+          <p class="section-subtitle">Case Studies</p>
+          <h2 class="h3 section-title">Proven Projects That Deliver Real Returns</h2>
+          <p class="section-text">
+            Explore recent advertising campaigns and strategic operations executed for e-commerce, consumer brands, and local retail businesses.
+          </p>
+        </div>
+
+        <ul class="project-list">
+
+          <!-- Project 1 -->
+          <li>
+            <div class="project-card" onclick="openProjectModal(1)">
+              <figure class="card-banner">
+                <img src="images/article-scaling.jpg" alt="E-Commerce ROAS Scale">
+              </figure>
+              <div class="card-content">
+                <h3 class="h4 card-title">E-Commerce ROAS Scale</h3>
+                <span class="publish-date">August 2026</span>
+              </div>
+            </div>
+          </li>
+
+          <!-- Project 2 -->
+          <li>
+            <div class="project-card" onclick="openProjectModal(2)">
+              <figure class="card-banner">
+                <img src="images/article-platform.jpg" alt="Visual Brand Identity & Canva Kit">
+              </figure>
+              <div class="card-content">
+                <h3 class="h4 card-title">Canva Brand Identity Kit</h3>
+                <span class="publish-date">July 2026</span>
+              </div>
+            </div>
+          </li>
+
+          <!-- Project 3 -->
+          <li>
+            <div class="project-card" onclick="openProjectModal(3)">
+              <figure class="card-banner">
+                <img src="images/article-conversion.jpg" alt="Google Search Lead Acquisition">
+              </figure>
+              <div class="card-content">
+                <h3 class="h4 card-title">Google Search Lead Funnel</h3>
+                <span class="publish-date">June 2026</span>
+              </div>
+            </div>
+          </li>
+
+          <!-- Project 4 -->
+          <li>
+            <div class="project-card" onclick="openProjectModal(4)">
+              <figure class="card-banner">
+                <img src="images/og-image.jpg" alt="Social Media Community Architecture">
+              </figure>
+              <div class="card-content">
+                <h3 class="h4 card-title">Social Community Growth</h3>
+                <span class="publish-date">May 2026</span>
+              </div>
+            </div>
+          </li>
+
+          <!-- Project 5 -->
+          <li>
+            <div class="project-card" onclick="openProjectModal(5)">
+              <figure class="card-banner">
+                <img src="images/profile.jpg" alt="Unit Economics & Profit Optimization">
+              </figure>
+              <div class="card-content">
+                <h3 class="h4 card-title">Unit Economics Audit</h3>
+                <span class="publish-date">April 2026</span>
+              </div>
+            </div>
+          </li>
+
+          <!-- Project 6 -->
+          <li>
+            <div class="project-card" onclick="openProjectModal(6)">
+              <figure class="card-banner">
+                <img src="images/article-scaling.jpg" alt="Local Omnichannel Campaign">
+              </figure>
+              <div class="card-content">
+                <h3 class="h4 card-title">Local Retail Traffic Engine</h3>
+                <span class="publish-date">March 2026</span>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- 
+        - #ARTICLES SECTION
+      -->
+      <section class="articles" id="articles">
+        <div class="section-content">
+          <p class="section-subtitle">Insights & Articles</p>
+          <h2 class="h3 section-title">In-Depth Marketing & Financial Perspectives</h2>
+          <p class="section-text">
+            Original articles on campaign design, visual authority, and applying financial unit economics to modern digital marketing.
+          </p>
+        </div>
+
+        <div class="articles-list">
+
+          <!-- Article 1 -->
+          <div class="article-card">
+            <figure class="card-banner">
+              <img src="images/article-scaling.jpg" alt="Why Most Facebook Ad Budgets Fail">
+            </figure>
+            <div class="card-body">
+              <div class="article-meta">
+                <span class="category">Paid Ads</span>
+                <span>•</span>
+                <span>6 min read</span>
+              </div>
+              <h3 class="card-title">Why Most Facebook Ad Budgets Fail (And How Strategy Fixes It)</h3>
+              <p class="card-excerpt">
+                Media buyers often blame the algorithm or rising costs when campaigns flounder. Learn how strategic positioning and funnel engineering rescue struggling ad accounts.
+              </p>
+              <button onclick="openArticleModal(1)" class="read-more-btn">
+                Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="article-card">
+            <figure class="card-banner">
+              <img src="images/article-platform.jpg" alt="Visual Consistency in Social Media">
+            </figure>
+            <div class="card-body">
+              <div class="article-meta">
+                <span class="category">Visual Branding</span>
+                <span>•</span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="card-title">The Power of Visual Consistency in Social Media Branding</h3>
+              <p class="card-excerpt">
+                In a crowded feed, visual incoherence costs customer trust. Discover how creating unified visual brand kits with Canva elevates brand authority and boosts conversion.
+              </p>
+              <button onclick="openArticleModal(2)" class="read-more-btn">
+                Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="article-card">
+            <figure class="card-banner">
+              <img src="images/article-conversion.jpg" alt="Accounting Mindset in Marketing">
+            </figure>
+            <div class="card-body">
+              <div class="article-meta">
+                <span class="category">Strategic Finance</span>
+                <span>•</span>
+                <span>7 min read</span>
+              </div>
+              <h3 class="card-title">How an Accounting Mindset Can Transform Marketing Strategy</h3>
+              <p class="card-excerpt">
+                Marketing without financial literacy is merely creative guesswork. Learn how applying margin analysis and unit economics turns ad spend into predictable commercial profit.
+              </p>
+              <button onclick="openArticleModal(3)" class="read-more-btn">
+                Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #FAQ ACCORDION
+      -->
+      <section class="faq" id="faq">
+        <div class="section-content">
+          <p class="section-subtitle">FAQ</p>
+          <h2 class="h3 section-title">Frequently Asked Questions</h2>
+          <p class="section-text">
+            Clear, transparent answers about campaign frameworks, design assets, and commercial growth advisory.
+          </p>
+        </div>
+
+        <div class="faq-list">
+
+          <!-- FAQ 1 -->
+          <div class="faq-card active" id="faq-1">
+            <button class="faq-header" onclick="toggleFaq(1)">
+              <h3 class="h4">How do you structure Facebook and Instagram ad campaigns?</h3>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-body">
+              We begin with comprehensive psychographic research and competitor benchmarking, followed by creative asset testing using high-converting Canva visual graphics. Campaigns are structured across full funnels (Top of Funnel awareness, Middle of Funnel consideration, and Bottom of Funnel conversion) with rigorous performance optimization based on commercial net profitability.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-card" id="faq-2">
+            <button class="faq-header" onclick="toggleFaq(2)">
+              <h3 class="h4">Can you help design visual graphics for my brand?</h3>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-body">
+              Yes! Through professional Canva poster design and social media asset creation, we develop promotional flyers, banner creatives, and social carousels that establish consistent brand typography, color palettes, and elevated visual authority without the complexity or cost of bloated agencies.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-card" id="faq-3">
+            <button class="faq-header" onclick="toggleFaq(3)">
+              <h3 class="h4">How does your strategic business planning service work?</h3>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-body">
+              Leveraging my academic foundation in accounting, we assess your unit economics, customer acquisition cost (CAC), customer lifetime value (LTV), and operating margins. We construct clear operational frameworks and financial forecasts ensuring your marketing spend translates directly into net commercial returns.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-card" id="faq-4">
+            <button class="faq-header" onclick="toggleFaq(4)">
+              <h3 class="h4">What is required to start working together?</h3>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-body">
+              You can reach out instantly via WhatsApp or direct email using the contact options below. We will schedule a direct alignment conversation to review your current business objectives, audit existing promotional channels, and build a tailored execution roadmap.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #CONTACT SECTION
+      -->
+      <section class="contact" id="contact">
+
+        <div class="contact-content section-content">
+          <p class="section-subtitle">Contact</p>
+          <h2 class="h3 section-title">Have a Project? Let's Build Something Remarkable</h2>
+          <p class="section-text">
+            Get in touch and let me know how I can help scale your business. Fill out the form or connect directly through WhatsApp.
+          </p>
+
+          <ul class="contact-list">
+
+            <!-- Location -->
+            <li class="contact-list-item">
+              <div class="contact-item-icon">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="wrapper">
+                <h3 class="contact-item-title">Location:</h3>
+                <address class="contact-info">Dhaka, Bangladesh</address>
+              </div>
+            </li>
+
+            <!-- WhatsApp / Phone -->
+            <li class="contact-list-item">
+              <div class="contact-item-icon">
+                <ion-icon name="call-outline"></ion-icon>
+              </div>
+              <div class="wrapper">
+                <h3 class="contact-item-title">Phone & WhatsApp:</h3>
+                <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="contact-info">+880 1560-066374</a>
+              </div>
+            </li>
+
+            <!-- Email -->
+            <li class="contact-list-item">
+              <div class="contact-item-icon">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="wrapper">
+                <h3 class="contact-item-title">Official Email:</h3>
+                <a href="mailto:info@kaziemon.online" class="contact-info">info@kaziemon.online</a>
+              </div>
+            </li>
+
+          </ul>
+
+          <!-- Social Contact Links -->
+          <ul class="contact-social-list">
+            <li>
+              <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+                <div class="tooltip">WhatsApp</div>
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/mdkaziabdurrahimemon/" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+                <div class="tooltip">LinkedIn</div>
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+                <div class="tooltip">Facebook</div>
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@kaziemon.online" class="contact-social-link">
+                <div class="tooltip">Email</div>
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Form -->
+        <form id="contactForm" class="contact-form">
+          <div class="form-wrapper">
+            <label for="name" class="form-label">Your Name</label>
+            <div class="input-wrapper">
+              <input type="text" name="name" id="name" required placeholder="e.g. Rahim Ahmed" class="input-field">
+              <ion-icon name="person-circle-outline"></ion-icon>
+            </div>
+          </div>
+
+          <div class="form-wrapper">
+            <label for="email" class="form-label">Email Address</label>
+            <div class="input-wrapper">
+              <input type="email" name="email" id="email" required placeholder="e.g. rahim@example.com" class="input-field">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+          </div>
+
+          <div class="form-wrapper">
+            <label for="phone" class="form-label">Phone / WhatsApp</label>
+            <div class="input-wrapper">
+              <input type="tel" name="phone" id="phone" required placeholder="e.g. +880 1700-000000" class="input-field">
+              <ion-icon name="call-outline"></ion-icon>
+            </div>
+          </div>
+
+          <div class="form-wrapper">
+            <label for="message" class="form-label">Your Message</label>
+            <div class="input-wrapper">
+              <textarea name="message" id="message" required placeholder="Tell me about your business, campaign goals, or project..." class="input-field"></textarea>
+              <ion-icon name="chatbubbles-outline"></ion-icon>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+
+      </section>
+
+    </article>
+  </main>
+
+  <!-- 
+    - #FOOTER
+  -->
+  <footer class="footer">
+    <div class="container">
+      <p class="logo">
+        <a href="#top">Kazi Emon<span>.</span></a>
+      </p>
+
+      <p class="copyright">
+        &copy; 2026 <a href="https://kaziemon.online/">Kazi Emon</a>. All rights reserved • Dhaka, Bangladesh
+      </p>
     </div>
+  </footer>
 
-    <!-- Three.js Interactive Particle Field Script -->
-    <script>
-        // --- WebGL Three.js Interactive Starfield ---
-        const canvas = document.getElementById('webgl-canvas');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  <!-- 
+    - #GO TO TOP BUTTON
+  -->
+  <a href="#top" class="go-top" data-go-top title="Go to Top">
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
 
-        // Particle System
-        const particlesCount = 2000;
-        const posArray = new Float32Array(particlesCount * 3);
-        const colorArray = new Float32Array(particlesCount * 3);
+  <!-- 
+    - #UNIVERSAL MODAL
+  -->
+  <div class="modal-overlay" id="universalModal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal()" title="Close Modal">✕</button>
+      <div style="margin-bottom: 12px;">
+        <span id="modalSubtitle" style="color: var(--raw-seinna); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--ff-poppins);"></span>
+        <h2 id="modalTitle" style="font-size: 1.5rem; margin-top: 4px; line-height: 1.3;"></h2>
+      </div>
+      <div id="modalContentArea" class="modal-body"></div>
+      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end; gap: 12px;">
+        <button class="btn btn-primary" onclick="closeModal()">Close</button>
+        <a id="modalActionBtn" href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
 
-        const colorPurple = new THREE.Color(0x7c3aed);
-        const colorMagenta = new THREE.Color(0xa855f7);
-        const colorWhite = new THREE.Color(0xffffff);
+  <!-- IonIcons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-        for (let i = 0; i < particlesCount; i++) {
-            posArray[i * 3] = (Math.random() - 0.5) * 16;
-            posArray[i * 3 + 1] = (Math.random() - 0.5) * 16;
-            posArray[i * 3 + 2] = (Math.random() - 0.5) * 16;
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
 
-            const mixed = Math.random();
-            let c = colorPurple;
-            if (mixed > 0.6) c = colorMagenta;
-            if (mixed > 0.9) c = colorWhite;
-
-            colorArray[i * 3] = c.r;
-            colorArray[i * 3 + 1] = c.g;
-            colorArray[i * 3 + 2] = c.b;
-        }
-
-        const particlesGeometry = new THREE.BufferGeometry();
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
-
-        const particlesMaterial = new THREE.PointsMaterial({
-            size: 0.025,
-            vertexColors: true,
-            transparent: true,
-            opacity: 0.85
-        });
-
-        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particlesMesh);
-        camera.position.z = 3.5;
-
-        // Smooth Mouse Tracking with Lerp
-        let mouseX = 0, mouseY = 0;
-        let targetX = 0, targetY = 0;
-
-        window.addEventListener('mousemove', (event) => {
-            mouseX = (event.clientX / window.innerWidth) - 0.5;
-            mouseY = (event.clientY / window.innerHeight) - 0.5;
-        });
-
-        const clock = new THREE.Clock();
-        function animate() {
-            requestAnimationFrame(animate);
-            const elapsedTime = clock.getElapsedTime();
-
-            targetX += (mouseX - targetX) * 0.05;
-            targetY += (mouseY - targetY) * 0.05;
-
-            particlesMesh.rotation.y = elapsedTime * 0.03 + targetX * 0.3;
-            particlesMesh.rotation.x = -targetY * 0.3;
-
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        // --- Mobile Menu Toggle ---
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const closeIcon = document.getElementById('closeIcon');
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                const isOpen = !mobileMenu.classList.contains('hidden');
-                if (isOpen) {
-                    mobileMenu.classList.add('hidden');
-                    hamburgerIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                } else {
-                    mobileMenu.classList.remove('hidden');
-                    hamburgerIcon.classList.add('hidden');
-                    closeIcon.classList.remove('hidden');
-                }
-            });
-            document.querySelectorAll('.mobile-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    hamburgerIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
-                });
-            });
-        }
-
-        // --- FAQ Accordion Logic ---
-        function toggleFaq(id) {
-            const content = document.getElementById(`faqContent-${id}`);
-            const icon = document.getElementById(`faqIcon-${id}`);
-            const isHidden = content.classList.contains('hidden');
-
-            // Close all
-            for (let i = 1; i <= 4; i++) {
-                const c = document.getElementById(`faqContent-${i}`);
-                const ic = document.getElementById(`faqIcon-${i}`);
-                if (c) c.classList.add('hidden');
-                if (ic) ic.style.transform = 'rotate(0deg)';
-            }
-
-            if (isHidden) {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        }
-
-        // --- Service Modal Detailed Data ---
-        const servicesData = {
-            1: {
-                num: "01",
-                title: "Facebook Marketing and Ads",
-                lead: "High-conversion ad campaigns, hyper-targeted audience segmentation, pixel tracking setup, creative testing frameworks, and performance scaling tailored to maximize return on ad spend (ROAS) for local and international brands.",
-                body: `
-                    <h4 class="font-bold text-white text-base mb-2">Our Execution Methodology</h4>
-                    <p class="text-purple-200/90 text-sm leading-relaxed mb-4">
-                        We avoid passive 'boost post' spending. Every campaign is built upon rigorous psychographic buyer persona mapping, custom audience lookalikes, and structured multi-tier retargeting funnels.
-                    </p>
-                    <h4 class="font-bold text-white text-base mb-2">Core Deliverables</h4>
-                    <ul class="list-disc list-inside text-purple-300 text-sm space-y-1.5 mb-4">
-                        <li>Audience psychographic mapping & competitor ad benchmarking</li>
-                        <li>Multi-angle ad copy variants testing high-intent hooks</li>
-                        <li>Meta Pixel & Conversion API (CAPI) server-level telemetry integration</li>
-                        <li>Bid management, automated rules, and daily budget scaling frameworks</li>
-                    </ul>
-                    <p class="text-purple-200/90 text-sm leading-relaxed">
-                        <strong>Commercial Impact:</strong> Protects your customer acquisition costs (CAC) while scaling revenue efficiently and sustainably.
-                    </p>
-                `
-            },
-            2: {
-                num: "02",
-                title: "Instagram Marketing and Ads",
-                lead: "Visual-first promotional strategies, aesthetic brand storytelling, high-engagement Reels promotion, and targeted demographic targeting designed to turn passive scrollers into loyal brand advocates.",
-                body: `
-                    <h4 class="font-bold text-white text-base mb-2">Our Execution Methodology</h4>
-                    <p class="text-purple-200/90 text-sm leading-relaxed mb-4">
-                        Instagram thrives on aesthetic authority and rapid visual hooks. We construct dynamic Reels, story sequences, and high-conversion carousels that stop the scroll and nurture genuine purchase intent.
-                    </p>
-                    <h4 class="font-bold text-white text-base mb-2">Core Deliverables</h4>
-                    <ul class="list-disc list-inside text-purple-300 text-sm space-y-1.5 mb-4">
-                        <li>High-impact Reels & Story video ad creative asset development</li>
-                        <li>Shoppable product catalog ad synchronization</li>
-                        <li>Targeted demographic & interest-based segmentation</li>
-                        <li>Direct message lead qualification and engagement workflows</li>
-                    </ul>
-                    <p class="text-purple-200/90 text-sm leading-relaxed">
-                        <strong>Commercial Impact:</strong> Elevates brand prestige while producing qualified direct inquiries from premium buyers.
-                    </p>
-                `
-            },
-            3: {
-                num: "03",
-                title: "Social Media Managing",
-                lead: "Consistent brand positioning, strategic content calendar execution, community growth management, and proactive engagement to build a vibrant, authoritative online community around your business.",
-                body: `
-                    <h4 class="font-bold text-white text-base mb-2">Our Execution Methodology</h4>
-                    <p class="text-purple-200/90 text-sm leading-relaxed mb-4">
-                        A chaotic social presence erodes consumer confidence. We manage end-to-end publishing pipelines with cohesive visual themes and proactive audience engagement.
-                    </p>
-                    <h4 class="font-bold text-white text-base mb-2">Core Deliverables</h4>
-                    <ul class="list-disc list-inside text-purple-300 text-sm space-y-1.5 mb-4">
-                        <li>30-day structured editorial content calendar planning</li>
-                        <li>Tone-of-voice copywriting tailored to your unique market positioning</li>
-                        <li>Proactive community engagement and comment moderation</li>
-                        <li>Monthly analytics audit and performance benchmarking</li>
-                    </ul>
-                    <p class="text-purple-200/90 text-sm leading-relaxed">
-                        <strong>Commercial Impact:</strong> Transforms casual followers into loyal brand advocates and consistent repeat purchasers.
-                    </p>
-                `
-            },
-            4: {
-                num: "04",
-                title: "Google Ads",
-                lead: "Intent-driven Search, Display, and Performance Max campaigns structured meticulously to capture high-intent buyer traffic right at the moment they are searching for your specific products or services.",
-                body: `
-                    <h4 class="font-bold text-white text-base mb-2">Our Execution Methodology</h4>
-                    <p class="text-purple-200/90 text-sm leading-relaxed mb-4">
-                        Unlike social advertising which creates demand, Google Ads captures existing commercial intent. We intercept prospective clients precisely when they are searching for solutions.
-                    </p>
-                    <h4 class="font-bold text-white text-base mb-2">Core Deliverables</h4>
-                    <ul class="list-disc list-inside text-purple-300 text-sm space-y-1.5 mb-4">
-                        <li>High-intent commercial keyword discovery & match-type architecture</li>
-                        <li>Negative keyword lists to systematically purge wasted spend</li>
-                        <li>Landing page conversion rate alignment and ad relevance score optimization</li>
-                        <li>Google Performance Max, Display, and Search campaign orchestration</li>
-                    </ul>
-                    <p class="text-purple-200/90 text-sm leading-relaxed">
-                        <strong>Commercial Impact:</strong> Maximizes return on ad spend (ROAS) by eliminating non-converting search queries.
-                    </p>
-                `
-            },
-            5: {
-                num: "05",
-                title: "Canva Poster Design",
-                lead: "Professional social media graphics, high-impact promotional posters, ad creatives, and visual assets designed via Canva with immaculate aesthetic standards to capture attention and drive conversions.",
-                body: `
-                    <h4 class="font-bold text-white text-base mb-2">Our Execution Methodology</h4>
-                    <p class="text-purple-200/90 text-sm leading-relaxed mb-4">
-                        Visual design is an active trust-building mechanism. Using Canva, we establish reusable brand kits with strict typography and color palettes that make your promotional posters stand out.
-                    </p>
-                    <h4 class="font-bold text-white text-base mb-2">Core Deliverables</h4>
-                    <ul class="list-disc list-inside text-purple-300 text-sm space-y-1.5 mb-4">
-                        <li>Custom promotional posters and seasonal campaign banners</li>
-                        <li>High-engagement carousel slide deck templates</li>
-                        <li>Standardized brand kit (color tokens, font pairings, visual margins)</li>
-                        <li>Editable asset templates for long-term operational ease</li>
-                    </ul>
-                    <p class="text-purple-200/90 text-sm leading-relaxed">
-                        <strong>Commercial Impact:</strong> Instantly commands attention in crowded feeds and builds durable visual authority.
-                    </p>
-                `
-            },
-            6: {
-                num: "06",
-                title: "Strategic Business Planning",
-                lead: "Leveraging financial acumen derived from an accounting background to formulate practical business growth frameworks, evaluate cost structures, and align marketing outlays with net profitability goals.",
-                body: `
-                    <h4 class="font-bold text-white text-base mb-2">Our Execution Methodology</h4>
-                    <p class="text-purple-200/90 text-sm leading-relaxed mb-4">
-                        Great marketing requires sound business unit economics. I apply accounting discipline to evaluate customer lifetime value against acquisition costs, protecting profit margins.
-                    </p>
-                    <h4 class="font-bold text-white text-base mb-2">Core Deliverables</h4>
-                    <ul class="list-disc list-inside text-purple-300 text-sm space-y-1.5 mb-4">
-                        <li>Unit economics evaluation (Gross Margins, CAC, LTV, Break-even points)</li>
-                        <li>Multi-channel marketing budget allocation and capital preservation models</li>
-                        <li>Customer conversion journey bottleneck identification</li>
-                        <li>Milestone-based 90-day operational growth roadmap</li>
-                    </ul>
-                    <p class="text-purple-200/90 text-sm leading-relaxed">
-                        <strong>Commercial Impact:</strong> Protects operational cash flow and ensures marketing expenditure translates directly into bottom-line net profit.
-                    </p>
-                `
-            }
-        };
-
-        function openServiceModal(id) {
-            const data = servicesData[id];
-            if (!data) return;
-            const modalBody = document.getElementById('serviceModalBody');
-            modalBody.innerHTML = `
-                <div class="flex items-center gap-3.5">
-                    <span class="w-11 h-11 rounded-xl bg-purple-900/60 border border-purple-500/30 flex items-center justify-center text-neonMagenta font-bold text-base shrink-0">${data.num}</span>
-                    <div>
-                        <span class="text-xs text-neonMagenta font-semibold uppercase tracking-widest">Service Overview</span>
-                        <h3 class="text-xl sm:text-2xl font-extrabold text-white">${data.title}</h3>
-                    </div>
-                </div>
-                <p class="text-purple-200/90 text-base italic border-l-2 border-neonMagenta pl-4">${data.lead}</p>
-                <div class="space-y-4 pt-2">${data.body}</div>
-                <div class="pt-5 border-t border-purple-900/40 flex flex-wrap items-center justify-between gap-4">
-                    <span class="text-xs text-purple-300">Ready to execute this service?</span>
-                    <a href="https://wa.me/8801560066374" target="_blank" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-vibrantViolet to-neonMagenta text-white font-semibold text-xs shadow-lg shadow-neonMagenta/30 hover:scale-105 transition-all">
-                        Chat on WhatsApp →
-                    </a>
-                </div>
-            `;
-            const modal = document.getElementById('serviceModal');
-            modal.classList.add('modal-active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeServiceModal() {
-            const modal = document.getElementById('serviceModal');
-            modal.classList.remove('modal-active');
-            document.body.style.overflow = '';
-        }
-
-        function closeServiceModalOnBackdrop(e) {
-            closeServiceModal();
-        }
-
-        // --- Article Modal Data (Expanded Detailed Body Paragraphs) ---
-        const articlesData = {
-            1: {
-                title: "Why Most Facebook Ad Budgets Fail (And How Strategy Fixes It)",
-                category: "Marketing Strategy",
-                readTime: "5 min read",
-                body: `
-                    <p class="text-purple-200/90 leading-relaxed text-base sm:text-lg mb-4">
-                        Every month, ambitious business owners launch Facebook and Meta advertising campaigns with high commercial expectations, only to watch their promotional spend evaporate with negligible financial return. When campaigns underperform, the universal reaction is almost always to blame external factors: <em>"The algorithm changed,"</em> <em>"Ad costs are too high,"</em> or <em>"Facebook ads simply do not work for our industry."</em>
-                    </p>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base mb-4">
-                        In over two years of managing paid campaigns and delivering 12+ client projects, I have discovered that ad campaigns rarely fail at the ad platform level. Rather, they fail because businesses treat advertising as a transactional slot machine rather than an engineered customer acquisition system.
-                    </p>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">1. The Slot-Machine Fallacy vs. Strategic Architecture</h4>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base mb-4">
-                        Pouring financial capital into Facebook Ads without a defined strategic backbone is like filling a bucket riddled with holes. The ad platform will happily bill you for delivering impressions, but if your message lacks resonance, your offer lacks compelling differentiation, and your landing destination lacks continuity, every dollar spent is effectively lost. Advertising cannot fix an ambiguous value proposition; it simply accelerates your losses.
-                    </p>
-
-                    <div class="glass-card p-5 rounded-2xl border-l-4 border-neonMagenta my-6">
-                        <blockquote class="text-white text-base italic font-medium">
-                            "An advertising campaign cannot fix an ambiguous value proposition. Strategy must precede media spend, or media spend simply accelerates your losses."
-                        </blockquote>
-                    </div>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">2. Audience Fatigue and the "Sell on First Sight" Error</h4>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base mb-4">
-                        Cold audiences scrolling through their social feeds are not actively looking to purchase your product. They are interacting with friends, consuming entertainment, or reading news. Demanding an immediate high-ticket purchase from someone who learned of your existence four seconds ago produces astronomical customer acquisition costs. High-performing strategies deploy top-of-funnel angles that educate, agitate latent problems, or demonstrate irresistible utility before asking for the sale.
-                    </p>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">3. The Vanity Metric Trap That Destroys Ad Accounts</h4>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base mb-4">
-                        Media buyers often celebrate metrics that look impressive on dashboards: millions of video views, hundreds of likes, or cheap clicks. However, you cannot pay operational payroll or overhead with vanity metrics. When ad accounts obsess over cost-per-click while ignoring net conversion margin, the business bleeds capital.
-                    </p>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">4. The Strategic 4-Step Stabilization Blueprint</h4>
-                    <ul class="list-disc list-inside text-purple-300 text-sm sm:text-base space-y-2 mb-4">
-                        <li><strong>Conduct Psychographic Research:</strong> Map the exact language, pain points, and objections your customers voice in daily conversation before drafting a single headline.</li>
-                        <li><strong>Engineer Irresistible Risk-Reversal Offers:</strong> Package your core product with complementary bonuses or transparent guarantees that make saying "no" feel irrational.</li>
-                        <li><strong>Implement Full-Funnel Sequencing:</strong> Distribute cold awareness content, warm consideration assets, and high-urgency retargeting reminders in balanced proportion.</li>
-                        <li><strong>Establish Strict 48-Hour Kill Switches:</strong> Monitor early engagement indicators (Hook Rate, Click-Through Rate, Outbound Click Cost) within the first 48 to 72 hours, terminating underperforming variants before they drain capital.</li>
-                    </ul>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base">
-                        When you replace emotional guesswork with disciplined marketing strategy, Facebook transforms from an expensive gamble into a predictable, scalable client acquisition engine.
-                    </p>
-                `
-            },
-            2: {
-                title: "The Power of Visual Consistency in Social Media Branding",
-                category: "Branding & Design",
-                readTime: "4 min read",
-                body: `
-                    <p class="text-purple-200/90 leading-relaxed text-base sm:text-lg mb-4">
-                        Humans process visual information 60,000 times faster than text. As prospective clients scroll through their busy social feeds, your brand has less than a fraction of a second to communicate identity, competence, and reliability. Yet, countless businesses treat visual design as an afterthought, publishing a chaotic rainbow of mismatched fonts, contradictory color palettes, and disjointed templates.
-                    </p>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">1. The Silent Erosion of Brand Authority</h4>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base mb-4">
-                        Every time your social media channels display inconsistent typography, low-contrast imagery, or discordant color combinations, a subtle message is transmitted to the prospect: <em>This business lacks attention to detail.</em> In modern commerce, visual professionalism is directly equated with operational credibility. If your promotional posters look hastily assembled or chaotic, prospective clients subconsciously assume your underlying product or service might suffer from similar negligence.
-                    </p>
-
-                    <div class="glass-card p-5 rounded-2xl border-l-4 border-neonMagenta my-6">
-                        <blockquote class="text-white text-base italic font-medium">
-                            "Visual consistency is not merely about aesthetic beauty; it is an active trust-building mechanism. Familiarity breeds confidence, and confidence drives transactions."
-                        </blockquote>
-                    </div>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">2. Color Psychology and Visual Recognition</h4>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base mb-4">
-                        Color evokes immediate emotional and neurological associations. Selecting a curated palette—such as deep royal purple to convey exclusivity and stability, paired with vibrant neon violet accents to signal modern digital agility—creates instant visual recognition. When customers encounter your posts repeatedly over weeks, your visual identity registers in their subconscious before they even read your brand name.
-                    </p>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">3. Achieving Cohesion with Canva Brand Kits</h4>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base mb-4">
-                        A widespread misconception is that achieving world-class visual consistency requires expensive agency retainers or enterprise design software. Platforms like Canva, when paired with disciplined visual hierarchy and typography principles, empower brands to build remarkable visual cohesion. By standardizing primary and secondary fonts, locking in hex codes, and maintaining uniform padding across all promotional posters, you build instant authority and long-term brand recall.
-                    </p>
-                `
-            },
-            3: {
-                title: "How an Accounting Mindset Can Transform Your Business Marketing Strategy",
-                category: "Business Acumen",
-                readTime: "6 min read",
-                body: `
-                    <p class="text-purple-200/90 leading-relaxed text-base sm:text-lg mb-4">
-                        In the digital marketing sphere, professionals routinely obsess over metrics that look impressive on dashboards: impressions, reach, click-through rates, and gross follower counts. However, an accounting background reveals a stark, inescapable reality: <strong>You cannot pay operational expenses or supplier invoices with vanity metrics.</strong>
-                    </p>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">1. Dashboard Vanity vs. Ledger Reality</h4>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base mb-4">
-                        A marketing campaign can generate 100,000 video views or boast an apparent 5x Return on Ad Spend (ROAS) figure, yet still drive a business toward cash insolvency if the underlying gross margin is thin and ancillary costs like packaging, transaction processing fees, and shipping reserves are omitted. Traditional marketers celebrate clicks; an accountant tracks net cash flow.
-                    </p>
-
-                    <div class="glass-card p-5 rounded-2xl border-l-4 border-neonMagenta my-6">
-                        <blockquote class="text-white text-base italic font-medium">
-                            "Marketing without accounting discipline is simply organized gambling. Financial rigor transforms marketing into an engineered capital allocation system."
-                        </blockquote>
-                    </div>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">2. Unit Economics 101 for Modern Business Growth</h4>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base mb-4">
-                        Before spending a single dollar on ad networks, we dissect your unit economics:
-                    </p>
-                    <ul class="list-disc list-inside text-purple-300 text-sm sm:text-base space-y-2 mb-4">
-                        <li><strong>Gross Margin Contribution:</strong> Ensuring allowable ad spend does not exceed the true unit gross profit of each sold item.</li>
-                        <li><strong>Customer Acquisition Cost (CAC) vs. Lifetime Value (LTV):</strong> Understanding allowable ad spend based on repeat purchase frequency and retention curves.</li>
-                        <li><strong>Cash Conversion Cycle (CCC):</strong> Timing advertising cash outflows with actual customer payment receipts to prevent fatal operational cash crunches.</li>
-                    </ul>
-
-                    <h4 class="font-bold text-white text-lg mt-6 mb-2">3. The Profit-First Growth Blueprint</h4>
-                    <p class="text-purple-200/90 leading-relaxed text-sm sm:text-base">
-                        When marketing campaigns are built around financial metrics and commercial viability, business owners invest with absolute confidence, knowing that every marketing outlay is engineered to deliver measurable, bottom-line net profit.
-                    </p>
-                `
-            }
-        };
-
-        function openArticleModal(id) {
-            const data = articlesData[id];
-            if (!data) return;
-            const modalBody = document.getElementById('articleModalBody');
-            modalBody.innerHTML = `
-                <div class="flex items-center gap-3 text-xs text-purple-300">
-                    <span class="px-2.5 py-1 rounded-md glass-card text-neonMagenta font-semibold uppercase">${data.category}</span>
-                    <span>•</span>
-                    <span>${data.readTime}</span>
-                </div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">${data.title}</h2>
-                <div class="space-y-4 pt-2 border-t border-purple-900/40 text-purple-200">${data.body}</div>
-                <div class="pt-6 border-t border-purple-900/40 flex flex-wrap items-center justify-between gap-4">
-                    <span class="text-xs text-purple-300">Have thoughts or want to implement this strategy?</span>
-                    <a href="https://wa.me/8801560066374" target="_blank" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-vibrantViolet to-neonMagenta text-white font-semibold text-xs shadow-lg shadow-neonMagenta/30 hover:scale-105 transition-all">
-                        Discuss with Kazi Emon →
-                    </a>
-                </div>
-            `;
-            const modal = document.getElementById('articleModal');
-            modal.classList.add('modal-active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeArticleModal() {
-            const modal = document.getElementById('articleModal');
-            modal.classList.remove('modal-active');
-            document.body.style.overflow = '';
-        }
-
-        function closeArticleModalOnBackdrop(e) {
-            closeArticleModal();
-        }
-
-        // Close Modals on ESC Key
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeServiceModal();
-                closeArticleModal();
-            }
-        });
-    </script>
 </body>
+
 </html>
