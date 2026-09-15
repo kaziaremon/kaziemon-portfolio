@@ -42,9 +42,36 @@ if (navToggleBtn && navbar) {
       navToggleBtn.classList.remove("active");
       navbar.classList.remove("active");
       document.body.classList.remove("active");
+      navbarLinks.forEach((l) => l.classList.remove("active"));
+      this.classList.add("active");
     });
   });
 }
+
+/**
+ * ScrollSpy: Highlight active navbar item with frosted-glass pill as user scrolls
+ */
+const scrollSections = document.querySelectorAll("section[id]");
+function updateActiveNavLinkOnScroll() {
+  const scrollPos = window.scrollY + 200;
+  scrollSections.forEach((section) => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute("id");
+
+    if (scrollPos >= top && scrollPos < top + height) {
+      navbarLinks.forEach((link) => {
+        link.classList.remove("active");
+        const href = link.getAttribute("href");
+        if (href === `#${id}` || (id === "home" && href === "#top")) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+}
+window.addEventListener("scroll", updateActiveNavLinkOnScroll);
+window.addEventListener("load", updateActiveNavLinkOnScroll);
 
 /**
  * Skills vs Tools Toggle

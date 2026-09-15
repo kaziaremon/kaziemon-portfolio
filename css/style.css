@@ -479,15 +479,23 @@ body.active { overflow: hidden; }
 
 .navbar-link {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: max-content;
   margin-inline: auto;
   color: var(--color-primary);
   font-family: var(--ff-poppins);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  padding: 8px 14px;
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  background: transparent;
   transform: translateY(50px);
-  transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.3px;
+  text-decoration: none;
 }
 
 .navbar.active .navbar-link {
@@ -495,21 +503,24 @@ body.active { overflow: hidden; }
   transition-delay: 0.25s;
 }
 
-.navbar-link::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  height: 4px;
-  width: 0;
-  background: var(--royal-purple);
-  transition: var(--transition-1);
-  border-radius: var(--radius-4);
+/* Modern iOS Glassmorphism Frosted-Glass Pill (Mobile Drawer) */
+.navbar-link:is(:hover, :focus),
+.navbar-link.active {
+  background: rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(168, 85, 247, 0.5);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
 }
 
-.navbar-link:is(:hover, :focus)::before {
-  width: 100%;
+body.light_theme .navbar-link:is(:hover, :focus),
+body.light_theme .navbar-link.active {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(124, 58, 237, 0.35);
+  color: var(--royal-purple-dark);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.7);
 }
 
 /*-----------------------------------*\
@@ -1460,13 +1471,6 @@ textarea.input-field {
     all: unset;
   }
 
-  .navbar-link {
-    transform: translateY(0);
-    font-size: 0.96rem;
-    padding: 6px 10px;
-    font-weight: 600;
-  }
-
   .navbar-list > li {
     margin: 0;
     padding: 0;
@@ -1477,11 +1481,52 @@ textarea.input-field {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 6px;
+    background: rgba(21, 6, 36, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 6px 10px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
   }
 
-  .navbar-link::before {
-    height: 2px;
+  body.light_theme .navbar-list {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(124, 58, 237, 0.2);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
+  }
+
+  .navbar-link {
+    transform: translateY(0);
+    font-size: 0.94rem;
+    padding: 8px 18px;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Desktop Frosted-Glass Pill Hover & Active State */
+  .navbar-link:is(:hover, :focus),
+  .navbar-link.active {
+    background: rgba(139, 92, 246, 0.24);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-color: rgba(168, 85, 247, 0.55);
+    color: var(--white);
+    box-shadow: 0 4px 18px rgba(139, 92, 246, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+
+  body.light_theme .navbar-link:is(:hover, :focus),
+  body.light_theme .navbar-link.active {
+    background: rgba(139, 92, 246, 0.16);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-color: rgba(124, 58, 237, 0.35);
+    color: var(--royal-purple-dark);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+    transform: translateY(-1px);
   }
 
   /* Hero Desktop */
