@@ -14,7 +14,7 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://kaziemon.online/">
 
-  <!-- Favicon -->
+  <!-- Favicon (Updated Royal Purple Theme) -->
   <link rel="shortcut icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/favicon.svg">
 
@@ -41,7 +41,7 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Custom CSS -->
+  <!-- Custom CSS (Royal Purple Theme) -->
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Structured Data (JSON-LD) for SEO -->
@@ -80,7 +80,7 @@
 <body id="top" class="dark_theme">
 
   <!-- 
-    - #HEADER
+    - #HEADER (Strict Navbar Sequence: Home -> About -> Blueprint -> Skill -> Service -> Contact)
   -->
   <header class="header" data-header>
     <div class="container">
@@ -90,7 +90,7 @@
       </h1>
 
       <div class="navbar-actions">
-        <!-- Theme Toggle Button (Moon to Sun Animated Switch) -->
+        <!-- Theme Toggle Button (Moon to Sun Royal Purple Animated Switch) -->
         <button class="theme-btn" aria-label="Change Theme" title="Toggle Light/Dark Theme" data-theme-btn>
           <span class="icon"></span>
         </button>
@@ -103,26 +103,23 @@
         <span class="three"></span>
       </button>
 
-      <!-- Navigation Drawer -->
+      <!-- Navigation Drawer (Strict Order) -->
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
           <li>
-            <a href="#top" class="navbar-link">Home.</a>
+            <a href="#home" class="navbar-link">Home.</a>
           </li>
           <li>
             <a href="#about" class="navbar-link">About.</a>
           </li>
           <li>
-            <a href="#services" class="navbar-link">Services.</a>
+            <a href="#blueprint" class="navbar-link">Blueprint.</a>
           </li>
           <li>
-            <a href="#skills" class="navbar-link">Skills.</a>
+            <a href="#skills" class="navbar-link">Skill.</a>
           </li>
           <li>
-            <a href="#portfolio" class="navbar-link">Portfolio.</a>
-          </li>
-          <li>
-            <a href="#articles" class="navbar-link">Articles.</a>
+            <a href="#services" class="navbar-link">Service.</a>
           </li>
           <li>
             <a href="#contact" class="navbar-link">Contact.</a>
@@ -137,7 +134,7 @@
     <article class="container">
 
       <!-- 
-        - #HERO SECTION
+        - #1. HOME SECTION (Hero + Stats)
       -->
       <section class="hero" id="home">
 
@@ -154,7 +151,7 @@
 
           <div class="btn-group">
             <a href="#contact" class="btn btn-primary">Get in Touch</a>
-            <a href="#portfolio" class="btn btn-secondary">View Case Studies</a>
+            <a href="#blueprint" class="btn btn-secondary">Execution Blueprint</a>
           </div>
         </div>
 
@@ -187,12 +184,12 @@
         </ul>
 
         <!-- Vertical Scroll Down Indicator (Desktop) -->
-        <a href="#stats" class="scroll-down">Scroll</a>
+        <a href="#about" class="scroll-down">Scroll</a>
 
       </section>
 
       <!-- 
-        - #STATS SECTION
+        - #STATS COUNTER BAR
       -->
       <section class="stats" id="stats">
         <ul class="stats-list">
@@ -210,7 +207,7 @@
           </li>
 
           <li>
-            <a href="#portfolio" class="stats-card">
+            <a href="#blueprint" class="stats-card">
               <div class="card-icon">
                 <i class="fa-solid fa-rocket"></i>
               </div>
@@ -237,7 +234,7 @@
       </section>
 
       <!-- 
-        - #ABOUT SECTION
+        - #2. ABOUT SECTION
       -->
       <section class="about" id="about">
 
@@ -246,7 +243,7 @@
         </figure>
 
         <div class="about-content section-content">
-          <p class="section-subtitle">About Me</p>
+          <span class="section-subtitle">About Me</span>
           <h2 class="h3 section-title">Where Financial Acumen Meets Digital Execution</h2>
           <p class="section-text">
             My name is <strong>Md Kazi Abdur Rahim Emon</strong>. Over the past two years, I have established myself as an independent digital marketing consultant and growth strategist based in Dhaka, Bangladesh, executing high-converting campaigns across retail, service businesses, and emerging e-commerce brands.
@@ -264,12 +261,51 @@
       </section>
 
       <!-- 
-        - #SKILLS & TOOLS SECTION
+        - #3. BLUEPRINT SECTION (Action Plan)
+      -->
+      <section class="blueprint" id="blueprint">
+        <div class="section-content">
+          <span class="section-subtitle">Action Plan</span>
+          <h2 class="h3 section-title">Strategic Execution Blueprint</h2>
+          <p class="section-text">
+            A transparent four-phase roadmap that transforms marketing outlays into reliable profit-generating operations.
+          </p>
+        </div>
+
+        <div class="blueprint-list">
+          <div class="blueprint-card">
+            <span class="phase-tag">Phase 01</span>
+            <h3 class="card-title">Discovery & Strategy</h3>
+            <p class="card-text">Business goal alignment, customer persona mapping, competitor benchmarking, and commercial viability checks.</p>
+          </div>
+
+          <div class="blueprint-card">
+            <span class="phase-tag">Phase 02</span>
+            <h3 class="card-title">Creative & Asset Dev</h3>
+            <p class="card-text">High-impact copywriting and professional social graphics designed via Canva with strict brand guidelines.</p>
+          </div>
+
+          <div class="blueprint-card">
+            <span class="phase-tag">Phase 03</span>
+            <h3 class="card-title">Campaign Deployment</h3>
+            <p class="card-text">Launching structured Meta & Google ad funnels with server-side Pixel and telemetry tracking verification.</p>
+          </div>
+
+          <div class="blueprint-card">
+            <span class="phase-tag">Phase 04</span>
+            <h3 class="card-title">Optimization & Scale</h3>
+            <p class="card-text">Real-time performance monitoring, trimming wasted ad expenditure, and systematically scaling top performers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #4. SKILL SECTION (Appears before Service!)
       -->
       <section class="skills" id="skills">
 
         <div class="skills-content section-content">
-          <p class="section-subtitle">My Capabilities</p>
+          <span class="section-subtitle">My Capabilities</span>
           <h2 class="h3 section-title">Strategic Skills & Marketing Tool Stack</h2>
           <p class="section-text">
             I deploy battle-tested marketing frameworks, analytics platforms, and visual design tools engineered to convert traffic into long-term commercial revenue.
@@ -408,11 +444,11 @@
       </section>
 
       <!-- 
-        - #SERVICES SECTION
+        - #5. SERVICE SECTION (Appears after Skill!)
       -->
       <section class="services" id="services">
         <div class="section-content">
-          <p class="section-subtitle">Core Expertise</p>
+          <span class="section-subtitle">Core Expertise</span>
           <h2 class="h3 section-title">Professional Services Tailored to Scale</h2>
           <p class="section-text">
             Meticulously planned campaign management and strategic advisory engineered to eliminate ad waste and maximize return on ad spend (ROAS).
@@ -509,225 +545,11 @@
       </section>
 
       <!-- 
-        - #BLUEPRINT SECTION
-      -->
-      <section class="blueprint" id="blueprint">
-        <div class="section-content">
-          <p class="section-subtitle">Action Plan</p>
-          <h2 class="h3 section-title">Strategic Execution Blueprint</h2>
-          <p class="section-text">
-            A transparent four-phase roadmap that transforms marketing outlays into reliable profit-generating operations.
-          </p>
-        </div>
-
-        <div class="blueprint-list">
-          <div class="blueprint-card">
-            <div class="phase-tag">Phase 01</div>
-            <h3 class="card-title">Discovery & Strategy</h3>
-            <p class="card-text">Business goal alignment, customer persona mapping, competitor benchmarking, and commercial viability checks.</p>
-          </div>
-
-          <div class="blueprint-card">
-            <div class="phase-tag">Phase 02</div>
-            <h3 class="card-title">Creative & Asset Dev</h3>
-            <p class="card-text">High-impact copywriting and professional social graphics designed via Canva with strict brand guidelines.</p>
-          </div>
-
-          <div class="blueprint-card">
-            <div class="phase-tag">Phase 03</div>
-            <h3 class="card-title">Campaign Deployment</h3>
-            <p class="card-text">Launching structured Meta & Google ad funnels with server-side Pixel and telemetry tracking verification.</p>
-          </div>
-
-          <div class="blueprint-card">
-            <div class="phase-tag">Phase 04</div>
-            <h3 class="card-title">Optimization & Scale</h3>
-            <p class="card-text">Real-time performance monitoring, trimming wasted ad expenditure, and systematically scaling top performers.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 
-        - #PORTFOLIO SECTION
-      -->
-      <section class="project" id="portfolio">
-        <div class="section-content">
-          <p class="section-subtitle">Case Studies</p>
-          <h2 class="h3 section-title">Proven Projects That Deliver Real Returns</h2>
-          <p class="section-text">
-            Explore recent advertising campaigns and strategic operations executed for e-commerce, consumer brands, and local retail businesses.
-          </p>
-        </div>
-
-        <ul class="project-list">
-
-          <!-- Project 1 -->
-          <li>
-            <div class="project-card" onclick="openProjectModal(1)">
-              <figure class="card-banner">
-                <img src="images/article-scaling.jpg" alt="E-Commerce ROAS Scale">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">E-Commerce ROAS Scale</h3>
-                <span class="publish-date">August 2026</span>
-              </div>
-            </div>
-          </li>
-
-          <!-- Project 2 -->
-          <li>
-            <div class="project-card" onclick="openProjectModal(2)">
-              <figure class="card-banner">
-                <img src="images/article-platform.jpg" alt="Visual Brand Identity & Canva Kit">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Canva Brand Identity Kit</h3>
-                <span class="publish-date">July 2026</span>
-              </div>
-            </div>
-          </li>
-
-          <!-- Project 3 -->
-          <li>
-            <div class="project-card" onclick="openProjectModal(3)">
-              <figure class="card-banner">
-                <img src="images/article-conversion.jpg" alt="Google Search Lead Acquisition">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Google Search Lead Funnel</h3>
-                <span class="publish-date">June 2026</span>
-              </div>
-            </div>
-          </li>
-
-          <!-- Project 4 -->
-          <li>
-            <div class="project-card" onclick="openProjectModal(4)">
-              <figure class="card-banner">
-                <img src="images/og-image.jpg" alt="Social Media Community Architecture">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Social Community Growth</h3>
-                <span class="publish-date">May 2026</span>
-              </div>
-            </div>
-          </li>
-
-          <!-- Project 5 -->
-          <li>
-            <div class="project-card" onclick="openProjectModal(5)">
-              <figure class="card-banner">
-                <img src="images/profile.jpg" alt="Unit Economics & Profit Optimization">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Unit Economics Audit</h3>
-                <span class="publish-date">April 2026</span>
-              </div>
-            </div>
-          </li>
-
-          <!-- Project 6 -->
-          <li>
-            <div class="project-card" onclick="openProjectModal(6)">
-              <figure class="card-banner">
-                <img src="images/article-scaling.jpg" alt="Local Omnichannel Campaign">
-              </figure>
-              <div class="card-content">
-                <h3 class="h4 card-title">Local Retail Traffic Engine</h3>
-                <span class="publish-date">March 2026</span>
-              </div>
-            </div>
-          </li>
-
-        </ul>
-      </section>
-
-      <!-- 
-        - #ARTICLES SECTION
-      -->
-      <section class="articles" id="articles">
-        <div class="section-content">
-          <p class="section-subtitle">Insights & Articles</p>
-          <h2 class="h3 section-title">In-Depth Marketing & Financial Perspectives</h2>
-          <p class="section-text">
-            Original articles on campaign design, visual authority, and applying financial unit economics to modern digital marketing.
-          </p>
-        </div>
-
-        <div class="articles-list">
-
-          <!-- Article 1 -->
-          <div class="article-card">
-            <figure class="card-banner">
-              <img src="images/article-scaling.jpg" alt="Why Most Facebook Ad Budgets Fail">
-            </figure>
-            <div class="card-body">
-              <div class="article-meta">
-                <span class="category">Paid Ads</span>
-                <span>•</span>
-                <span>6 min read</span>
-              </div>
-              <h3 class="card-title">Why Most Facebook Ad Budgets Fail (And How Strategy Fixes It)</h3>
-              <p class="card-excerpt">
-                Media buyers often blame the algorithm or rising costs when campaigns flounder. Learn how strategic positioning and funnel engineering rescue struggling ad accounts.
-              </p>
-              <button onclick="openArticleModal(1)" class="read-more-btn">
-                Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
-              </button>
-            </div>
-          </div>
-
-          <!-- Article 2 -->
-          <div class="article-card">
-            <figure class="card-banner">
-              <img src="images/article-platform.jpg" alt="Visual Consistency in Social Media">
-            </figure>
-            <div class="card-body">
-              <div class="article-meta">
-                <span class="category">Visual Branding</span>
-                <span>•</span>
-                <span>5 min read</span>
-              </div>
-              <h3 class="card-title">The Power of Visual Consistency in Social Media Branding</h3>
-              <p class="card-excerpt">
-                In a crowded feed, visual incoherence costs customer trust. Discover how creating unified visual brand kits with Canva elevates brand authority and boosts conversion.
-              </p>
-              <button onclick="openArticleModal(2)" class="read-more-btn">
-                Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
-              </button>
-            </div>
-          </div>
-
-          <!-- Article 3 -->
-          <div class="article-card">
-            <figure class="card-banner">
-              <img src="images/article-conversion.jpg" alt="Accounting Mindset in Marketing">
-            </figure>
-            <div class="card-body">
-              <div class="article-meta">
-                <span class="category">Strategic Finance</span>
-                <span>•</span>
-                <span>7 min read</span>
-              </div>
-              <h3 class="card-title">How an Accounting Mindset Can Transform Marketing Strategy</h3>
-              <p class="card-excerpt">
-                Marketing without financial literacy is merely creative guesswork. Learn how applying margin analysis and unit economics turns ad spend into predictable commercial profit.
-              </p>
-              <button onclick="openArticleModal(3)" class="read-more-btn">
-                Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- 
         - #FAQ ACCORDION
       -->
       <section class="faq" id="faq">
         <div class="section-content">
-          <p class="section-subtitle">FAQ</p>
+          <span class="section-subtitle">FAQ</span>
           <h2 class="h3 section-title">Frequently Asked Questions</h2>
           <p class="section-text">
             Clear, transparent answers about campaign frameworks, design assets, and commercial growth advisory.
@@ -784,12 +606,12 @@
       </section>
 
       <!-- 
-        - #CONTACT SECTION
+        - #6. CONTACT SECTION
       -->
       <section class="contact" id="contact">
 
         <div class="contact-content section-content">
-          <p class="section-subtitle">Contact</p>
+          <span class="section-subtitle">Get in Touch</span>
           <h2 class="h3 section-title">Have a Project? Let's Build Something Remarkable</h2>
           <p class="section-text">
             Get in touch and let me know how I can help scale your business. Fill out the form or connect directly through WhatsApp.
@@ -926,13 +748,13 @@
   </a>
 
   <!-- 
-    - #UNIVERSAL MODAL
+    - #UNIVERSAL MODAL (Service Overviews)
   -->
   <div class="modal-overlay" id="universalModal">
     <div class="modal-content">
       <button class="modal-close-btn" onclick="closeModal()" title="Close Modal">✕</button>
       <div style="margin-bottom: 12px;">
-        <span id="modalSubtitle" style="color: var(--raw-seinna); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--ff-poppins);"></span>
+        <span id="modalSubtitle" style="color: var(--royal-purple); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--ff-poppins);"></span>
         <h2 id="modalTitle" style="font-size: 1.5rem; margin-top: 4px; line-height: 1.3;"></h2>
       </div>
       <div id="modalContentArea" class="modal-body"></div>
