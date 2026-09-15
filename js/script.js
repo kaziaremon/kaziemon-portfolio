@@ -323,7 +323,7 @@ if (contactForm) {
     if (confirmation) {
       window.open(`https://wa.me/8801560066374?text=${whatsappMessage}`, "_blank");
     } else {
-      window.location.href = `mailto:info@kaziemon.online?subject=Portfolio Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Phone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+      window.location.href = `mailto:info@kaziemon.online?subject=Consulting Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Phone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
     }
     contactForm.reset();
   });
