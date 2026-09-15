@@ -259,17 +259,13 @@ body.active { overflow: hidden; }
 .section-subtitle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   color: var(--royal-purple);
-  background: var(--royal-purple-bg);
-  border: 1px solid var(--royal-purple-border);
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
   font-size: var(--fs-7);
   font-weight: 700;
   font-family: var(--ff-poppins);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   margin-bottom: 14px;
   width: fit-content;
 }
@@ -277,11 +273,12 @@ body.active { overflow: hidden; }
 .section-subtitle::before {
   content: "";
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--royal-purple);
-  box-shadow: 0 0 8px var(--royal-purple);
+  box-shadow: 0 0 10px var(--royal-purple), 0 0 20px var(--royal-purple-glow);
+  flex-shrink: 0;
 }
 
 .section-title {
@@ -576,16 +573,23 @@ body.light_theme .navbar-link.active {
   align-items: center;
   gap: 8px;
   color: var(--royal-purple);
-  background: var(--royal-purple-bg);
-  border: 1px solid var(--royal-purple-border);
-  font-size: var(--fs-6);
-  font-weight: 600;
+  font-size: var(--fs-7);
+  font-weight: 700;
   font-family: var(--ff-poppins);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding: 6px 16px;
-  border-radius: var(--radius-pill);
-  margin-bottom: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.hero-badge::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--royal-purple);
+  box-shadow: 0 0 10px var(--royal-purple), 0 0 20px var(--royal-purple-glow);
+  flex-shrink: 0;
 }
 
 .hero-title {
