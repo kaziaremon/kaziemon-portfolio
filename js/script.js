@@ -441,3 +441,23 @@ if (contactForm) {
   });
 }
 
+/**
+ * Auto-check and fix country flag rendering across all views
+ */
+(function() {
+  const selectorElement = document.querySelector('.country-select, #country-code, select[name="country_code"]');
+  const targetPattern = /[\u{1F1E6}-\u{1F1FF}]{2}/u; // Regex to detect flag emojis
+
+  if (selectorElement && targetPattern.test(selectorElement.innerHTML)) {
+    console.log("Status: Country flag is already present. No changes needed.");
+  } else if (selectorElement) {
+    console.log("Status: Country flag missing. Updating elements to include flags...");
+    document.querySelectorAll('.country-select, #country-code, select[name="country_code"]').forEach(el => {
+      if (!targetPattern.test(el.innerHTML)) {
+        el.innerHTML = el.innerHTML.replace(/(\+\d+)/g, '🇧🇩 $1');
+      }
+    });
+  }
+})();
+
+
