@@ -51,10 +51,12 @@ if (navToggleBtn && navbar) {
 /**
  * ScrollSpy: Highlight active navbar item with frosted-glass pill as user scrolls
  */
-const scrollSections = document.querySelectorAll("section[id]");
+const scrollNavSections = document.querySelectorAll(
+  "section#home, section#about, section#blueprint, section#skills, section#services, section#contact"
+);
 function updateActiveNavLinkOnScroll() {
   const scrollPos = window.scrollY + 200;
-  scrollSections.forEach((section) => {
+  scrollNavSections.forEach((section) => {
     const top = section.offsetTop;
     const height = section.offsetHeight;
     const id = section.getAttribute("id");
@@ -338,35 +340,36 @@ if (contactForm) {
     }
     const message = document.getElementById("message")?.value.trim() || "";
 
-    const showWarning = (msg) => {
+    const showNotification = (msg, isError = true) => {
       let statusMsg = document.getElementById("formStatusMsg");
       if (!statusMsg) {
         statusMsg = document.createElement("div");
         statusMsg.id = "formStatusMsg";
         contactForm.appendChild(statusMsg);
       }
-      statusMsg.style.cssText = "display:block; margin-top:16px; padding:12px 18px; border-radius:10px; background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#fca5a5; font-weight:500; text-align:center;";
-      statusMsg.innerHTML = `⚠️ ${msg}`;
+      statusMsg.className = `form-status-box ${isError ? 'error' : 'success'}`;
+      statusMsg.innerHTML = (isError ? '⚠️ ' : '✅ ') + msg;
+      statusMsg.style.display = "block";
     };
 
-    // ১. ইমেইল ভ্যালিডেশন চেক
+    // 1. Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      showWarning("Please provide a valid and complete Email Address (e.g., name@example.com).");
+      showNotification("Please provide a valid and complete Email Address (e.g., name@example.com).", true);
       return;
     }
 
-    // ২. ফোন নম্বর ও কান্ট্রি কোড চেক (যেমন +880 দিয়ে শুরু এবং নির্দিষ্ট ডিজিট)
+    // 2. Phone / WhatsApp validation
     const phoneRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
     if (phone && !phoneRegex.test(phone)) {
-      showWarning("Please enter a valid phone number for the selected country (e.g. 1700-000000).");
+      showNotification("Please enter a valid phone number with country code (e.g. +880 1700-000000).", true);
       return;
     }
 
-    // ৩. মেসেজ সর্বনিম্ন ৫ শব্দ (5 words) হতে হবে
+    // 3. Minimum 5 words for message
     const wordCount = message.split(/\s+/).filter(word => word.length > 0).length;
     if (wordCount < 5) {
-      showWarning("Your message is too short. Please provide at least 5 words detailing your project or goals.");
+      showNotification("Your message is too short. Please provide at least 5 words detailing your project or goals.", true);
       return;
     }
 
@@ -411,18 +414,11 @@ if (contactForm) {
       });
 
       if (response.ok) {
-        let statusMsg = document.getElementById("formStatusMsg");
-        if (!statusMsg) {
-          statusMsg = document.createElement("div");
-          statusMsg.id = "formStatusMsg";
-          contactForm.appendChild(statusMsg);
-        }
-        statusMsg.style.cssText = "display:block; margin-top:16px; padding:12px 18px; border-radius:10px; background:rgba(99, 102, 241, 0.15); border:1px solid rgba(99, 102, 241, 0.4); color:#a5b4fc; font-weight:500; text-align:center;";
-        statusMsg.innerHTML = "✅ Message sent successfully! Kazi Emon will get back to you shortly.";
-        
+        showNotification("Message sent successfully! Kazi Emon will get back to you shortly.", false);
         contactForm.reset();
 
         setTimeout(() => {
+          const statusMsg = document.getElementById("formStatusMsg");
           if (statusMsg) statusMsg.style.display = "none";
         }, 6000);
       } else {
@@ -430,7 +426,7 @@ if (contactForm) {
       }
     } catch (error) {
       console.error("Discord webhook error:", error);
-      showWarning("Could not send message. Please reach out directly via <a href='https://wa.me/8801560066374' target='_blank' style='color:#fff; text-decoration:underline;'>WhatsApp</a>.");
+      showNotification("Could not send message. Please reach out directly via <a href='https://wa.me/8801560066374' target='_blank' style='color:#fff; text-decoration:underline;'>WhatsApp</a>.", true);
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;

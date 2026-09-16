@@ -143,6 +143,11 @@ ion-icon { pointer-events: none; }
   outline-offset: 3px;
 }
 
+:focus-visible {
+  outline: 2px solid var(--royal-purple);
+  outline-offset: 3px;
+}
+
 ::selection {
   background: var(--royal-purple);
   color: var(--white);
@@ -1489,6 +1494,55 @@ textarea.input-field {
   color: var(--royal-purple-hover);
 }
 
+.input-field::placeholder {
+  color: var(--color-muted);
+  opacity: 0.75;
+}
+
+body.light_theme .input-field::placeholder {
+  color: #94a3b8;
+  opacity: 0.85;
+}
+
+/* Form Status Alerts */
+.form-status-box {
+  display: none;
+  margin-top: 18px;
+  padding: 13px 18px;
+  border-radius: var(--radius-8);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.5;
+  animation: fadeIn 0.35s ease-out;
+}
+
+.form-status-box.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+}
+
+.form-status-box.success {
+  display: block;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #a5b4fc;
+}
+
+body.light_theme .form-status-box.error {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.28);
+  color: #dc2626;
+}
+
+body.light_theme .form-status-box.success {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.28);
+  color: var(--royal-purple-dark);
+}
+
 .contact .btn-primary {
   max-width: unset;
   width: 100%;
@@ -1845,6 +1899,31 @@ textarea.input-field {
     font-size: 1.25rem;
     padding: 8px 22px;
   }
+
+  /* Universal Modal Mobile Optimization */
+  .modal-content {
+    padding: 24px 18px;
+    max-height: 90vh;
+  }
+
+  .modal-close-btn {
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .modal-actions .btn {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /**
@@ -2019,7 +2098,7 @@ textarea.input-field {
     display: block;
     position: absolute;
     bottom: 80px;
-    left: -25px;
+    left: -20px;
   }
 
   .hero-social-list::after {
@@ -2062,7 +2141,7 @@ textarea.input-field {
     display: block;
     position: absolute;
     bottom: 80px;
-    right: -25px;
+    right: -20px;
     color: var(--color-secondary);
     font-size: 0.9rem;
     font-weight: 600;
@@ -2168,11 +2247,11 @@ textarea.input-field {
   }
 
   .hero-social-list {
-    left: -55px;
+    left: -42px;
   }
 
   .scroll-down {
-    right: -55px;
+    right: -42px;
   }
 
   .about-matrix-card {
