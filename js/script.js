@@ -304,27 +304,90 @@ if (modalOverlay) {
 }
 
 /**
- * Contact Form Handler
+ * Contact Form Handler — Direct Discord Webhook Integration
  */
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
-  contactForm.addEventListener("submit", function (e) {
+  contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
-    const name = document.getElementById("name")?.value || "";
-    const email = document.getElementById("email")?.value || "";
-    const phone = document.getElementById("phone")?.value || "";
-    const message = document.getElementById("message")?.value || "";
 
-    const whatsappMessage = encodeURIComponent(
-      `Hello Kazi Emon,\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`
-    );
+    const name = document.getElementById("name")?.value.trim() || "";
+    const email = document.getElementById("email")?.value.trim() || "";
+    const phone = document.getElementById("phone")?.value.trim() || "Not provided";
+    const message = document.getElementById("message")?.value.trim() || "";
+    const submitBtn = contactForm.querySelector("button[type='submit']");
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : "Send Message";
 
-    const confirmation = confirm("Thank you! Would you like to send this message directly via WhatsApp for the fastest response?");
-    if (confirmation) {
-      window.open(`https://wa.me/8801560066374?text=${whatsappMessage}`, "_blank");
-    } else {
-      window.location.href = `mailto:info@kaziemon.online?subject=Consulting Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Phone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>Sending...</span>`;
     }
-    contactForm.reset();
+
+    // Discord Webhook Endpoint
+    const webhookURL = "https://discord.com/api/webhooks/1549570534067540070/_azQZfdCAzJyoT42pKIvsUfk9mtyxYJ-fc5Wx-_3ww-Td-18G0OUEhafQDDs8orkbdYV";
+
+    const discordPayload = {
+      username: "Kazi Emon Website Inquiries",
+      avatar_url: "https://kaziemon.online/images/profile.jpg",
+      embeds: [{
+        title: "📩 New Contact Form Message!",
+        color: 0x6366f1, // Royal Purple
+        fields: [
+          { name: "👤 Name", value: name || "Anonymous", inline: true },
+          { name: "✉️ Email", value: email || "Not provided", inline: true },
+          { name: "📞 Phone / WhatsApp", value: phone, inline: true },
+          { name: "💬 Message", value: message || "No message content", inline: false }
+        ],
+        footer: {
+          text: "kaziemon.online • Live Lead Notification"
+        },
+        timestamp: new Date().toISOString()
+      }]
+    };
+
+    try {
+      const response = await fetch(webhookURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(discordPayload)
+      });
+
+      if (response.ok) {
+        let statusMsg = document.getElementById("formStatusMsg");
+        if (!statusMsg) {
+          statusMsg = document.createElement("div");
+          statusMsg.id = "formStatusMsg";
+          contactForm.appendChild(statusMsg);
+        }
+        statusMsg.style.cssText = "display:block; margin-top:16px; padding:12px 18px; border-radius:10px; background:rgba(99, 102, 241, 0.15); border:1px solid rgba(99, 102, 241, 0.4); color:#a5b4fc; font-weight:500; text-align:center;";
+        statusMsg.innerHTML = "✅ Message sent successfully! Kazi Emon will get back to you shortly.";
+        
+        contactForm.reset();
+
+        setTimeout(() => {
+          if (statusMsg) statusMsg.style.display = "none";
+        }, 6000);
+      } else {
+        throw new Error("Discord webhook responded with status " + response.status);
+      }
+    } catch (error) {
+      console.error("Discord webhook error:", error);
+      let statusMsg = document.getElementById("formStatusMsg");
+      if (!statusMsg) {
+        statusMsg = document.createElement("div");
+        statusMsg.id = "formStatusMsg";
+        contactForm.appendChild(statusMsg);
+      }
+      statusMsg.style.cssText = "display:block; margin-top:16px; padding:12px 18px; border-radius:10px; background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#fca5a5; font-weight:500; text-align:center;";
+      statusMsg.innerHTML = "⚠️ Could not send directly. Please contact directly on <a href='https://wa.me/8801560066374' target='_blank' style='color:#fff; text-decoration:underline;'>WhatsApp</a>.";
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    }
   });
 }
+
