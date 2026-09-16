@@ -313,7 +313,12 @@ if (contactForm) {
 
     const name = document.getElementById("name")?.value.trim() || "";
     const email = document.getElementById("email")?.value.trim() || "";
-    const phone = document.getElementById("phone")?.value.trim() || "";
+    const countryCode = document.getElementById("country-code")?.value.trim() || "+880";
+    let rawPhone = document.getElementById("phone")?.value.trim() || "";
+    let phone = rawPhone;
+    if (rawPhone) {
+      phone = rawPhone.startsWith("+") ? rawPhone : `${countryCode} ${rawPhone}`;
+    }
     const message = document.getElementById("message")?.value.trim() || "";
 
     const showWarning = (msg) => {
@@ -337,7 +342,7 @@ if (contactForm) {
     // ২. ফোন নম্বর ও কান্ট্রি কোড চেক (যেমন +880 দিয়ে শুরু এবং নির্দিষ্ট ডিজিট)
     const phoneRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
     if (phone && !phoneRegex.test(phone)) {
-      showWarning("Please include your country code in the Phone / WhatsApp number (e.g., +880 1700-000000).");
+      showWarning("Please enter a valid phone number for the selected country (e.g. 1700-000000).");
       return;
     }
 
