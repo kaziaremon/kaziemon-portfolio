@@ -34,6 +34,7 @@ if (navToggleBtn && navbar) {
   navToggleBtn.addEventListener("click", function () {
     elemToggleFunc(navToggleBtn);
     elemToggleFunc(navbar);
+    if (header) header.classList.toggle("nav-open");
     elemToggleFunc(document.body);
   });
 
@@ -41,6 +42,7 @@ if (navToggleBtn && navbar) {
     link.addEventListener("click", function () {
       navToggleBtn.classList.remove("active");
       navbar.classList.remove("active");
+      if (header) header.classList.remove("nav-open");
       document.body.classList.remove("active");
       navbarLinks.forEach((l) => l.classList.remove("active"));
       this.classList.add("active");
