@@ -2186,8 +2186,9 @@ textarea.input-field {
 
 .phone-input-wrapper {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
+  width: 100%;
 }
 
 .country-select {
@@ -2195,15 +2196,19 @@ textarea.input-field {
   color: var(--color-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-8);
-  padding: 13px 12px;
-  font-family: var(--ff-roboto);
-  font-size: var(--fs-6);
+  padding: 13px 14px;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Twemoji Mozilla', var(--ff-roboto), sans-serif;
+  font-size: 0.88rem;
   font-weight: var(--fw-500);
   cursor: pointer;
   outline: none;
   transition: var(--transition-1);
-  max-width: 175px;
+  width: 220px;
+  min-width: 215px;
+  max-width: 240px;
   flex-shrink: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .country-select:focus {
@@ -2214,12 +2219,15 @@ textarea.input-field {
 .country-select option {
   background: var(--bg-secondary);
   color: var(--color-primary);
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', var(--ff-roboto), sans-serif;
+  padding: 8px 12px;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 580px) {
   .phone-input-wrapper {
     flex-direction: column;
     align-items: stretch;
+    gap: 10px;
   }
 
   .country-select {
@@ -2227,4 +2235,5 @@ textarea.input-field {
     width: 100%;
   }
 }
+
 
