@@ -1240,36 +1240,14 @@ body.active {
 }
 
 .skills-box.active .skills-list,
-.skills-box .tools-list {
-  display: none;
-}
-
-.skills-box .skills-list,
-.skills-box.active .tools-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  justify-items: center;
-  max-width: 480px;
-  margin-inline: auto;
-  list-style: none;
-  padding: 0;
-  animation: fadeIn 0.4s ease-out forwards;
-}
-
-.skills-list > li,
-.tools-list > li {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.skills-box:not(.active) .tools-list {
+  display: none !important;
 }
 
 .skill-card {
   position: relative;
   background: var(--bg-secondary);
   width: 100%;
-  max-width: 100px;
-  min-height: 94px;
   aspect-ratio: 1;
   display: flex;
   flex-direction: column;
@@ -1284,6 +1262,7 @@ body.active {
   transition: var(--transition-1);
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 
 .skill-card:is(:hover, :focus, .active) {
@@ -1362,13 +1341,77 @@ body.active {
   opacity: 1;
 }
 
-/* Mobile Screens (max-width: 768px): clean responsive wrap & suppress unanchored absolute tooltips */
-@media (max-width: 768px) {
-  .skills-box .skills-list,
-  .skills-box.active .tools-list {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    max-width: 420px;
+/* Mobile Screens (< 768px): Strict 3-3-2 Centered Layout */
+@media (max-width: 767px) {
+  .skills-box:not(.active) .skills-list,
+  .skills-box.active .tools-list,
+  .skills-grid, .tools-grid,
+  [class*="skills-container"], [class*="tools-container"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 12px !important;
+    box-sizing: border-box !important;
+    list-style: none !important;
+    margin-inline: auto !important;
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  /* Force 3 cards per row (approx 31% width each) -> 8 items = 3 + 3 + 2 centered */
+  .skills-list > li,
+  .tools-list > li,
+  .skills-grid > *,
+  .tools-grid > *,
+  [class*="skill-card"],
+  [class*="tool-card"] {
+    flex: 0 0 calc(33.333% - 8px) !important;
+    max-width: calc(33.333% - 8px) !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .skill-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 86px !important;
+    aspect-ratio: 1 !important;
+    padding: 10px 4px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+
+  /* Card typography & icon scaling so long labels like "Performance" fit smoothly */
+  .skills-list span, .tools-list span,
+  .skills-grid > * span, .tools-grid > * span,
+  .skills-grid > * p, .tools-grid > * p,
+  .skill-card .skill-name {
+    font-size: 0.72rem !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    margin-top: 4px !important;
+  }
+
+  .skills-list svg, .tools-list svg,
+  .skills-grid > * svg, .tools-grid > * svg,
+  .skills-grid > * img, .tools-grid > * img,
+  .skill-card ion-icon, .skill-card i {
+    font-size: 26px !important;
+    width: 26px !important;
+    height: 26px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .skill-card .tooltip {
@@ -1376,26 +1419,33 @@ body.active {
   }
 }
 
-@media (max-width: 420px) {
-  .skills-box .skills-list,
-  .skills-box.active .tools-list {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    max-width: 100%;
+/* Desktop (>= 768px): 4 per row */
+@media (min-width: 768px) {
+  .skills-box:not(.active) .skills-list,
+  .skills-box.active .tools-list,
+  .skills-grid, .tools-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+    justify-items: center !important;
+    max-width: 480px !important;
+    margin-inline: auto !important;
+    list-style: none !important;
+    padding: 0 !important;
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .skills-list > li,
+  .tools-list > li {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
   }
 
   .skill-card {
-    min-height: 82px;
-    padding: 6px 3px;
-  }
-
-  .skill-card ion-icon,
-  .skill-card i {
-    font-size: 24px;
-  }
-
-  .skill-card .skill-name {
-    font-size: 0.65rem;
+    max-width: 100px !important;
+    min-height: 94px !important;
+    padding: 10px 6px !important;
   }
 }
 
@@ -2049,11 +2099,6 @@ textarea.input-field {
   .skills-toggle .toggle-btn {
     flex: 1;
     text-align: center;
-  }
-
-  .skill-card {
-    width: 88px;
-    height: 88px;
   }
 
   .service-card {
