@@ -165,7 +165,10 @@ body {
   overflow-x: hidden;
 }
 
-body.active { overflow: hidden; }
+body.active {
+  overflow: hidden !important;
+  touch-action: none;
+}
 
 /* Custom Sleek Scrollbar */
 ::-webkit-scrollbar {
@@ -368,10 +371,10 @@ body.light_theme .section-subtitle {
   left: 0;
   width: 100%;
   transition: padding var(--transition-1);
-  z-index: 20;
+  z-index: 990;
 }
 
-/* Isolate backdrop-filter and backgrounds to pseudo-element to prevent creating a containing block for fixed descendants */
+/* Isolate backdrop-filter and backgrounds to pseudo-element */
 .header::before {
   content: "";
   position: absolute;
@@ -401,11 +404,28 @@ body.light_theme .header.active::before {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* Ensure backdrop-filter is completely disarmed when mobile menu is open */
-.header.nav-open,
+/* Full-Screen Solid Opaque Backdrop when mobile menu is open */
+.header.nav-open {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  background-color: #0B0F19 !important;
+  background: #0B0F19 !important;
+  z-index: 9999 !important;
+}
+
+body.light_theme .header.nav-open {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
 .header.nav-open::before {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  display: none !important;
 }
 
 .header .container {
@@ -417,7 +437,7 @@ body.light_theme .header.active::before {
 
 .logo {
   position: relative;
-  z-index: 25;
+  z-index: 10001;
 }
 
 .logo a {
@@ -441,7 +461,7 @@ body.light_theme .header.active::before {
   align-items: center;
   gap: 15px;
   margin-left: auto;
-  z-index: 25;
+  z-index: 10001;
 }
 
 .theme-btn {
@@ -480,7 +500,7 @@ body.light_theme .header.active::before {
   position: relative;
   transform: rotate(-55deg);
   transition: var(--transition-1);
-  z-index: 25;
+  z-index: 10001;
 }
 
 .nav-toggle-btn.active {
@@ -519,34 +539,40 @@ body.light_theme .header.active::before {
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  background: var(--bg-secondary);
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  background-color: #0B0F19 !important;
+  background: #0B0F19 !important;
   display: grid;
   place-items: center;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-100%);
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, visibility 0.45s ease;
-  z-index: 21;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0.4s ease;
+  z-index: 9999 !important;
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 85px 20px 45px;
 }
 
+body.light_theme .navbar {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
 .navbar.active {
-  top: 0;
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
+  top: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
 }
 
 .navbar-list > li {
@@ -2020,6 +2046,19 @@ body.light_theme .form-status-box.success {
 
   .header.active {
     padding-block: 15px;
+  }
+
+  .header.nav-open {
+    height: auto !important;
+    width: 100% !important;
+    bottom: auto !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    z-index: 990 !important;
+  }
+
+  .header.nav-open::before {
+    display: block !important;
   }
 
   .navbar-actions {

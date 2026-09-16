@@ -32,10 +32,10 @@ const navbarLinks = document.querySelectorAll(".navbar-link");
 
 if (navToggleBtn && navbar) {
   navToggleBtn.addEventListener("click", function () {
-    elemToggleFunc(navToggleBtn);
-    elemToggleFunc(navbar);
-    if (header) header.classList.toggle("nav-open");
-    elemToggleFunc(document.body);
+    const isActive = navToggleBtn.classList.toggle("active");
+    navbar.classList.toggle("active", isActive);
+    if (header) header.classList.toggle("nav-open", isActive);
+    document.body.classList.toggle("active", isActive);
   });
 
   navbarLinks.forEach((link) => {
