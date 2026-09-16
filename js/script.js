@@ -313,7 +313,7 @@ if (contactForm) {
 
     const name = document.getElementById("name")?.value.trim() || "";
     const email = document.getElementById("email")?.value.trim() || "";
-    const countryCode = document.getElementById("country-code")?.value.trim() || "+880";
+    const countryCode = document.getElementById("countryCode")?.value.trim() || document.getElementById("country-code")?.value.trim() || "+880";
     let rawPhone = document.getElementById("phone")?.value.trim() || "";
     let phone = rawPhone;
 

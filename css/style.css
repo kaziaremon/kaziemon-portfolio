@@ -2181,59 +2181,95 @@ textarea.input-field {
 }
 
 /*-----------------------------------*\
- * #PHONE COUNTRY CODE SELECT
+ * #PHONE / WHATSAPP SECTION
 \*-----------------------------------*/
 
-.phone-input-wrapper {
+.phone-input-container {
   display: flex;
   gap: 12px;
-  align-items: center;
   width: 100%;
 }
 
-.country-select {
-  background: var(--input-bg);
-  color: var(--color-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-8);
-  padding: 13px 14px;
+.custom-input {
+  height: 52px;
+  background-color: var(--input-bg, #13182b);
+  border: 1px solid var(--border-color, #2a3456);
+  border-radius: 10px;
+  color: var(--color-primary, #a5b4fc);
+  font-size: 14px;
   font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Twemoji Mozilla', var(--ff-roboto), sans-serif;
-  font-size: 0.88rem;
-  font-weight: var(--fw-500);
-  cursor: pointer;
+  padding: 0 16px;
   outline: none;
-  transition: var(--transition-1);
-  width: 220px;
-  min-width: 215px;
-  max-width: 240px;
-  flex-shrink: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
-.country-select:focus {
-  border-color: var(--royal-purple);
-  box-shadow: 0 0 0 3px var(--royal-purple-glow);
+.custom-input:focus {
+  border-color: var(--royal-purple, #6366f1);
+  box-shadow: 0 0 0 2px var(--royal-purple-glow, rgba(99, 102, 241, 0.2));
+}
+
+.country-select-wrapper {
+  flex: 0 0 42%;
+  min-width: 175px;
+}
+
+.country-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a5b4fc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  cursor: pointer;
+  padding-right: 36px;
 }
 
 .country-select option {
-  background: var(--bg-secondary);
-  color: var(--color-primary);
+  background: var(--bg-secondary, #111726);
+  color: var(--color-primary, #a5b4fc);
   font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', var(--ff-roboto), sans-serif;
-  padding: 8px 12px;
+  padding: 10px 14px;
+}
+
+.phone-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.phone-icon {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  color: var(--royal-purple, #818cf8);
+  pointer-events: none;
+}
+
+.phone-number-input {
+  width: 100%;
+  padding-left: 48px;
+}
+
+.phone-number-input::placeholder {
+  color: var(--color-muted, #4b5563);
 }
 
 @media (max-width: 580px) {
-  .phone-input-wrapper {
+  .phone-input-container {
     flex-direction: column;
-    align-items: stretch;
     gap: 10px;
   }
 
-  .country-select {
-    max-width: 100%;
+  .country-select-wrapper {
+    flex: 1 1 100%;
     width: 100%;
   }
 }
+
 
 

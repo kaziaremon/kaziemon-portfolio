@@ -773,30 +773,37 @@
 
           <div class="form-wrapper">
             <label for="phone" class="form-label">Phone / WhatsApp</label>
-            <div class="phone-input-wrapper">
-              <select id="country-code" name="country_code" class="country-select" aria-label="Select Country Code">
-                <option value="+880" selected>🇧🇩 +880 (Bangladesh)</option>
-                <option value="+1">🇺🇸 +1 (USA / Canada)</option>
-                <option value="+44">🇬🇧 +44 (UK)</option>
-                <option value="+966">🇸🇦 +966 (Saudi Arabia)</option>
-                <option value="+971">🇦🇪 +971 (UAE)</option>
-                <option value="+91">🇮🇳 +91 (India)</option>
-                <option value="+65">🇸🇬 +65 (Singapore)</option>
-                <option value="+60">🇲🇾 +60 (Malaysia)</option>
-                <option value="+61">🇦🇺 +61 (Australia)</option>
-                <option value="+49">🇩🇪 +49 (Germany)</option>
-                <option value="+33">🇫🇷 +33 (France)</option>
-                <option value="+81">🇯🇵 +81 (Japan)</option>
-                <option value="+86">🇨🇳 +86 (China)</option>
-                <option value="+92">🇵🇰 +92 (Pakistan)</option>
-                <option value="+974">🇶🇦 +974 (Qatar)</option>
-                <option value="+965">🇰🇼 +965 (Kuwait)</option>
-                <option value="+968">🇴🇲 +968 (Oman)</option>
-                <option value="+973">🇧🇭 +973 (Bahrain)</option>
-              </select>
-              <div class="input-wrapper" style="flex: 1;">
-                <input type="tel" name="phone" id="phone" required placeholder="1700-000000" class="input-field">
-                <ion-icon name="call-outline"></ion-icon>
+            <div class="phone-input-container">
+              <!-- Country Code Dropdown with Flag Support -->
+              <div class="country-select-wrapper">
+                <select id="countryCode" name="country_code" class="custom-input country-select" aria-label="Select Country Code">
+                  <option value="+880" data-flag="🇧🇩" selected>🇧🇩 +880 (Bangladesh)</option>
+                  <option value="+1" data-flag="🇺🇸">🇺🇸 +1 (USA / Canada)</option>
+                  <option value="+44" data-flag="🇬🇧">🇬🇧 +44 (UK)</option>
+                  <option value="+966" data-flag="🇸🇦">🇸🇦 +966 (Saudi Arabia)</option>
+                  <option value="+971" data-flag="🇦🇪">🇦🇪 +971 (UAE)</option>
+                  <option value="+91" data-flag="🇮🇳">🇮🇳 +91 (India)</option>
+                  <option value="+65" data-flag="🇸🇬">🇸🇬 +65 (Singapore)</option>
+                  <option value="+60" data-flag="🇲🇾">🇲🇾 +60 (Malaysia)</option>
+                  <option value="+61" data-flag="🇦🇺">🇦🇺 +61 (Australia)</option>
+                  <option value="+49" data-flag="🇩🇪">🇩🇪 +49 (Germany)</option>
+                  <option value="+33" data-flag="🇫🇷">🇫🇷 +33 (France)</option>
+                  <option value="+81" data-flag="🇯🇵">🇯🇵 +81 (Japan)</option>
+                  <option value="+86" data-flag="🇨🇳">🇨🇳 +86 (China)</option>
+                  <option value="+92" data-flag="🇵🇰">🇵🇰 +92 (Pakistan)</option>
+                  <option value="+974" data-flag="🇶🇦">🇶🇦 +974 (Qatar)</option>
+                  <option value="+965" data-flag="🇰🇼">🇰🇼 +965 (Kuwait)</option>
+                  <option value="+968" data-flag="🇴🇲">🇴🇲 +968 (Oman)</option>
+                  <option value="+973" data-flag="🇧🇭">🇧🇭 +973 (Bahrain)</option>
+                </select>
+              </div>
+
+              <!-- Phone Number Input -->
+              <div class="phone-input-wrapper">
+                <span class="phone-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </span>
+                <input type="tel" id="phone" name="phone" required class="custom-input phone-number-input" placeholder="1700-000000">
               </div>
             </div>
           </div>
