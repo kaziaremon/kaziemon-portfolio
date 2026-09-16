@@ -411,9 +411,12 @@ body.light_theme .header.active::before {
   left: 0 !important;
   right: 0 !important;
   bottom: 0 !important;
+  inset: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
   height: 100dvh !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
   background-color: #0B0F19 !important;
   background: #0B0F19 !important;
   z-index: 9999 !important;
@@ -424,8 +427,13 @@ body.light_theme .header.nav-open {
   background: #ffffff !important;
 }
 
-.header.nav-open::before {
+.header.nav-open::before,
+.header.active.nav-open::before {
   display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .header .container {
@@ -544,9 +552,12 @@ body.light_theme .header.nav-open {
   left: 0 !important;
   right: 0 !important;
   bottom: 0 !important;
+  inset: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
   height: 100dvh !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
   background-color: #0B0F19 !important;
   background: #0B0F19 !important;
   display: grid;
