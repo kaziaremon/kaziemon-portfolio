@@ -100,30 +100,37 @@ if (toggleBtnBox && toggleBtns.length && skillsBox) {
  */
 const themeToggleBtn = document.querySelector("[data-theme-btn]");
 
+function setTheme(isLight, save = true) {
+  if (isLight) {
+    document.body.classList.remove("dark_theme", "dark-mode");
+    document.body.classList.add("light_theme", "light-mode");
+    if (themeToggleBtn) themeToggleBtn.classList.add("active");
+    if (save) localStorage.setItem("theme", "light-mode");
+  } else {
+    document.body.classList.remove("light_theme", "light-mode");
+    document.body.classList.add("dark_theme", "dark-mode");
+    if (themeToggleBtn) themeToggleBtn.classList.remove("active");
+    if (save) localStorage.setItem("theme", "dark-mode");
+  }
+}
+
 if (themeToggleBtn) {
   themeToggleBtn.addEventListener("click", function () {
-    elemToggleFunc(themeToggleBtn);
-
-    if (themeToggleBtn.classList.contains("active")) {
-      document.body.classList.remove("dark_theme");
-      document.body.classList.add("light_theme");
-      localStorage.setItem("theme", "light_theme");
-    } else {
-      document.body.classList.add("dark_theme");
-      document.body.classList.remove("light_theme");
-      localStorage.setItem("theme", "dark_theme");
-    }
+    const isCurrentlyLight = document.body.classList.contains("light-mode") || 
+                             document.body.classList.contains("light_theme") || 
+                             themeToggleBtn.classList.contains("active");
+    setTheme(!isCurrentlyLight, true);
   });
 
   // Check saved theme from localStorage
-  if (localStorage.getItem("theme") === "light_theme") {
-    themeToggleBtn.classList.add("active");
-    document.body.classList.remove("dark_theme");
-    document.body.classList.add("light_theme");
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light-mode" || savedTheme === "light_theme" || savedTheme === "light") {
+    setTheme(true, false);
+  } else if (savedTheme === "dark-mode" || savedTheme === "dark_theme" || savedTheme === "dark") {
+    setTheme(false, false);
   } else {
-    themeToggleBtn.classList.remove("active");
-    document.body.classList.remove("light_theme");
-    document.body.classList.add("dark_theme");
+    // Default dark theme
+    setTheme(false, false);
   }
 }
 

@@ -47,7 +47,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom CSS (Royal Purple Theme) -->
-  <link rel="stylesheet" href="css/style.css?v=2.3.1">
+  <link rel="stylesheet" href="css/style.css?v=2.4.0">
+
+  <!-- Immediate Theme Restore Script -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light-mode' || saved === 'light_theme' || saved === 'light') {
+        document.documentElement.classList.add('light-mode');
+      }
+    })();
+  </script>
 
   <!-- Structured Data (JSON-LD) for SEO: WebSite & Person -->
   <script type="application/ld+json">
@@ -94,7 +104,7 @@
   </script>
 </head>
 
-<body id="top" class="dark_theme">
+<body id="top" class="dark_theme dark-mode">
 
   <!-- 
     - #HEADER (Strict Navbar Sequence: Home -> About -> Blueprint -> Skill -> Service -> Contact)
@@ -840,7 +850,7 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <!-- Custom JavaScript -->
-  <script src="js/script.js?v=2.3.1"></script>
+  <script src="js/script.js?v=2.4.0"></script>
 
 </body>
 
