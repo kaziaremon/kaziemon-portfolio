@@ -316,8 +316,26 @@ if (contactForm) {
     const countryCode = document.getElementById("country-code")?.value.trim() || "+880";
     let rawPhone = document.getElementById("phone")?.value.trim() || "";
     let phone = rawPhone;
+
     if (rawPhone) {
-      phone = rawPhone.startsWith("+") ? rawPhone : `${countryCode} ${rawPhone}`;
+      if (rawPhone.startsWith("+")) {
+        phone = rawPhone;
+      } else {
+        let numberPart = rawPhone;
+        if (numberPart.startsWith("0")) {
+          numberPart = numberPart.substring(1);
+        }
+        phone = `${countryCode} ${numberPart}`;
+      }
+
+      // Clean up redundant leading zero after +880 or any country code
+      if (phone.startsWith("+880")) {
+        let numberPart = phone.replace("+880", "").trim();
+        if (numberPart.startsWith("0")) {
+          numberPart = numberPart.substring(1);
+        }
+        phone = "+880 " + numberPart;
+      }
     }
     const message = document.getElementById("message")?.value.trim() || "";
 
