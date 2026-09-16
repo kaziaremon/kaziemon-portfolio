@@ -304,7 +304,7 @@ if (modalOverlay) {
 }
 
 /**
- * Contact Form Handler — Direct Discord Webhook Integration
+ * Contact Form Handler — Direct Discord Webhook Integration with Enhanced Validation
  */
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
@@ -313,8 +313,41 @@ if (contactForm) {
 
     const name = document.getElementById("name")?.value.trim() || "";
     const email = document.getElementById("email")?.value.trim() || "";
-    const phone = document.getElementById("phone")?.value.trim() || "Not provided";
+    const phone = document.getElementById("phone")?.value.trim() || "";
     const message = document.getElementById("message")?.value.trim() || "";
+
+    const showWarning = (msg) => {
+      let statusMsg = document.getElementById("formStatusMsg");
+      if (!statusMsg) {
+        statusMsg = document.createElement("div");
+        statusMsg.id = "formStatusMsg";
+        contactForm.appendChild(statusMsg);
+      }
+      statusMsg.style.cssText = "display:block; margin-top:16px; padding:12px 18px; border-radius:10px; background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#fca5a5; font-weight:500; text-align:center;";
+      statusMsg.innerHTML = `⚠️ ${msg}`;
+    };
+
+    // ১. ইমেইল ভ্যালিডেশন চেক
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showWarning("Please provide a valid and complete Email Address (e.g., name@example.com).");
+      return;
+    }
+
+    // ২. ফোন নম্বর ও কান্ট্রি কোড চেক (যেমন +880 দিয়ে শুরু এবং নির্দিষ্ট ডিজিট)
+    const phoneRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+    if (phone && !phoneRegex.test(phone)) {
+      showWarning("Please include your country code in the Phone / WhatsApp number (e.g., +880 1700-000000).");
+      return;
+    }
+
+    // ৩. মেসেজ সর্বনিম্ন ৫ শব্দ (5 words) হতে হবে
+    const wordCount = message.split(/\s+/).filter(word => word.length > 0).length;
+    if (wordCount < 5) {
+      showWarning("Your message is too short. Please provide at least 5 words detailing your project or goals.");
+      return;
+    }
+
     const submitBtn = contactForm.querySelector("button[type='submit']");
     const originalBtnText = submitBtn ? submitBtn.innerHTML : "Send Message";
 
@@ -326,20 +359,21 @@ if (contactForm) {
     // Discord Webhook Endpoint
     const webhookURL = "https://discord.com/api/webhooks/1549570534067540070/_azQZfdCAzJyoT42pKIvsUfk9mtyxYJ-fc5Wx-_3ww-Td-18G0OUEhafQDDs8orkbdYV";
 
+    // ৪. ডিসকর্ড এমবেড পে-লোড
     const discordPayload = {
-      username: "Kazi Emon Website Inquiries",
+      username: "Kazi Emon Portfolio Leads",
       avatar_url: "https://kaziemon.online/images/profile.jpg",
       embeds: [{
-        title: "📩 New Contact Form Message!",
-        color: 0x6366f1, // Royal Purple
+        title: "💼 New Portfolio Inquiry Received",
+        color: 8355839, // Royal Purple Theme Color
         fields: [
-          { name: "👤 Name", value: name || "Anonymous", inline: true },
-          { name: "✉️ Email", value: email || "Not provided", inline: true },
-          { name: "📞 Phone / WhatsApp", value: phone, inline: true },
-          { name: "💬 Message", value: message || "No message content", inline: false }
+          { name: "👤 Client Name", value: name || "Not provided", inline: false },
+          { name: "✉️ Email Address", value: email, inline: false },
+          { name: "📞 Phone / WhatsApp", value: phone || "Not provided", inline: false },
+          { name: "💬 Message Details", value: message, inline: false }
         ],
         footer: {
-          text: "kaziemon.online • Live Lead Notification"
+          text: "Kazi Emon Portfolio • Secure Contact System"
         },
         timestamp: new Date().toISOString()
       }]
@@ -374,14 +408,7 @@ if (contactForm) {
       }
     } catch (error) {
       console.error("Discord webhook error:", error);
-      let statusMsg = document.getElementById("formStatusMsg");
-      if (!statusMsg) {
-        statusMsg = document.createElement("div");
-        statusMsg.id = "formStatusMsg";
-        contactForm.appendChild(statusMsg);
-      }
-      statusMsg.style.cssText = "display:block; margin-top:16px; padding:12px 18px; border-radius:10px; background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#fca5a5; font-weight:500; text-align:center;";
-      statusMsg.innerHTML = "⚠️ Could not send directly. Please contact directly on <a href='https://wa.me/8801560066374' target='_blank' style='color:#fff; text-decoration:underline;'>WhatsApp</a>.";
+      showWarning("Could not send message. Please reach out directly via <a href='https://wa.me/8801560066374' target='_blank' style='color:#fff; text-decoration:underline;'>WhatsApp</a>.");
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
