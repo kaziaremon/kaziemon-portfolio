@@ -1345,73 +1345,71 @@ body.active {
 @media (max-width: 767px) {
   .skills-box:not(.active) .skills-list,
   .skills-box.active .tools-list,
-  .skills-grid, .tools-grid,
-  [class*="skills-container"], [class*="tools-container"] {
+  .skills-grid, .tools-grid, [class*="skills-container"], [class*="tools-grid"] {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
+    align-items: stretch !important;
     gap: 10px !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 8px 12px !important;
     box-sizing: border-box !important;
+    padding: 10px 8px !important;
     list-style: none !important;
     margin-inline: auto !important;
     animation: fadeIn 0.4s ease-out forwards;
   }
 
-  /* Force 3 cards per row (approx 31% width each) -> 8 items = 3 + 3 + 2 centered */
-  .skills-list > li,
-  .tools-list > li,
-  .skills-grid > *,
-  .tools-grid > *,
-  [class*="skill-card"],
-  [class*="tool-card"] {
-    flex: 0 0 calc(33.333% - 8px) !important;
-    max-width: calc(33.333% - 8px) !important;
-    min-width: 0 !important;
+  /* Force 3 cards per row -> 8 items = 3 + 3 + 2 centered */
+  .skills-grid > *, .tools-grid > *, .skills-list > *, .tools-list > * {
+    flex: 0 0 calc((100% - 24px) / 3) !important;
+    max-width: calc((100% - 24px) / 3) !important;
+    aspect-ratio: 1 / 1 !important;
     box-sizing: border-box !important;
     display: flex !important;
     justify-content: center !important;
+    align-items: stretch !important;
   }
 
-  .skill-card {
+  .skills-grid > * [class*="skill-card"],
+  .tools-grid > * [class*="skill-card"],
+  [class*="skill-card"],
+  [class*="tool-card"] {
     width: 100% !important;
+    height: 100% !important;
     max-width: 100% !important;
-    min-height: 86px !important;
-    aspect-ratio: 1 !important;
-    padding: 10px 4px !important;
+    aspect-ratio: 1 / 1 !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 6px !important;
+    padding: 8px !important;
   }
 
-  /* Card typography & icon scaling so long labels like "Performance" fit smoothly */
-  .skills-list span, .tools-list span,
-  .skills-grid > * span, .tools-grid > * span,
-  .skills-grid > * p, .tools-grid > * p,
-  .skill-card .skill-name {
-    font-size: 0.72rem !important;
-    line-height: 1.15 !important;
-    text-align: center !important;
-    word-break: break-word !important;
-    white-space: normal !important;
-    margin-top: 4px !important;
-  }
-
-  .skills-list svg, .tools-list svg,
-  .skills-grid > * svg, .tools-grid > * svg,
-  .skills-grid > * img, .tools-grid > * img,
-  .skill-card ion-icon, .skill-card i {
-    font-size: 26px !important;
-    width: 26px !important;
-    height: 26px !important;
+  .skills-grid > * svg, .tools-grid > * svg, .skills-list > * svg, .tools-list > * svg,
+  .skills-grid > * img, .tools-grid > * img, .skills-list > * img, .tools-list > * img,
+  .skills-grid > * i, .tools-grid > * i, .skills-list > * i, .tools-list > * i,
+  .skills-grid > * ion-icon, .tools-grid > * ion-icon, .skills-list > * ion-icon, .tools-list > * ion-icon,
+  .skill-card i, .skill-card ion-icon, .skill-card svg, .skill-card img {
+    font-size: clamp(22px, 5vw, 28px) !important;
+    width: clamp(22px, 5vw, 28px) !important;
+    height: clamp(22px, 5vw, 28px) !important;
+    margin-bottom: 6px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .skills-grid > * span, .tools-grid > * span, .skills-list > * span, .tools-list > * span,
+  .skills-grid > * p, .tools-grid > * p, .skills-list > * p, .tools-list > * p,
+  .skill-card .skill-name {
+    font-size: clamp(0.72rem, 2.4vw, 0.82rem) !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    word-break: break-word !important;
+    white-space: normal !important;
   }
 
   .skill-card .tooltip {
@@ -1436,7 +1434,9 @@ body.active {
   }
 
   .skills-list > li,
-  .tools-list > li {
+  .tools-list > li,
+  .skills-grid > li,
+  .tools-grid > li {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
