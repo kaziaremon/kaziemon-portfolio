@@ -313,7 +313,6 @@ if (contactForm) {
 
     const name = document.getElementById("name")?.value.trim() || "";
     const email = document.getElementById("email")?.value.trim() || "";
-    const countryCode = document.getElementById("countryCode")?.value.trim() || document.getElementById("country-code")?.value.trim() || "+880";
     let rawPhone = document.getElementById("phone")?.value.trim() || "";
     let phone = rawPhone;
 
@@ -325,10 +324,10 @@ if (contactForm) {
         if (numberPart.startsWith("0")) {
           numberPart = numberPart.substring(1);
         }
-        phone = `${countryCode} ${numberPart}`;
+        phone = `+880 ${numberPart}`;
       }
 
-      // Clean up redundant leading zero after +880 or any country code
+      // Clean up redundant leading zero after +880
       if (phone.startsWith("+880")) {
         let numberPart = phone.replace("+880", "").trim();
         if (numberPart.startsWith("0")) {
@@ -441,20 +440,6 @@ if (contactForm) {
   });
 }
 
-/**
- * Live Country Flag Updater on Dropdown Change
- */
-const countrySelectEl = document.getElementById("countryCode");
-const flagImgEl = document.getElementById("countryFlagImg");
-
-if (countrySelectEl && flagImgEl) {
-  countrySelectEl.addEventListener("change", function () {
-    const selectedOption = this.options[this.selectedIndex];
-    const code = selectedOption.getAttribute("data-code") || "bd";
-    flagImgEl.src = `https://flagcdn.com/24x18/${code.toLowerCase()}.png`;
-    flagImgEl.alt = selectedOption.text.split(" ")[0] || "Flag";
-  });
-}
 
 
 

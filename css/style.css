@@ -2181,77 +2181,49 @@ textarea.input-field {
 }
 
 /*-----------------------------------*\
- * #PHONE / WHATSAPP SECTION (Side-by-Side Row)
+ * #PHONE / WHATSAPP SECTION (Single Box)
 \*-----------------------------------*/
 
-.phone-input-row {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  gap: 12px;
-  align-items: center;
-  width: 100%;
-}
-
-.country-select-wrapper {
+.single-phone-input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  width: 230px;
-  min-width: 215px;
-  max-width: 240px;
-  flex: 0 0 auto;
+  width: 100%;
 }
 
-.country-flag-icon {
+.phone-icon {
   position: absolute;
-  left: 14px;
-  width: 22px;
-  height: 16px;
-  border-radius: 2px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  color: var(--royal-purple, #818cf8);
   pointer-events: none;
-  z-index: 2;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  object-fit: cover;
 }
 
-.country-select {
+.single-phone-input {
   width: 100%;
   height: 52px;
-  background-color: var(--input-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-8);
-  color: var(--color-primary);
-  font-family: "Twemoji Country Flags", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", var(--ff-roboto), sans-serif;
-  font-size: 0.88rem;
-  font-weight: var(--fw-500);
-  cursor: pointer;
+  background-color: var(--input-bg, #13182b);
+  border: 1px solid var(--border-color, #2a3456);
+  border-radius: 10px;
+  color: var(--color-primary, #a5b4fc);
+  font-family: var(--ff-roboto), sans-serif;
+  font-size: 14px;
+  padding: 0 16px 0 48px;
   outline: none;
-  padding: 0 30px 0 44px; /* Space for the flag icon on the left & chevron on the right */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a5b4fc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 14px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   box-sizing: border-box;
-  transition: var(--transition-1);
+  transition: all 0.3s ease;
 }
 
-.country-select:focus {
-  border-color: var(--royal-purple);
-  box-shadow: 0 0 0 2px var(--royal-purple-glow);
+.single-phone-input::placeholder {
+  color: var(--color-muted, #4b5563);
 }
 
-.country-select option {
-  background: var(--bg-secondary);
-  color: var(--color-primary);
-  font-family: "Twemoji Country Flags", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", var(--ff-roboto), sans-serif;
-  padding: 10px 14px;
+.single-phone-input:focus {
+  border-color: var(--royal-purple, #6366f1);
+  box-shadow: 0 0 0 2px var(--royal-purple-glow, rgba(99, 102, 241, 0.2));
 }
+
 
 
 
