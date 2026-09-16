@@ -44,34 +44,46 @@
   <!-- Custom CSS (Royal Purple Theme) -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Structured Data (JSON-LD) for SEO -->
+  <!-- Structured Data (JSON-LD) for SEO: WebSite & Person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Kazi Emon",
-    "alternateName": "Md Kazi Abdur Rahim Emon",
-    "url": "https://kaziemon.online/",
-    "image": "https://kaziemon.online/images/profile.jpg",
-    "jobTitle": "Digital Marketing Consultant & Platform Optimization Strategist",
-    "email": "info@kaziemon.online",
-    "telephone": "+8801560066374",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Dhaka",
-      "addressCountry": "BD"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/mdkaziabdurrahimemon/",
-      "https://www.facebook.com/md.kazi.abdur.rahim.emon"
-    ],
-    "knowsAbout": [
-      "Facebook Marketing and Ads",
-      "Instagram Marketing and Ads",
-      "Social Media Managing",
-      "Google Ads",
-      "Canva Poster Design",
-      "Strategic Business Planning"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://kaziemon.online/#website",
+        "name": "Kazi Emon",
+        "alternateName": ["Md Kazi Abdur Rahim Emon", "Kazi Emon Portfolio"],
+        "url": "https://kaziemon.online/"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://kaziemon.online/#person",
+        "name": "Kazi Emon",
+        "alternateName": "Md Kazi Abdur Rahim Emon",
+        "url": "https://kaziemon.online/",
+        "image": "https://kaziemon.online/images/profile.jpg",
+        "jobTitle": "Digital Marketing Consultant & Platform Optimization Strategist",
+        "email": "info@kaziemon.online",
+        "telephone": "+8801560066374",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dhaka",
+          "addressCountry": "BD"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/mdkaziabdurrahimemon/",
+          "https://www.facebook.com/md.kazi.abdur.rahim.emon"
+        ],
+        "knowsAbout": [
+          "Facebook Marketing and Ads",
+          "Instagram Marketing and Ads",
+          "Social Media Managing",
+          "Google Ads",
+          "Canva Poster Design",
+          "Strategic Business Planning"
+        ]
+      }
     ]
   }
   </script>
