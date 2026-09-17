@@ -21,7 +21,7 @@ window.addEventListener("scroll", function () {
     if (header) header.classList.remove("active");
     if (goTopBtn) goTopBtn.classList.remove("active");
   }
-});
+}, { passive: true });
 
 /**
  * Mobile Navbar toggle
@@ -36,6 +36,7 @@ if (navToggleBtn && navbar) {
     navbar.classList.toggle("active", isActive);
     if (header) header.classList.toggle("nav-open", isActive);
     document.body.classList.toggle("active", isActive);
+    navToggleBtn.setAttribute("aria-expanded", isActive ? "true" : "false");
   });
 
   navbarLinks.forEach((link) => {
@@ -44,6 +45,7 @@ if (navToggleBtn && navbar) {
       navbar.classList.remove("active");
       if (header) header.classList.remove("nav-open");
       document.body.classList.remove("active");
+      navToggleBtn.setAttribute("aria-expanded", "false");
       navbarLinks.forEach((l) => l.classList.remove("active"));
       this.classList.add("active");
     });
@@ -58,6 +60,16 @@ const scrollNavSections = document.querySelectorAll(
 );
 function updateActiveNavLinkOnScroll() {
   const scrollPos = window.scrollY + 200;
+  const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
+
+  if (isBottom) {
+    navbarLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#contact") link.classList.add("active");
+    });
+    return;
+  }
+
   scrollNavSections.forEach((section) => {
     const top = section.offsetTop;
     const height = section.offsetHeight;
@@ -74,7 +86,7 @@ function updateActiveNavLinkOnScroll() {
     }
   });
 }
-window.addEventListener("scroll", updateActiveNavLinkOnScroll);
+window.addEventListener("scroll", updateActiveNavLinkOnScroll, { passive: true });
 window.addEventListener("load", updateActiveNavLinkOnScroll);
 
 /**
@@ -143,9 +155,15 @@ function toggleFaq(index) {
 
   if (targetFaq) {
     const isCurrentlyActive = targetFaq.classList.contains("active");
-    allFaqs.forEach((faq) => faq.classList.remove("active"));
+    allFaqs.forEach((faq) => {
+      faq.classList.remove("active");
+      const btn = faq.querySelector(".faq-header");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+    });
     if (!isCurrentlyActive) {
       targetFaq.classList.add("active");
+      const targetBtn = targetFaq.querySelector(".faq-header");
+      if (targetBtn) targetBtn.setAttribute("aria-expanded", "true");
     }
   }
 }
@@ -270,8 +288,11 @@ const modalSubtitle = document.getElementById("modalSubtitle");
 const modalContentArea = document.getElementById("modalContentArea");
 const modalActionBtn = document.getElementById("modalActionBtn");
 
+let lastFocusedElement = null;
+
 function openModal(title, subtitle, contentHtml, actionLink = "https://wa.me/8801560066374", actionText = "Chat on WhatsApp") {
   if (!modalOverlay) return;
+  lastFocusedElement = document.activeElement;
   if (modalTitle) modalTitle.textContent = title;
   if (modalSubtitle) modalSubtitle.textContent = subtitle;
   if (modalContentArea) modalContentArea.innerHTML = contentHtml;
@@ -281,12 +302,18 @@ function openModal(title, subtitle, contentHtml, actionLink = "https://wa.me/880
   }
   modalOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
+
+  const closeBtn = modalOverlay.querySelector(".modal-close-btn");
+  if (closeBtn) closeBtn.focus();
 }
 
 function closeModal() {
   if (!modalOverlay) return;
   modalOverlay.classList.remove("active");
   document.body.style.overflow = "";
+  if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+    lastFocusedElement.focus();
+  }
 }
 window.closeModal = closeModal;
 
@@ -354,7 +381,11 @@ if (contactForm) {
       if (!statusMsg) {
         statusMsg = document.createElement("div");
         statusMsg.id = "formStatusMsg";
+        statusMsg.setAttribute("role", isError ? "alert" : "status");
+        statusMsg.setAttribute("aria-live", "polite");
         contactForm.appendChild(statusMsg);
+      } else {
+        statusMsg.setAttribute("role", isError ? "alert" : "status");
       }
       statusMsg.className = `form-status-box ${isError ? 'error' : 'success'}`;
       statusMsg.innerHTML = (isError ? '⚠️ ' : '✅ ') + msg;
@@ -369,7 +400,7 @@ if (contactForm) {
     }
 
     // 2. Phone / WhatsApp validation
-    const phoneRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+    const phoneRegex = /^\+(?:[0-9][ -]?){6,15}[0-9]$/;
     if (phone && !phoneRegex.test(phone)) {
       showNotification("Please enter a valid phone number with country code (e.g. +880 1700-000000).", true);
       return;
@@ -396,7 +427,7 @@ if (contactForm) {
     // ৪. ডিসকর্ড এমবেড পে-লোড
     const discordPayload = {
       username: "Kazi Emon Portfolio Leads",
-      avatar_url: "https://kaziemon.online/images/profile.jpg",
+      avatar_url: "https://kaziemon.online/images/profile.png",
       embeds: [{
         title: "💼 New Portfolio Inquiry Received",
         color: 8355839, // Royal Purple Theme Color

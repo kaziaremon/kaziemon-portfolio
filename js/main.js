@@ -700,7 +700,7 @@ function initArticleCardsAndModals() {
       </div>
 
       <div class="article-author-card">
-        <img src="images/profile.jpg" alt="Kazi Emon" class="author-avatar">
+        <img src="images/profile.png" alt="Kazi Emon" class="author-avatar">
         <div class="author-info">
           <h4>About the Author: Kazi Emon</h4>
           <p>

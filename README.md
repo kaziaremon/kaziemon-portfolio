@@ -47,7 +47,7 @@ g:\Kazi Emon Website\
 │   └── main.js              # Three.js 3D purple wave, card tilt, service & article modals
 ├── images/
 │   ├── favicon.svg          # Custom typography SVG logo & favicon in royal purple
-│   ├── profile.jpg          # Kazi Emon portrait photo
+│   ├── profile.png          # Kazi Emon portrait photo (transparent background)
 │   ├── article-conversion.jpg
 │   ├── article-platform.jpg
 │   ├── article-scaling.jpg

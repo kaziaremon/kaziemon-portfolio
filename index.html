@@ -7,7 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Kazi Emon | Digital Marketing Consultant & Strategist • Bangladesh</title>
   <meta name="description" content="Kazi Emon is a premier digital marketing consultant in Bangladesh with 2 years of experience and 12+ successful client projects. Specializing in Facebook Ads, Instagram Marketing, Google Ads, Canva Poster Design, and Strategic Business Planning.">
   <meta name="keywords" content="Kazi Emon, Digital Marketer Bangladesh, Facebook Ads Specialist Dhaka, Instagram Marketing, Social Media Manager, Google Ads, Canva Poster Design, Strategic Business Planning">
@@ -32,14 +32,14 @@
   <meta property="og:site_name" content="Kazi Emon | Digital Marketing Consultant & Strategist">
   <meta property="og:title" content="Kazi Emon | Digital Marketer & Strategist • Bangladesh">
   <meta property="og:description" content="2 years of proven experience and 12+ client projects delivered. Merging creative advertising campaigns with financial business discipline.">
-  <meta property="og:image" content="https://kaziemon.online/images/profile.jpg">
+  <meta property="og:image" content="https://kaziemon.online/images/profile.png">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://kaziemon.online/">
   <meta property="twitter:title" content="Kazi Emon | Digital Marketer & Strategist">
   <meta property="twitter:description" content="2 years of proven experience and 12+ client projects delivered. Merging creative advertising campaigns with financial business discipline.">
-  <meta property="twitter:image" content="https://kaziemon.online/images/profile.jpg">
+  <meta property="twitter:image" content="https://kaziemon.online/images/profile.png">
 
   <!-- Google Fonts Link (Poppins, Roboto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom CSS (Royal Purple Theme) -->
-  <link rel="stylesheet" href="css/style.css?v=3.2.0">
+  <link rel="stylesheet" href="css/style.css?v=3.3.0">
 
   <!-- Immediate Theme Restore Script -->
   <script>
@@ -80,7 +80,7 @@
         "name": "Kazi Emon",
         "alternateName": "Md Kazi Abdur Rahim Emon",
         "url": "https://kaziemon.online/",
-        "image": "https://kaziemon.online/images/profile.jpg",
+        "image": "https://kaziemon.online/images/profile.png",
         "jobTitle": "Digital Marketing Consultant & Platform Optimization Strategist",
         "email": "info@kaziemon.online",
         "telephone": "+8801560066374",
@@ -121,20 +121,20 @@
 
       <div class="navbar-actions">
         <!-- Theme Toggle Button (Moon to Sun Royal Purple Animated Switch) -->
-        <button class="theme-btn" aria-label="Change Theme" title="Toggle Light/Dark Theme" data-theme-btn>
+        <button type="button" class="theme-btn" aria-label="Change Theme" title="Toggle Light/Dark Theme" data-theme-btn>
           <span class="icon"></span>
         </button>
       </div>
 
       <!-- Hamburger Menu Toggle Button -->
-      <button class="nav-toggle-btn" aria-label="Toggle Menu" title="Toggle Menu" data-nav-toggle-btn>
+      <button type="button" class="nav-toggle-btn" aria-label="Toggle Menu" title="Toggle Menu" aria-expanded="false" aria-controls="navbar" data-nav-toggle-btn>
         <span class="one"></span>
         <span class="two"></span>
         <span class="three"></span>
       </button>
 
       <!-- Navigation Drawer (Strict Order) -->
-      <nav class="navbar" data-navbar>
+      <nav class="navbar" id="navbar" data-navbar>
         <ul class="navbar-list">
           <li>
             <a href="#home" class="navbar-link active">Home</a>
@@ -169,7 +169,7 @@
       <section class="hero" id="home">
 
         <figure class="hero-banner">
-          <img src="images/profile.jpg" alt="Kazi Emon - Digital Marketing Consultant & Strategist" class="profile-img">
+          <img src="images/profile.png" alt="Kazi Emon - Digital Marketing Consultant & Strategist" class="profile-img" width="768" height="1024" loading="eager" fetchpriority="high">
         </figure>
 
         <div class="hero-content">
@@ -188,25 +188,25 @@
         <!-- Vertical Hero Social Links (Desktop) -->
         <ul class="hero-social-list">
           <li>
-            <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+            <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="WhatsApp">
               <i class="fa-brands fa-whatsapp"></i>
               <div class="tooltip">WhatsApp</div>
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/mdkaziabdurrahimemon/" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+            <a href="https://www.linkedin.com/in/mdkaziabdurrahimemon/" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin-in"></i>
               <div class="tooltip">LinkedIn</div>
             </a>
           </li>
           <li>
-            <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+            <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="Facebook">
               <i class="fa-brands fa-facebook-f"></i>
               <div class="tooltip">Facebook</div>
             </a>
           </li>
           <li>
-            <a href="mailto:info@kaziemon.online" class="hero-social-link">
+            <a href="mailto:info@kaziemon.online" class="hero-social-link" aria-label="Email">
               <i class="fa-solid fa-envelope"></i>
               <div class="tooltip">Email</div>
             </a>
@@ -395,8 +395,8 @@
           </p>
 
           <div class="skills-toggle" data-toggle-box>
-            <button class="toggle-btn active" data-toggle-btn>Skills</button>
-            <button class="toggle-btn" data-toggle-btn>Tools</button>
+            <button type="button" class="toggle-btn active" data-toggle-btn>Skills</button>
+            <button type="button" class="toggle-btn" data-toggle-btn>Tools</button>
           </div>
         </div>
 
@@ -549,7 +549,7 @@
                 High-conversion ad campaigns, hyper-targeted audience segmentation, pixel tracking setup, creative testing frameworks, and performance scaling tailored to maximize return on ad spend (ROAS).
               </p>
             </div>
-            <button onclick="openServiceModal(1)" class="card-link">
+            <button type="button" onclick="openServiceModal(1)" class="card-link">
               Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
             </button>
           </div>
@@ -563,7 +563,7 @@
                 Visual-first promotional strategies, aesthetic brand storytelling, high-engagement Reels promotion, and targeted demographic targeting designed to turn passive scrollers into loyal customers.
               </p>
             </div>
-            <button onclick="openServiceModal(2)" class="card-link">
+            <button type="button" onclick="openServiceModal(2)" class="card-link">
               Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
             </button>
           </div>
@@ -577,7 +577,7 @@
                 Consistent brand positioning, strategic content calendar execution, community growth management, and proactive engagement to build a vibrant, authoritative online community around your business.
               </p>
             </div>
-            <button onclick="openServiceModal(3)" class="card-link">
+            <button type="button" onclick="openServiceModal(3)" class="card-link">
               Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
             </button>
           </div>
@@ -591,7 +591,7 @@
                 Intent-driven Search, Display, and Performance Max campaigns structured meticulously to capture high-intent buyer traffic right at the moment they are searching for your specific products or services.
               </p>
             </div>
-            <button onclick="openServiceModal(4)" class="card-link">
+            <button type="button" onclick="openServiceModal(4)" class="card-link">
               Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
             </button>
           </div>
@@ -605,7 +605,7 @@
                 Professional social media graphics, high-impact promotional posters, ad creatives, and visual assets designed via Canva with immaculate aesthetic standards to capture attention and drive conversions.
               </p>
             </div>
-            <button onclick="openServiceModal(5)" class="card-link">
+            <button type="button" onclick="openServiceModal(5)" class="card-link">
               Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
             </button>
           </div>
@@ -619,7 +619,7 @@
                 Leveraging financial acumen derived from an accounting background to formulate practical business growth frameworks, evaluate cost structures, and align marketing outlays with net profitability goals.
               </p>
             </div>
-            <button onclick="openServiceModal(6)" class="card-link">
+            <button type="button" onclick="openServiceModal(6)" class="card-link">
               Read Details <ion-icon name="arrow-forward-outline"></ion-icon>
             </button>
           </div>
@@ -643,7 +643,7 @@
 
           <!-- FAQ 1 -->
           <div class="faq-card active" id="faq-1">
-            <button class="faq-header" onclick="toggleFaq(1)">
+            <button type="button" class="faq-header" onclick="toggleFaq(1)" aria-expanded="true">
               <h3 class="h4">How do you structure Facebook and Instagram ad campaigns?</h3>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -654,7 +654,7 @@
 
           <!-- FAQ 2 -->
           <div class="faq-card" id="faq-2">
-            <button class="faq-header" onclick="toggleFaq(2)">
+            <button type="button" class="faq-header" onclick="toggleFaq(2)" aria-expanded="false">
               <h3 class="h4">Can you help design visual graphics for my brand?</h3>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -665,7 +665,7 @@
 
           <!-- FAQ 3 -->
           <div class="faq-card" id="faq-3">
-            <button class="faq-header" onclick="toggleFaq(3)">
+            <button type="button" class="faq-header" onclick="toggleFaq(3)" aria-expanded="false">
               <h3 class="h4">How does your strategic business planning service work?</h3>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -676,7 +676,7 @@
 
           <!-- FAQ 4 -->
           <div class="faq-card" id="faq-4">
-            <button class="faq-header" onclick="toggleFaq(4)">
+            <button type="button" class="faq-header" onclick="toggleFaq(4)" aria-expanded="false">
               <h3 class="h4">What is required to start working together?</h3>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
@@ -740,25 +740,25 @@
           <!-- Social Contact Links -->
           <ul class="contact-social-list">
             <li>
-              <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+              <a href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="WhatsApp">
                 <div class="tooltip">WhatsApp</div>
                 <i class="fa-brands fa-whatsapp"></i>
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/mdkaziabdurrahimemon/" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+              <a href="https://www.linkedin.com/in/mdkaziabdurrahimemon/" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="LinkedIn">
                 <div class="tooltip">LinkedIn</div>
                 <i class="fa-brands fa-linkedin-in"></i>
               </a>
             </li>
             <li>
-              <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+              <a href="https://www.facebook.com/md.kazi.abdur.rahim.emon" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="Facebook">
                 <div class="tooltip">Facebook</div>
                 <i class="fa-brands fa-facebook-f"></i>
               </a>
             </li>
             <li>
-              <a href="mailto:info@kaziemon.online" class="contact-social-link">
+              <a href="mailto:info@kaziemon.online" class="contact-social-link" aria-label="Email">
                 <div class="tooltip">Email</div>
                 <i class="fa-solid fa-envelope"></i>
               </a>
@@ -826,23 +826,23 @@
   <!-- 
     - #GO TO TOP BUTTON
   -->
-  <a href="#top" class="go-top" data-go-top title="Go to Top">
+  <a href="#top" class="go-top" data-go-top title="Go to Top" aria-label="Go to Top">
     <ion-icon name="arrow-up-outline"></ion-icon>
   </a>
 
   <!-- 
     - #UNIVERSAL MODAL (Service Overviews)
   -->
-  <div class="modal-overlay" id="universalModal">
+  <div class="modal-overlay" id="universalModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
-      <button class="modal-close-btn" onclick="closeModal()" title="Close Modal">✕</button>
+      <button type="button" class="modal-close-btn" onclick="closeModal()" title="Close Modal" aria-label="Close Modal">✕</button>
       <div style="margin-bottom: 12px;">
         <span id="modalSubtitle" style="color: var(--royal-purple); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--ff-poppins);"></span>
         <h2 id="modalTitle" style="font-size: 1.5rem; margin-top: 4px; line-height: 1.3;"></h2>
       </div>
       <div id="modalContentArea" class="modal-body"></div>
       <div class="modal-actions" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end; gap: 12px;">
-        <button class="btn btn-primary" onclick="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary" onclick="closeModal()">Close</button>
         <a id="modalActionBtn" href="https://wa.me/8801560066374" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Chat on WhatsApp</a>
       </div>
     </div>
@@ -853,7 +853,7 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <!-- Custom JavaScript -->
-  <script src="js/script.js?v=3.2.0"></script>
+  <script src="js/script.js?v=3.3.0"></script>
 
 </body>
 
