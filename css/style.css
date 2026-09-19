@@ -738,15 +738,20 @@ main {
 \*-----------------------------------*/
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 110px;
-  padding-bottom: 40px;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(2rem, 4vh, 3.5rem);
   position: relative;
   text-align: center;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--nav-height, 75px) + 0.5rem);
 }
 
 .hero-banner {
@@ -2425,8 +2430,10 @@ textarea.input-field {
 
   /* Hero Desktop */
   .hero {
-    min-height: 100vh;
-    padding-top: 80px;
+    min-height: auto;
+    height: auto;
+    padding-top: clamp(4rem, 8vh, 6rem);
+    padding-bottom: clamp(2rem, 4vh, 3.5rem);
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
@@ -2609,15 +2616,18 @@ textarea.input-field {
 \*-----------------------------------*/
 
 @media (min-width: 768px) {
-  /* 1. Fluid Container & Viewport Scaling */
+  /* 1. Fluid Container & Viewport Limits */
   main,
   .container,
   section {
-    width: min(92%, 1200px) !important;
+    width: 100% !important;
+    max-width: 1200px !important;
     margin-inline: auto !important;
+    padding-inline: clamp(1rem, 3vw, 2rem) !important;
+    box-sizing: border-box !important;
   }
 
-  /* 2. Navbar & Header Desktop Alignment */
+  /* 2. Sticky Header Clearance & Navbar Alignment */
   .nav-toggle-btn {
     display: none !important;
   }
@@ -2668,15 +2678,18 @@ textarea.input-field {
     flex-shrink: 0 !important;
   }
 
-  /* 3. Hero Two-Column Layout */
+  /* 3. Hero Dynamic Sizing (Eliminates Blank Gap) */
   .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: clamp(4rem, 8vh, 6rem) !important;
+    padding-bottom: clamp(2rem, 4vh, 3.5rem) !important;
     display: flex !important;
     flex-direction: row-reverse !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 32px !important;
+    gap: clamp(1.5rem, 3vw, 3rem) !important;
     text-align: left !important;
-    padding-top: 80px !important;
   }
 
   .hero-banner {
@@ -2688,7 +2701,8 @@ textarea.input-field {
 
   .hero-banner .profile-img {
     width: 100% !important;
-    height: 460px !important;
+    height: auto !important;
+    max-height: 480px !important;
     object-fit: cover !important;
   }
 
@@ -2702,11 +2716,11 @@ textarea.input-field {
     justify-content: flex-start !important;
   }
 
-  /* Core Two-Column Layouts */
+  /* Core Multi-Column & Flex Layouts */
   .about {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 36px !important;
+    gap: clamp(1.5rem, 3vw, 3rem) !important;
     align-items: center !important;
   }
 
@@ -2717,36 +2731,47 @@ textarea.input-field {
   .skills {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 36px !important;
+    gap: clamp(1.5rem, 3vw, 3rem) !important;
     align-items: center !important;
   }
 
   .contact {
-    display: grid !important;
-    grid-template-columns: 1fr 1.1fr !important;
-    gap: 36px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: clamp(1.5rem, 3vw, 2.5rem) !important;
     align-items: flex-start !important;
   }
 
-  /* 4. Cards & Badges Grid Distribution */
+  .contact-content {
+    flex: 1 1 320px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .contact-form {
+    flex: 1 1 360px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* 4. Fluid Grids & Card Auto-Wrapping */
   .stats-list {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.25rem !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: clamp(1rem, 2vw, 1.5rem) !important;
     width: 100% !important;
   }
 
   .blueprint-list {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1.25rem !important;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important;
+    gap: clamp(1rem, 2vw, 1.5rem) !important;
     width: 100% !important;
   }
 
   .services-list {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.25rem !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: clamp(1rem, 2vw, 1.5rem) !important;
     width: 100% !important;
   }
 
@@ -2756,7 +2781,7 @@ textarea.input-field {
   .tools-grid {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 14px !important;
+    gap: clamp(0.75rem, 1.5vw, 1rem) !important;
     max-width: 100% !important;
     width: 100% !important;
   }
@@ -2785,25 +2810,19 @@ textarea.input-field {
     grid-template-columns: repeat(4, 1fr) !important;
   }
 
-  .about,
-  .skills,
-  .contact,
-  .hero {
-    gap: 48px !important;
-  }
-
   .hero-banner {
     max-width: 420px !important;
   }
 
   .hero-banner .profile-img {
-    height: 500px !important;
+    max-height: 500px !important;
   }
 
   .hero-content {
     max-width: 620px !important;
   }
 }
+
 
 
 
