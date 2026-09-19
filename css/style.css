@@ -2604,6 +2604,171 @@ textarea.input-field {
   }
 }
 
+/*-----------------------------------*\
+ * #DESKTOP RESPONSIVE FIXES (>= 1024px)
+\*-----------------------------------*/
+
+@media (min-width: 1024px) {
+  /* 1. Fluid Container & Viewport Scaling */
+  main,
+  .container,
+  section {
+    width: min(90%, 1200px) !important;
+    margin-inline: auto !important;
+  }
+
+  /* 2. Navbar & Header Desktop Alignment */
+  .nav-toggle-btn {
+    display: none !important;
+  }
+
+  .header .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 24px !important;
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .navbar {
+    all: unset !important;
+    display: block !important;
+    margin-inline: auto !important;
+  }
+
+  .navbar-list {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .navbar-list > li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navbar-link {
+    transform: translateY(0) !important;
+    font-size: 0.95rem !important;
+    padding: 8px 18px !important;
+    white-space: nowrap !important;
+  }
+
+  .navbar-actions {
+    order: 2 !important;
+    margin-left: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 3. Hero Two-Column Flex/Grid Layout */
+  .hero {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 48px !important;
+    text-align: left !important;
+    min-height: 100vh !important;
+    padding-top: 90px !important;
+  }
+
+  .hero-banner {
+    flex: 1 1 42% !important;
+    max-width: 420px !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+
+  .hero-banner .profile-img {
+    width: 100% !important;
+    height: 500px !important;
+    object-fit: cover !important;
+  }
+
+  .hero-content {
+    flex: 1 1 54% !important;
+    max-width: 620px !important;
+    margin-inline: 0 !important;
+  }
+
+  .hero .btn-group {
+    justify-content: flex-start !important;
+  }
+
+  /* Core Two-Column Desktop Layouts */
+  .about {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 48px !important;
+    align-items: center !important;
+  }
+
+  .about-matrix-card {
+    margin-bottom: 0 !important;
+  }
+
+  .skills {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 48px !important;
+    align-items: center !important;
+  }
+
+  .contact {
+    display: grid !important;
+    grid-template-columns: 1fr 1.1fr !important;
+    gap: 48px !important;
+    align-items: flex-start !important;
+  }
+
+  /* 4. Cards & Badges Grid Distribution */
+  .stats-list {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  .blueprint-list {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  .services-list {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  .skills-box:not(.active) .skills-list,
+  .skills-box.active .tools-list,
+  .skills-grid,
+  .tools-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .skill-card {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+
 
 
 
