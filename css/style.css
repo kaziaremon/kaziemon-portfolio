@@ -464,8 +464,8 @@ main {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* Full-Screen Solid Opaque Backdrop when mobile menu is open (< 992px) */
-@media (max-width: 991px) {
+/* Full-Screen Solid Opaque Backdrop when mobile menu is open (< 768px) */
+@media (max-width: 767px) {
   .header.nav-open {
     position: fixed !important;
     top: 0 !important;
@@ -638,7 +638,7 @@ main {
   background: var(--royal-purple);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .navbar {
     position: fixed !important;
     top: 0 !important;
@@ -2605,15 +2605,15 @@ textarea.input-field {
 }
 
 /*-----------------------------------*\
- * #DESKTOP RESPONSIVE FIXES (>= 1024px)
+ * #DESKTOP & PHONE DESKTOP VIEW FIXES (>= 768px)
 \*-----------------------------------*/
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   /* 1. Fluid Container & Viewport Scaling */
   main,
   .container,
   section {
-    width: min(90%, 1200px) !important;
+    width: min(92%, 1200px) !important;
     margin-inline: auto !important;
   }
 
@@ -2626,7 +2626,7 @@ textarea.input-field {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 24px !important;
+    gap: 16px !important;
   }
 
   .logo {
@@ -2643,7 +2643,7 @@ textarea.input-field {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 8px !important;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -2657,8 +2657,8 @@ textarea.input-field {
 
   .navbar-link {
     transform: translateY(0) !important;
-    font-size: 0.95rem !important;
-    padding: 8px 18px !important;
+    font-size: 0.88rem !important;
+    padding: 7px 14px !important;
     white-space: nowrap !important;
   }
 
@@ -2668,34 +2668,33 @@ textarea.input-field {
     flex-shrink: 0 !important;
   }
 
-  /* 3. Hero Two-Column Flex/Grid Layout */
+  /* 3. Hero Two-Column Layout */
   .hero {
     display: flex !important;
     flex-direction: row-reverse !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 48px !important;
+    gap: 32px !important;
     text-align: left !important;
-    min-height: 100vh !important;
-    padding-top: 90px !important;
+    padding-top: 80px !important;
   }
 
   .hero-banner {
-    flex: 1 1 42% !important;
-    max-width: 420px !important;
+    flex: 1 1 40% !important;
+    max-width: 380px !important;
     width: 100% !important;
     margin-bottom: 0 !important;
   }
 
   .hero-banner .profile-img {
     width: 100% !important;
-    height: 500px !important;
+    height: 460px !important;
     object-fit: cover !important;
   }
 
   .hero-content {
-    flex: 1 1 54% !important;
-    max-width: 620px !important;
+    flex: 1 1 56% !important;
+    max-width: 580px !important;
     margin-inline: 0 !important;
   }
 
@@ -2703,11 +2702,11 @@ textarea.input-field {
     justify-content: flex-start !important;
   }
 
-  /* Core Two-Column Desktop Layouts */
+  /* Core Two-Column Layouts */
   .about {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 48px !important;
+    gap: 36px !important;
     align-items: center !important;
   }
 
@@ -2718,14 +2717,14 @@ textarea.input-field {
   .skills {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 48px !important;
+    gap: 36px !important;
     align-items: center !important;
   }
 
   .contact {
     display: grid !important;
     grid-template-columns: 1fr 1.1fr !important;
-    gap: 48px !important;
+    gap: 36px !important;
     align-items: flex-start !important;
   }
 
@@ -2733,21 +2732,21 @@ textarea.input-field {
   .stats-list {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.5rem !important;
+    gap: 1.25rem !important;
     width: 100% !important;
   }
 
   .blueprint-list {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 1.5rem !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.25rem !important;
     width: 100% !important;
   }
 
   .services-list {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.5rem !important;
+    gap: 1.25rem !important;
     width: 100% !important;
   }
 
@@ -2757,7 +2756,7 @@ textarea.input-field {
   .tools-grid {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 16px !important;
+    gap: 14px !important;
     max-width: 100% !important;
     width: 100% !important;
   }
@@ -2767,6 +2766,45 @@ textarea.input-field {
     width: 100% !important;
   }
 }
+
+@media (min-width: 992px) {
+  .header .container {
+    gap: 24px !important;
+  }
+
+  .navbar-list {
+    gap: 12px !important;
+  }
+
+  .navbar-link {
+    font-size: 0.95rem !important;
+    padding: 8px 18px !important;
+  }
+
+  .blueprint-list {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .about,
+  .skills,
+  .contact,
+  .hero {
+    gap: 48px !important;
+  }
+
+  .hero-banner {
+    max-width: 420px !important;
+  }
+
+  .hero-banner .profile-img {
+    height: 500px !important;
+  }
+
+  .hero-content {
+    max-width: 620px !important;
+  }
+}
+
 
 
 
