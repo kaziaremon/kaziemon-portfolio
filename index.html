@@ -181,7 +181,7 @@
       <!-- 
         - #1. HOME SECTION (Hero + Stats)
       -->
-      <section class="hero" id="home">
+      <section class="hero scroll-fade" id="home">
 
         <figure class="hero-banner">
           <img src="images/hero-nobg.png?v=1789848806391" alt="Kazi Emon" class="profile-img" loading="eager" fetchpriority="high">
@@ -236,7 +236,7 @@
       <!-- 
         - #STATS COUNTER BAR
       -->
-      <section class="stats" id="stats">
+      <section class="stats scroll-fade" id="stats">
         <ul class="stats-list">
 
           <li>
@@ -281,7 +281,7 @@
       <!-- 
         - #2. ABOUT SECTION
       -->
-      <section class="about" id="about">
+      <section class="about scroll-fade" id="about">
 
         <!-- Consulting Philosophy & Growth Engine Card -->
         <div class="about-matrix-card">
@@ -360,7 +360,7 @@
       <!-- 
         - #3. BLUEPRINT SECTION (Action Plan)
       -->
-      <section class="blueprint" id="blueprint">
+      <section class="blueprint scroll-fade" id="blueprint">
         <div class="section-content">
           <span class="section-subtitle">Action Plan</span>
           <h2 class="h3 section-title">Strategic Execution Blueprint</h2>
@@ -399,7 +399,7 @@
       <!-- 
         - #4. SKILL SECTION (Appears before Service!)
       -->
-      <section class="skills" id="skills">
+      <section class="skills scroll-fade" id="skills">
 
         <div class="skills-content section-content">
           <span class="section-subtitle">My Capabilities</span>
@@ -543,7 +543,7 @@
       <!-- 
         - #5. SERVICE SECTION (Appears after Skill!)
       -->
-      <section class="services" id="services">
+      <section class="services scroll-fade" id="services">
         <div class="section-content">
           <span class="section-subtitle">Core Expertise</span>
           <h2 class="h3 section-title">Professional Services Tailored to Scale</h2>
@@ -644,7 +644,7 @@
       <!-- 
         - #FAQ ACCORDION
       -->
-      <section class="faq" id="faq">
+      <section class="faq scroll-fade" id="faq">
         <div class="section-content">
           <span class="section-subtitle">FAQ</span>
           <h2 class="h3 section-title">Frequently Asked Questions</h2>
@@ -705,7 +705,7 @@
       <!-- 
         - #6. CONTACT SECTION
       -->
-      <section class="contact" id="contact">
+      <section class="contact scroll-fade" id="contact">
 
         <div class="contact-content section-content">
           <span class="section-subtitle">Get in Touch</span>
@@ -868,6 +868,38 @@
 
   <!-- Custom JavaScript -->
   <script src="js/script.js?v=3.3.0"></script>
+
+  <!-- Scroll Animation Code Start -->
+  <style>
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+      will-change: opacity, transform;
+    }
+    .scroll-fade.show-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show-on-scroll');
+          }
+        });
+      }, { 
+        threshold: 0.15 
+      });
+
+      const elements = document.querySelectorAll('.scroll-fade');
+      elements.forEach((el) => observer.observe(el));
+    });
+  </script>
+  <!-- Scroll Animation Code End -->
 
 </body>
 
