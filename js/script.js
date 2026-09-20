@@ -77,20 +77,20 @@ function updateActiveNavLinkOnScroll() {
   const documentHeight = document.documentElement.scrollHeight;
 
   // If scrolled to absolute bottom of page, highlight contact
-  const isAtBottom = windowHeight + scrollPosition >= documentHeight - 30;
+  const isAtBottom = windowHeight + scrollPosition >= documentHeight - 40;
   if (isAtBottom) {
     setActiveNav("#contact");
     return;
   }
 
-  // Calculate based on getBoundingClientRect for 100% precision across all viewports
+  // Calculate based on getBoundingClientRect (triggers when top enters upper 38% of viewport)
   let currentActiveId = null;
-  const offsetThreshold = 200;
+  const triggerPoint = Math.max(160, windowHeight * 0.38);
 
   for (let i = sections.length - 1; i >= 0; i--) {
     const section = sections[i];
     const rect = section.getBoundingClientRect();
-    if (rect.top <= offsetThreshold) {
+    if (rect.top <= triggerPoint) {
       currentActiveId = section.getAttribute("id");
       break;
     }
@@ -104,7 +104,9 @@ function updateActiveNavLinkOnScroll() {
 }
 
 window.addEventListener("scroll", updateActiveNavLinkOnScroll, { passive: true });
+window.addEventListener("resize", updateActiveNavLinkOnScroll, { passive: true });
 window.addEventListener("load", updateActiveNavLinkOnScroll);
+document.addEventListener("DOMContentLoaded", updateActiveNavLinkOnScroll);
 
 /**
  * Skills vs Tools Toggle
