@@ -56,7 +56,7 @@ if (navToggleBtn && navbar) {
  * ScrollSpy: Highlight active navbar item with frosted-glass pill as user scrolls
  */
 const scrollNavSections = document.querySelectorAll(
-  "section#home, section#about, section#blueprint, section#skills, section#services, section#contact"
+  "section#home, section#about, section#blueprint, section#skills, section#services, section#faq, section#contact"
 );
 function updateActiveNavLinkOnScroll() {
   const scrollPos = window.scrollY + 200;
