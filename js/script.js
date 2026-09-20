@@ -58,34 +58,51 @@ if (navToggleBtn && navbar) {
 const scrollNavSections = document.querySelectorAll(
   "section#home, section#about, section#blueprint, section#skills, section#services, section#faq, section#contact"
 );
-function updateActiveNavLinkOnScroll() {
-  const scrollPos = window.scrollY + 200;
-  const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
 
-  if (isBottom) {
-    navbarLinks.forEach((link) => {
+function setActiveNav(targetHref) {
+  navbarLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === targetHref || (targetHref === "#home" && href === "#top")) {
+      link.classList.add("active");
+    } else {
       link.classList.remove("active");
-      if (link.getAttribute("href") === "#contact") link.classList.add("active");
-    });
-    return;
-  }
-
-  scrollNavSections.forEach((section) => {
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
-    const id = section.getAttribute("id");
-
-    if (scrollPos >= top && scrollPos < top + height) {
-      navbarLinks.forEach((link) => {
-        link.classList.remove("active");
-        const href = link.getAttribute("href");
-        if (href === `#${id}` || (id === "home" && href === "#top")) {
-          link.classList.add("active");
-        }
-      });
     }
   });
 }
+
+function updateActiveNavLinkOnScroll() {
+  const sections = Array.from(scrollNavSections);
+  const scrollPosition = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
+
+  // If scrolled to absolute bottom of page, highlight contact
+  const isAtBottom = windowHeight + scrollPosition >= documentHeight - 30;
+  if (isAtBottom) {
+    setActiveNav("#contact");
+    return;
+  }
+
+  // Calculate based on getBoundingClientRect for 100% precision across all viewports
+  let currentActiveId = null;
+  const offsetThreshold = 200;
+
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const section = sections[i];
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= offsetThreshold) {
+      currentActiveId = section.getAttribute("id");
+      break;
+    }
+  }
+
+  if (currentActiveId) {
+    setActiveNav(`#${currentActiveId}`);
+  } else if (scrollPosition < 100) {
+    setActiveNav("#home");
+  }
+}
+
 window.addEventListener("scroll", updateActiveNavLinkOnScroll, { passive: true });
 window.addEventListener("load", updateActiveNavLinkOnScroll);
 
