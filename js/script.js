@@ -495,6 +495,46 @@ if (contactForm) {
   });
 }
 
+/**
+ * Global Scroll Reveal & Viewport Observer
+ */
+function initScrollReveal() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealElements = document.querySelectorAll('.scroll-fade');
 
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('show-on-scroll'));
+    return;
+  }
 
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -6% 0px',
+    threshold: 0.08
+  };
 
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show-on-scroll');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  revealElements.forEach(el => {
+    // Reveal immediately if already in viewport
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('show-on-scroll');
+    } else {
+      revealObserver.observe(el);
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScrollReveal);
+} else {
+  initScrollReveal();
+}

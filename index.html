@@ -868,39 +868,6 @@
 
   <!-- Custom JavaScript -->
   <script src="js/script.js?v=5.0.0"></script>
-
-  <!-- Scroll Animation Code Start -->
-  <style>
-    .scroll-fade {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
-      will-change: opacity, transform;
-    }
-    .scroll-fade.show-on-scroll {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show-on-scroll');
-          }
-        });
-      }, { 
-        threshold: 0.15 
-      });
-
-      const elements = document.querySelectorAll('.scroll-fade');
-      elements.forEach((el) => observer.observe(el));
-    });
-  </script>
-  <!-- Scroll Animation Code End -->
-
 </body>
 
 </html>
